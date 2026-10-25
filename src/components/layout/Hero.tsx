@@ -9,9 +9,14 @@ export function Hero() {
         <p className="hero-role">{profile.role}</p>
         <h1 id="hero-title">{profile.headline}</h1>
         <p className="hero-intro">{profile.intro}</p>
-        <a className="hero-action" href="#approach">
-          Explore the flow <span aria-hidden="true">↓</span>
-        </a>
+        <div className="hero-actions">
+          <a className="hero-action" href="#approach">
+            Explore the flow <span aria-hidden="true">↓</span>
+          </a>
+          <a className="hero-action hero-action-secondary" href="#work">
+            View selected work <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </div>
       <aside className="hero-aside" aria-label="Journal introduction">
         <span className="hero-aside-number" aria-hidden="true">

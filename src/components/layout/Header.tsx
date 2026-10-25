@@ -10,7 +10,7 @@ export function Header() {
         Skip to content
       </a>
       <div className="site-shell header-inner">
-        <Link className="brand" href="#home" aria-label={`${profile.name}, Home`}>
+        <Link className="brand" href="/" aria-label={`${profile.name}, Home`}>
           <span className="brand-name">{profile.name}</span>
           <span className="brand-note">The Engineering Journal</span>
         </Link>

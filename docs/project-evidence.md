@@ -1,48 +1,188 @@
 # Project evidence register
 
-Recorded 2026-10-25. **Provenance:** project observations below are transcribed from [portfolio-build-guide.md](portfolio-build-guide.md), planning edition 1.0, whose review date is 2026-10-25. This planning pass inspected only this local workspace and its Spec Kit installation. It did not fetch project repositories, run their applications, inspect credentials, verify demos, or independently audit security.
+First recorded 2026-10-25 from [portfolio-build-guide.md](portfolio-build-guide.md) (planning edition 1.0). **Source review 2026-10-25:** the three selected repositories were reviewed read-only by Claude (feature 002) at the commits recorded below. Each was shallow-cloned into an empty scratchpad directory, read without being installed or executed, and deleted after review. Nothing was run, so every behavioral claim below describes reviewed source, not exercised runtime behavior. No credentials were opened, no demo was checked, and no security audit was performed.
 
-Source branches are mutable; no reviewed commit hashes were supplied. Before detailed case-study copy or publication, inspect relevant source again and record reviewer/date, actual commit, evidence paths, user-confirmed contribution, approved assets, and actual demo-check result. A listed repository link is guide-supplied, not a fresh link check.
+**Owner review of this register: pending** (v0.2.0 acceptance gate, FR-002). Personal contribution: the owner confirmed on 2026-10-25 that all three selected projects are solely their own work.
+
+Claim IDs (`RA-`, `NP-`, `UM-`) are cited by the case-study content in `src/content/case-studies/`. Limitation IDs end in `L#`. A decision reason may appear publicly only when listed in that project's **Owner-confirmed rationale** table, which is filled only from the owner's own words.
 
 ## 01 — Resume Analyzer — AI Document Processing
 
-- Source: [Akashkpillai/resume-analyzer](https://github.com/Akashkpillai/resume-analyzer). Default branch/commit not recorded in the guide.
-- Guide evidence: `backend/src/resume/resume-parser.service.ts`, `backend/src/resume/resume.service.ts`, frontend pages, Prisma schema, auth module.
-- Supported stack from that review: NestJS, React, TypeScript, PostgreSQL, Prisma, Groq, PDF extraction.
-- Supported story: PDF upload/extraction, text cleanup, structured AI parsing, basic fallback parsing, and user-scoped persistence/retrieval. Parser strips null characters before persistence; service scopes list/detail lookups to a user. These observations do not establish a complete security assessment.
-- Discrepancies: README says TypeORM; reviewed resume service uses Prisma. Parser calls Groq using `openai/gpt-oss-20b`; avoid the README's older model description and keep model names out of the headline.
-- Limits: AI prompt receives the first 4,000 characters; fallback extraction is basic. No exhaustive parsing, validated hiring accuracy, or invented metrics.
-- Demo candidate: [repository-listed deployment](https://resume-analyzer-rosy.vercel.app), **unverified end to end**. Omit Live Demo until checked; record date and meaningful tested flow before enabling it.
-- Visual: approved sanitized screenshot or a labeled explanatory pipeline; fictional sample résumés only.
-- Pending: current commit/source review, contribution confirmation, approved screenshot, and optional demo verification.
+- Source: [Akashkpillai/resume-analyzer](https://github.com/Akashkpillai/resume-analyzer), branch `main`
+- Reviewed commit: `e0d61a854566aff4f3256e5b68d3957f06dc49bd` (committed 2026-09-30); reviewer Claude; review date 2026-10-25
+- Files read: `backend/src/resume/resume-parser.service.ts`, `backend/src/resume/resume.service.ts`, `backend/src/resume/resume.controller.ts`, `backend/prisma/schema.prisma`, `backend/src/auth/auth.service.ts`, `backend/src/auth/auth.module.ts`, `backend/src/app.module.ts`, `backend/package.json`, `frontend/package.json`, `frontend/src/pages/Dashboard.tsx`, `README.md`
+- Supported stack: NestJS, TypeScript, PostgreSQL, Prisma, Groq API, pdf-parse, React, Vite
+
+| ID | Statement | Evidence |
+| --- | --- | --- |
+| RA-01 | Upload accepts PDF files only, up to 20 per request and 10 MB each, rate-limited to 20 uploads per minute | `resume.controller.ts` |
+| RA-02 | Text is extracted with pdf-parse; null characters and trailing whitespace are stripped before storage | `resume-parser.service.ts` (`sanitizeText`) |
+| RA-03 | Extracted text is sent to a Groq chat completion that is asked to return JSON with name, contact details, skills, experience, education, projects, and links | `resume-parser.service.ts` (`parseResumeWithAI`) |
+| RA-04 | If the API key is missing, the AI call fails, or its JSON cannot be parsed, a basic regex parser runs instead and returns email, phone, links, and skills from a fixed keyword list | `resume-parser.service.ts` (`basicParse`) |
+| RA-05 | Extracted links are normalized to include a protocol and classified by site type | `resume-parser.service.ts` |
+| RA-06 | Each résumé is stored through Prisma in PostgreSQL with its raw text and parsed result (JSONB), linked to a user with cascade delete | `schema.prisma`, `resume.service.ts` |
+| RA-07 | List, detail, delete, and statistics queries are scoped to the signed-in user's ID | `resume.service.ts` |
+| RA-08 | Résumés can be searched by raw text (case-insensitive) and filtered by skill, with pagination | `resume.service.ts` (`findAll`) |
+| RA-09 | A statistics endpoint counts skill frequency across a user's résumés | `resume.service.ts` (`getStats`) |
+| RA-10 | Sign-in uses bcrypt-hashed passwords and JWTs valid for seven days; a global rate limit applies | `auth.service.ts`, `auth.module.ts`, `app.module.ts` |
+| RA-11 | A React and Vite dashboard handles upload, search, skill filtering, and client-side matching of required and optional skills | `frontend/src/pages/Dashboard.tsx`, `frontend/package.json` |
+| RA-12 | Endpoints are documented with Swagger decorators | `resume.controller.ts` |
+| RA-D1 | Design choice: parsing (`ResumeParserService`) is separate from persistence and querying (`ResumeService`) | both services |
+| RA-D2 | Design choice: AI parsing failure falls back to basic parsing instead of failing the upload | `resume-parser.service.ts` |
+| RA-D3 | Design choice: both raw text and structured JSON are stored; text search uses raw text, skill filtering uses the JSON | `schema.prisma`, `resume.service.ts` |
+| RA-D4 | Design choice: skill filtering runs in application memory after loading the user's résumés; a code comment states this is because Prisma's JSONB filtering is limited for case-insensitive array searches | `resume.service.ts` comment |
+
+Limitations:
+
+| ID | Limitation |
+| --- | --- |
+| RA-L1 | Only the first 4,000 characters of extracted text are sent to the AI parser |
+| RA-L2 | Fallback parsing is basic: it finds email, phone, links, and a fixed list of skills, and returns no experience, education, or projects |
+| RA-L3 | Skill filtering loads all of a user's résumés into memory before paginating |
+| RA-L4 | Uploaded files are written to a local `uploads/` directory on the server |
+| RA-L5 | No automated tests are present in the reviewed commit |
+| RA-L6 | Parsing accuracy has not been evaluated; no accuracy or hiring-outcome claim is made |
+
+- Discrepancies: README says TypeORM, code uses Prisma. README names GPT-3.5-turbo, code calls `openai/gpt-oss-20b` through Groq. Copy follows the code and keeps model names out of headlines.
+- Demo: [repository-listed deployment](https://resume-analyzer-rosy.vercel.app) **not checked**. No demo action.
+- Assets: none in v0.2.0; preview is a labeled explanatory pipeline diagram.
+
+Owner-confirmed rationale:
+
+| ID | Explains | Reason (owner's words) | Confirmed |
+| --- | --- | --- | --- |
+| — | — | None confirmed yet | — |
 
 ## 02 — Notification Platform — Event-Driven Backend
 
-- Source: [Akashkpillai/notificationservice](https://github.com/Akashkpillai/notificationservice), guide-reported default branch `master`. This is distinct from `notification_service`; do not substitute it.
-- Guide evidence: `apps/notification-services/src/notification-router.service.ts`, email/SMS service implementations, shared Kafka topics/contracts, Prisma schema.
-- Supported stack: NestJS, Kafka, PostgreSQL, Prisma; email and Twilio SMS integration code.
-- Supported story: channel routing, delivery-state persistence, and failure handling. Worker code includes sent-status checks, retry-event publishing, and a dead-letter threshold.
-- Limits: describe these as **implemented code paths**, pending complete workflow execution. Push service returns `Hello World!`; push delivery is unfinished. No working FCM/APNs claim, proven exactly-once delivery, or production reliability claim.
-- Demo: none supplied; omit demo action.
-- Visual: explanatory gateway/broker/router/workers/database diagram. Label failure/retry paths accurately; separate future work.
-- Pending: reviewed commit, confirmed contribution, exercised happy/failure/retry paths if runtime claims are desired, and diagram accuracy review. Record actual retry threshold only after reading source.
+- Source: [Akashkpillai/notificationservice](https://github.com/Akashkpillai/notificationservice), branch `master`. Distinct from `notification_service`; never substitute it.
+- Reviewed commit: `f202b4837fb2ff4fd96dcdcde3497e7a44c2f01a` (committed 2026-07-01); reviewer Claude; review date 2026-10-25
+- Files read: `apps/api-gateway/src/modules/notifications/notification.controller.ts`, `notification.service.ts`, `apps/notification-services/src/notification-router.controller.ts`, `notification-router.service.ts`, `apps/email-services/src/email-services.controller.ts`, `email-services.service.ts`, `apps/sms-services/src/sms-services.service.ts`, `apps/push-services/src/push-services.controller.ts`, `push-services.service.ts`, `libs/common/src/kafka/kafka-topic.ts`, `libs/common/src/enums/*.ts`, `libs/common/src/dto/*.ts`, `prisma/schema.prisma`, `docker-compose.yml`, `README.md`, `PLAN.md`
+- Supported stack: NestJS (monorepo with separate apps), Apache Kafka, PostgreSQL, Prisma, Nodemailer (SMTP), Twilio
+
+| ID | Statement | Evidence |
+| --- | --- | --- |
+| NP-01 | The API gateway exposes `POST /notifications` behind a JWT guard and rate limiter, adds an event ID, timestamp, and retry count of 0, publishes to `notification.requested`, and responds without waiting for delivery | `api-gateway/.../notification.controller.ts`, `notification.service.ts` |
+| NP-02 | The router service consumes `notification.requested`, stores a `Notification` record with status `pending`, and publishes to `notification.email`, `notification.sms`, or `notification.push` by type | `notification-router.controller.ts`, `notification-router.service.ts` |
+| NP-03 | The email worker sends through SMTP with Nodemailer, skips a notification already marked `sent`, marks a missing recipient `dead`, and records `sent` with a timestamp on success | `email-services.service.ts` |
+| NP-04 | The SMS worker sends through Twilio with the same skip, recipient-check, and success-recording steps | `sms-services.service.ts` |
+| NP-05 | On a send failure, workers increment the retry count; under three attempts they mark the record `failed` and publish to `notification.retry`; at three they mark it `dead` and publish to `notification.dlq` | `email-services.service.ts`, `sms-services.service.ts` |
+| NP-06 | DTOs, enums, topic names, and the Prisma service live in a shared `@app/common` library used by every service | `libs/common/src/` |
+| NP-07 | The schema defines `Notification` (status `pending`/`sent`/`failed`/`dead`, retries, error message, sent time, JSON payload), `UserPreference`, and `NotificationTemplate` | `prisma/schema.prisma` |
+| NP-D1 | Design choice: request intake, routing, and each delivery channel are separate NestJS applications connected only by Kafka topics | `apps/`, `kafka-topic.ts` |
+| NP-D2 | Design choice: the gateway publishes and returns immediately; delivery happens asynchronously in workers | `notification.service.ts` |
+| NP-D3 | Design choice: failure handling lives inside each channel worker, with a fixed limit of three attempts | `email-services.service.ts`, `sms-services.service.ts` |
+
+Limitations:
+
+| ID | Limitation |
+| --- | --- |
+| NP-L1 | Push delivery is unfinished: the push app is a placeholder HTTP controller returning `Hello World!` and nothing consumes `notification.push` |
+| NP-L2 | Retry and dead-letter are implemented code paths that publish events, but no consumer for `notification.retry` or `notification.dlq` exists in the reviewed commit, so failed notifications are not re-delivered |
+| NP-L3 | The router stores records under a database-generated ID while workers look up and update by the gateway's event ID; the duplicate check and status updates have not been exercised and need this aligned |
+| NP-L4 | `UserPreference` and `NotificationTemplate` exist only in the schema; no reviewed code reads them |
+| NP-L5 | No flow was run end to end; no exactly-once, production-reliability, or FCM/APNs claim is made |
+
+- Discrepancies: README calls the system "production-grade" and lists push delivery and topics named `notifications.*`; code uses `notification.*` and push is unfinished. `PLAN.md` lists push, the retry consumer, and preferences as open items. Copy follows the code.
+- Demo: none supplied; no demo action.
+- Assets: none in v0.2.0; preview is a labeled explanatory architecture diagram.
+
+Owner-confirmed rationale:
+
+| ID | Explains | Reason (owner's words) | Confirmed |
+| --- | --- | --- | --- |
+| — | — | None confirmed yet | — |
 
 ## 03 — User Management API — Roles & Relational Data
 
-- Source: [Akashkpillai/user-management-with-prisma](https://github.com/Akashkpillai/user-management-with-prisma), guide-reported default branch `master`.
-- Guide evidence: authentication/authorization guards, role decorator, user/country/state/city modules, Prisma schema, generated Compodoc documentation.
-- Supported stack: NestJS, TypeScript, Prisma, PostgreSQL.
-- Supported story: user management, role-based authorization, relational modeling, and API documentation.
-- Limits: README is largely Nest starter material. Project-specific setup, example requests, role behavior, schema explanation, and limitations need improvement before heavy promotion. This portfolio task does not edit that repository. No independently verified security or scalability guarantees.
-- Demo: none supplied; omit demo action.
-- Visual: compact entity relationship diagram or a request/response example with fictional data, checked against source.
-- Pending: reviewed commit, contribution confirmation, accurate role/schema examples, documentation cleanup or candid limitation notes.
+- Source: [Akashkpillai/user-management-with-prisma](https://github.com/Akashkpillai/user-management-with-prisma), branch `master`
+- Reviewed commit: `97603df57820c47d0dc0256aa031ef26aadddc7b` (committed 2025-02-12); reviewer Claude; review date 2026-10-25
+- Files read: `prisma/schema.prisma`, `src/decorators/role.decorator.ts`, `src/guard/authentication.guard.ts`, `src/guard/authorization.guard.ts`, `src/interceptor/usersensitive.interceptor.ts`, `src/user/user.controller.ts`, `src/user/user.service.ts`, `src/user/dto/update-user.dto.ts`, `src/user/dto/create-user.dto.ts`, `src/state/state.controller.ts`, `src/country/country.controller.ts`, `src/city/city.controller.ts`, `src/app.module.ts`, `src/main.ts`, `package.json`, `test/app.e2e-spec.ts`, `README.md`, `documentation/` (listing)
+- Supported stack: NestJS, TypeScript, Prisma, PostgreSQL, JWT, bcrypt, Swagger, Compodoc
+
+| ID | Statement | Evidence |
+| --- | --- | --- |
+| UM-01 | Roles are an `ADMIN`/`USER` enum; a `Roles` decorator attaches allowed roles to routes and an authorization guard compares them with the role in the token | `role.decorator.ts`, `authorization.guard.ts`, `schema.prisma` |
+| UM-02 | An authentication guard verifies a bearer JWT; tokens carry the user ID and role and expire after one day | `authentication.guard.ts`, `user.service.ts`, `app.module.ts` |
+| UM-03 | Passwords are hashed with bcrypt, and an interceptor removes the password field from user responses | `user.service.ts`, `usersensitive.interceptor.ts` |
+| UM-04 | Admin-only routes list users (paginated, with country, state, and city included), fetch, delete, and block or unblock a user; blocked users cannot sign in | `user.controller.ts`, `user.service.ts` |
+| UM-05 | The schema relates Country → State → City, and each user references a country, state, and city by integer `code` | `schema.prisma` |
+| UM-06 | Country, state, and city modules provide admin-only create and list routes | `country.controller.ts`, `state.controller.ts`, `city.controller.ts` |
+| UM-07 | Swagger UI is served at `/api`, and Compodoc-generated documentation is committed under `documentation/` | `main.ts`, `documentation/` |
+| UM-08 | A global validation pipe, exception filter, and response interceptor are applied | `main.ts` |
+| UM-D1 | Design choice: authorization is declarative — routes declare roles with a decorator and one guard enforces them | `role.decorator.ts`, `authorization.guard.ts` |
+| UM-D2 | Design choice: relations use a stable integer `code` rather than the UUID primary key | `schema.prisma` |
+| UM-D3 | Design choice: list routes use `POST` with pagination in the request body | `user.controller.ts`, `state.controller.ts` |
+
+Limitations:
+
+| ID | Limitation |
+| --- | --- |
+| UM-L1 | The README is largely the NestJS starter; project setup, example requests, and role behavior are not documented there |
+| UM-L2 | Role checks control which routes each role can call, but the public create route and the update route open to `USER` accept a `role` field, and the update route does not check that users change only their own record; authorization needs hardening before real use |
+| UM-L3 | State and city names are unique across the whole table, so two cities with the same name cannot both be stored |
+| UM-L4 | Only the starter end-to-end test is present |
+| UM-L5 | No independent security or scalability review; no such guarantee is made |
+
+- Discrepancies: README describes the NestJS starter, not this project.
+- Demo: none supplied; no demo action.
+- Assets: none in v0.2.0; preview is a labeled explanatory data-model diagram using fictional example values only.
+
+Owner-confirmed rationale:
+
+| ID | Explains | Reason (owner's words) | Confirmed |
+| --- | --- | --- | --- |
+| — | — | None confirmed yet | — |
+
+## 04 — Meridian Assistant — Discord RAG and Proposal Agent (DRAFT)
+
+**Status: draft.** Excluded from every public surface until a feature specifies it and the owner approves this record. No record exists in site content.
+
+- Source: private repository; no public link. Reviewed from an owner-supplied local copy, branch `main`, clean working tree.
+- Reviewed commit: `22ca5b01c5934c521e769776ab96b2035c4e33bf` (committed 2026-10-10); reviewer Claude; review date 2026-10-25. Read only; nothing installed or executed; `.env` not opened (variable names read from `.env.example` only).
+- Contribution (owner-confirmed 2026-10-25): sole author; all 7 commits are authored by "Akash". The README states Cursor and Spec Kit were used and that AI assistance drafted and revised code, tests, and the README under review.
+- Files read: `README.md`, `package.json`, `.env.example` (names only), `src/library/retrieve.ts`, `src/agent/loop.ts`, `src/agent/guard.ts`, `src/agent/tools.ts`, `src/proposals/approve.ts`, `src/proposals/render.ts`, `db/migrations/006_estimates.sql`, file listing including `tests/`, `eval/`, `library/`, `scripts/generate-library/`
+- Supported stack: TypeScript, Node.js 22, Discord.js, PostgreSQL 16 with pgvector, OpenAI API (chat and embeddings), docx, mammoth, pdf-parse, Docker Compose
+
+| ID | Statement | Evidence |
+| --- | --- | --- |
+| MA-01 | A Discord bot with guild slash commands `/ask`, `/approve-user`, `/propose`, `/edit-estimate`, `/approve-estimate`, `/render-estimate`; all replies are ephemeral | `README.md`, `src/discord/commands.ts` (listed) |
+| MA-02 | Identity is the Discord user ID; unknown IDs get only a needs-approval reply; admins approve a user for exactly one brand | `README.md`, `src/auth/actor.ts` (listed), `tools.ts` |
+| MA-03 | Retrieval applies the brand and confidentiality filter in SQL before pgvector similarity ordering (top 5) | `src/library/retrieve.ts` |
+| MA-04 | Answers keep a claim only when its document title and section label were retrieved on that run; otherwise "The library cannot answer." | `src/agent/guard.ts` |
+| MA-05 | A hand-written agent loop stops at 10 steps and retries a failing tool at most 3 times, writing one structured run log | `src/agent/loop.ts`, `README.md` |
+| MA-06 | Tool arguments named `brand`, `userId`, or `role` are ignored; tools use the loaded actor | `src/agent/tools.ts`, `README.md` |
+| MA-07 | Estimate versions, line items, and approvals are immutable via database triggers; edits insert a new version | `db/migrations/006_estimates.sql` |
+| MA-08 | Approval locks the chain and approves only the latest version, owned by the approver in their brand | `src/proposals/approve.ts` |
+| MA-09 | Render returns a DOCX only when the version matches owner and brand and a stored approval exists for that user and version | `src/proposals/render.ts` |
+| MA-10 | Library of 28 synthetic documents (Markdown, DOCX, PDF) generated deterministically by a committed script, with one planted prompt-injection document | `README.md`, `scripts/generate-library/`, `library/manifest.json` (listed) |
+| MA-11 | An evaluation suite of 30 cases runs production modules with a scripted model and embedder; the README reports 30/30 passing | `README.md`, `eval/` (listed) — **reported, not re-run by this review** |
+| MA-12 | Unit and integration tests are present (23 test files) | `tests/` (listed) — not run |
+| MA-D1 | Design choice: authorization and brand scope are SQL predicates and stored rows, never model instructions | `retrieve.ts`, `approve.ts`, `render.ts` |
+| MA-D2 | Design choice: no agent framework; the loop is hand-written with fixed step and retry caps | `loop.ts`, `README.md` |
+| MA-D3 | Design choice: one chunk per authored section, vector-only retrieval with no rerank | `README.md` |
+
+Limitations (from the README's own "Known limitations" and the review):
+
+| ID | Limitation |
+| --- | --- |
+| MA-L1 | The evaluation suite uses a scripted model and stand-in embeddings; it does not measure live answer quality or real ranking |
+| MA-L2 | Estimate rates in Postgres are separate seed data from the library rate cards and differ from them |
+| MA-L3 | The rendered DOCX is a fee summary with no written scope or narrative |
+| MA-L4 | `/propose` takes service codes and quantities, not a free-text request |
+| MA-L5 | Optional CRM webhook and next-session proposal continuity were not implemented |
+| MA-L6 | Tests and evaluation were not run by this review; source is private |
+
+- Data: all brands, clients, documents, and seeded staff IDs are fictional (Meridian, Arc, Foundry).
+- Assets: one owner-supplied composite image (2026-10-25) with a title banner and four Discord captures. **Not approved yet**: owner must confirm the captures are unedited, and a real Discord user ID visible in the approval reply must be blurred before use.
+- Demo: none; no demo action.
+- Pending: owner confirmation of contribution wording (including AI-tool use), screenshot approval and sanitization, owner review of this record. Public text names no company or context beyond the project itself.
 
 ## Unpublished candidates and supporting work
 
 | Project | Current disposition | Evidence or condition needed |
 | --- | --- | --- |
-| Meridian | Draft; excluded from public pages, routes, indexes, metadata, sitemap | Repository or approved screenshots, architecture notes, contribution/scope, limitations, and demo evidence; review before publication. No identifiable public repository was found in the guide's returned list; do not fabricate a URL. |
+| Meridian Assistant | Draft; see section 04. Excluded from public pages, routes, indexes, metadata, sitemap. | Feature spec, owner review of section 04, screenshot approval |
 | Company HRMS assistant | Possible future experience/sanitized case study | Shareable evidence, employer permission, confirmed contribution and dates; no private code or borrowed feature/configuration/constitution |
 | [Elbow-Grease](https://github.com/Akashkpillai/Elbow-Grease) | Earlier-work candidate, outside initial three | README describes MERN bookings, user/admin/expert flows, JWT/email verification, Stripe; explicitly in development. Check actual flows and clean documentation before promotion. |
 | [mayaNetz](https://github.com/Akashkpillai/mayaNetz) | Secondary UI candidate | Next.js cybersecurity marketing frontend; README says backend APIs unbuilt and contact simulated. Retain those limitations. |
@@ -53,6 +193,6 @@ Exclude clones, starter login/todo apps, DSA exercises, and the old Personal-Web
 
 The guide reports tracked `server/.env` in Elbow-Grease and `server/match-service/.env` in Microservice-with-Redis-in-NestJS. Values were not opened. Before prominently linking those projects, the owner should privately check them, revoke/rotate real credentials if present, and remove tracked content/history as appropriate. Deleting a file alone does not revoke credentials. No such inspection or remediation occurred in this task.
 
-## Publication record required later
+## Publication record
 
-For each selected case study, retain: status; exact repository and reviewed commit; evidence paths and claim mapping; checked date; confirmed personal contribution; limitations; approved asset provenance; optional demo URL plus tested outcome/date. All three selected projects remain planned content here. Unverified demos stay absent, screenshots must be genuine and sanitized, and drafts remain excluded from every public discovery surface. Unknown/draft direct routes return 404.
+For each selected case study the register above now holds: exact repository and reviewed commit, reviewer and date, evidence paths and claim mapping, owner-confirmed contribution (2026-10-25), limitations, asset provenance (none), and demo check (none). Status in site content: published, pending owner review of this register before release. Unverified demos stay absent, screenshots must be genuine and sanitized, and drafts remain excluded from every public discovery surface. Unknown/draft direct routes return 404.

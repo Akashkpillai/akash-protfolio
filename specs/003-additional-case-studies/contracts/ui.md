@@ -18,7 +18,7 @@ A draft new project returns 404 like any unknown slug.
 
 - Four numbered stories in order: `01` HRMS backend, `02` Meridian Assistant, `03`
   Notification Platform, `04` Resume Analyzer.
-- Layouts alternate: preview right, preview left, full width, preview right.
+- Layouts alternate side by side: preview right, preview left, preview right, preview left.
 - Previews differ in kind: HRMS (data model or static architecture), Meridian (workflow),
   Notification Platform (architecture), Resume Analyzer (pipeline). Each is labeled as an
   explanatory diagram — or, for Meridian once approved, as a screenshot with fictional

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { publishedProjects } from "@/content/projects";
 import { ProjectStory, type StoryLayout } from "@/components/work/ProjectStory";
 
-const layouts: readonly StoryLayout[] = ["preview-right", "preview-left", "full-width"];
+const layouts: readonly StoryLayout[] = ["preview-right", "preview-left"];
 
 export function SelectedWork() {
   return (

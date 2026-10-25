@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-25T14:59:39.294Z",
+  "date": "2026-10-25T15:07:40.518Z",
   "baseURL": "http://127.0.0.1:3100",
   "checks": {
     "responsive": {
@@ -388,14 +388,14 @@
           "width": 1440,
           "url": "/#work",
           "sectionExists": true,
-          "sectionTop": 188,
+          "sectionTop": 218,
           "pass": true
         },
         {
           "width": 390,
           "url": "/#work",
           "sectionExists": true,
-          "sectionTop": 158,
+          "sectionTop": 115,
           "pass": true
         }
       ],

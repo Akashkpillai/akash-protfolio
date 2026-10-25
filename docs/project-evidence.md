@@ -214,6 +214,7 @@ Limitations:
 | HR-L4 | No independent security review; no security or scalability guarantee is made |
 
 - Assets: none; preview is a labeled explanatory module map. Demo: none.
+- Module-map links: owner confirmed on 2026-10-26 that onboarding and leave, as well as offboarding, send emails through the email notification module (HR-08); the map shows these three links.
 
 Owner-confirmed rationale:
 

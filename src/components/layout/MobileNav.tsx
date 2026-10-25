@@ -45,9 +45,15 @@ export function MobileNav({ items }: MobileNavProps) {
         <ul>
           {items.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} onClick={closeAfterNavigation}>
-                {item.label}
-              </Link>
+              {item.download ? (
+                <a className="nav-resume" href={item.href} download>
+                  {item.label}
+                </a>
+              ) : (
+                <Link href={item.href} onClick={closeAfterNavigation}>
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

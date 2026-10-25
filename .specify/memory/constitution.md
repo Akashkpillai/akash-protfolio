@@ -1,3 +1,19 @@
+<!--
+Sync Impact Report
+- Version change: 1.0.0 → 2.0.0 (MAJOR: principle II redefined; the required identity changes)
+- Modified principles: II. Distinct Visual Identity — "The Engineering Journal" (warm ivory,
+  dark ink, restrained copper) → "Akash / Systems Lab" (dark graphite, warm off-white text,
+  electric teal, cobalt blue, restrained copper). All delin.dev prohibitions kept; added
+  prohibitions on fake metrics, invented screenshots, and diagrams presented as live telemetry.
+- Added sections: none. Removed sections: none.
+- Authority: owner-directed amendment from the owner's Systems Lab redesign brief
+  (2026-10-26, feature 006). Rationale: the owner chose a new identity for the portfolio.
+- Templates: plan/spec/tasks templates read the constitution at runtime; no template edits needed.
+- Affected artifacts: docs/design-direction.md and docs/product-brief.md describe the old
+  identity (update in feature 006); specs/001–005 keep their history and remain valid records
+  of the identity in force when they were accepted; feature 005 re-runs its UI checks.
+- Deferred TODOs: owner confirmation of this amendment at feature 006 acceptance.
+-->
 # Akash K Pillai Portfolio Constitution
 
 ## Core Principles
@@ -11,11 +27,14 @@ until supporting material is supplied and reviewed.
 
 ### II. Distinct Visual Identity
 
-The portfolio MUST follow The Engineering Journal direction: warm ivory, dark ink, restrained
-copper, expressive typography, generous whitespace, and purposeful architecture diagrams.
-It MUST NOT copy delin.dev's terminal desktop, purple palette, robot mascot, overlapping
-editor windows, file explorer, custom cursor, or boot sequence. Diagrams MUST explain real
-system behavior or be labeled illustrative.
+The portfolio MUST follow the "Akash / Systems Lab" direction: a dark graphite background,
+warm off-white text, electric teal, cobalt blue, and restrained copper accents, thin grid
+lines, glow used sparingly, clear typography with readable contrast, and purposeful system
+diagrams that explain how real projects work. It MUST NOT copy delin.dev's terminal desktop,
+purple palette, robot mascot, overlapping editor windows, file explorer, custom cursor, or
+boot sequence. It MUST NOT show fake metrics or invented screenshots, or present a diagram
+as live system data. Diagrams MUST explain real system behavior or be labeled illustrative
+or explanatory.
 
 ### III. Accessible, Immediate Content
 
@@ -86,4 +105,4 @@ MINOR for new principles or materially expanded rules, and PATCH for clarificati
 changed obligations. Portfolio release versions follow `docs/roadmap.md` independently.
 No governance details remain unresolved for this initial adoption.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-25 | **Last Amended**: 2026-10-25
+**Version**: 2.0.0 | **Ratified**: 2026-10-25 | **Last Amended**: 2026-10-26

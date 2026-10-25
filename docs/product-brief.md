@@ -2,6 +2,14 @@
 
 Planning baseline: 2026-10-25. Source: [portfolio build guide](portfolio-build-guide.md), planning edition 1.0. No application or release has been built in this workspace.
 
+## Status update (2026-10-26)
+
+The owner replaced "The Engineering Journal" identity with **Akash / Systems Lab** (feature
+006; constitution 2.0.0); see [design direction](design-direction.md). Since this brief was
+written, the résumé, contacts, and experience were supplied, HRMS and Meridian were
+published, and User Management API became a draft. The text below is the original brief,
+kept as history.
+
 ## Purpose and audience
 
 Create Akash K Pillai's portfolio as **The Engineering Journal**: a readable collection of engineering work with purposeful explanations of how systems operate. Recruiters should quickly understand role and fit; engineers should find credible implementation detail, decisions, and limitations.

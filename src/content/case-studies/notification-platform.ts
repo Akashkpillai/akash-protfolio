@@ -18,7 +18,7 @@ export const notificationPlatform: CaseStudy = {
   ],
   implementation: [
     {
-      text: "The API gateway exposes POST /notifications behind JWT authentication and a rate limiter. It validates the request, adds an event ID, timestamp, and retry count, publishes it to the notification.requested topic, and returns.",
+      text: "The API gateway exposes POST /notifications behind JWT authentication and a rate limiter. It adds an event ID, timestamp, and retry count, publishes it to the notification.requested topic, and returns.",
       evidence: ["NP-01"],
     },
     {
@@ -149,7 +149,7 @@ export const notificationPlatform: CaseStudy = {
   ],
   tradeoffs: [
     {
-      text: "Returning before delivery keeps the HTTP request independent of the email or SMS provider, but the caller receives an event ID, not a delivery result.",
+      text: "Returning before delivery keeps the HTTP request independent of the email or SMS provider, but the caller does not receive a delivery result.",
       evidence: ["NP-D2", "NP-01"],
     },
     {

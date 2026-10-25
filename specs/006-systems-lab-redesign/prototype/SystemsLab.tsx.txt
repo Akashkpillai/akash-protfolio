@@ -1,0 +1,99 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { publishedProjects, type Project } from "@/content/projects";
+import { profile } from "@/content/profile";
+import { ResumeLink } from "@/components/profile/ResumeLink";
+
+const accents = ["cyan", "blue", "copper"] as const;
+
+function projectFlow(project: Project) {
+  return project.caseStudy.architecture.components.slice(0, 4).map((component) => component.name);
+}
+
+export function SystemsLab() {
+  const [selectedSlug, setSelectedSlug] = useState(publishedProjects[0]?.slug ?? "");
+  const selected = publishedProjects.find((project) => project.slug === selectedSlug) ?? publishedProjects[0];
+
+  return (
+    <section className="systems-lab" id="home" aria-labelledby="lab-title">
+      <div className="lab-grid-lines" aria-hidden="true" />
+      <div className="lab-shell">
+        <header className="lab-header">
+          <Link className="lab-brand" href="/">
+            <span>AKASH</span><i>/</i><em>SYSTEMS LAB</em>
+          </Link>
+          <nav className="lab-nav" aria-label="Primary">
+            <a className="lab-nav-active" href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <ResumeLink className="lab-resume" />
+          </nav>
+        </header>
+
+        <div className="lab-hero">
+          <div className="lab-intro">
+            <p className="lab-kicker"><span /> BACKEND / AI DEVELOPER</p>
+            <h1 id="lab-title">{profile.name}</h1>
+            <p className="lab-role">{profile.role}</p>
+            <p className="lab-headline">{profile.headline}</p>
+            <p className="lab-copy">I design and build reliable backend systems and practical AI solutions that solve real problems.</p>
+            <div className="lab-actions">
+              <a className="lab-button lab-button-primary" href="#work">Explore systems <span>↘</span></a>
+              <ResumeLink className="lab-button lab-button-ghost" />
+            </div>
+          </div>
+
+          <div className="lab-constellation" aria-label="Selected project systems">
+            <div className="orbit orbit-one" aria-hidden="true" />
+            <div className="orbit orbit-two" aria-hidden="true" />
+            <div className="orbit-center">AK</div>
+            {publishedProjects.map((project, index) => {
+              const accent = accents[index % accents.length];
+              const active = selected?.slug === project.slug;
+              return (
+                <button
+                  className={`lab-node lab-node-${index + 1} lab-node-${accent} ${active ? "lab-node-selected" : ""}`}
+                  key={project.slug}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setSelectedSlug(project.slug)}
+                >
+                  <span className="lab-node-icon" aria-hidden="true">{index === 0 ? "□" : index === 1 ? "⌁" : "◈"}</span>
+                  <span>{project.title.split(" — ")[0]}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {selected && (
+            <aside className="lab-architecture" aria-live="polite">
+              <div className="lab-panel-label"><span /> PROJECT ARCHITECTURE <b>—</b></div>
+              <h2>{selected.title.split(" — ")[0]}</h2>
+              <p className="lab-flow-label">{projectFlow(selected).join("  →  ")}</p>
+              <div className="lab-flow-steps">
+                {projectFlow(selected).map((step, index) => (
+                  <div className="lab-flow-step" key={step}>
+                    <span className={`lab-step-icon lab-step-${index % 3}`} aria-hidden="true">{index + 1}</span>
+                    <span>{step}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="lab-panel-copy">{selected.summary}</p>
+              <Link className="lab-panel-link" href={`/work/${selected.slug}`}>Open case study <span>→</span></Link>
+            </aside>
+          )}
+        </div>
+
+        <div className="lab-status-row" aria-label="Portfolio focus">
+          <span><i className="status-dot status-cyan" /> CURRENT FOCUS</span>
+          <span>Building useful backend systems</span>
+          <span>Exploring practical AI applications</span>
+          <span>Making complexity easier to understand</span>
+        </div>
+      </div>
+    </section>
+  );
+}

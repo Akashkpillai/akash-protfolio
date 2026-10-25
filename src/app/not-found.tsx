@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { profile } from "@/content/profile";
+
+// No canonical or sharing fields: not-found pages are never indexed (feature 005 FR-002).
+export const metadata: Metadata = {
+  title: `Page not found | ${profile.name}`,
+  description: "The address may be mistyped, or the page may not be published.",
+};
 
 export default function NotFound() {
   return (

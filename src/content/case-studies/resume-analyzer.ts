@@ -21,7 +21,7 @@ export const resumeAnalyzer: CaseStudy = {
       evidence: ["RA-01"],
     },
     {
-      text: "Text is extracted with pdf-parse and cleaned of null characters and stray whitespace before it is stored.",
+      text: "Text is extracted with pdf-parse and cleaned of null characters and trailing whitespace before it is stored.",
       evidence: ["RA-02"],
     },
     {
@@ -67,7 +67,7 @@ export const resumeAnalyzer: CaseStudy = {
       {
         id: "extract",
         name: "Text extraction",
-        responsibility: "Reads the PDF with pdf-parse and strips null characters and stray whitespace.",
+        responsibility: "Reads the PDF with pdf-parse and strips null characters and trailing whitespace.",
         evidence: ["RA-02"],
         grid: { column: 1, row: 0 },
       },
@@ -118,8 +118,8 @@ export const resumeAnalyzer: CaseStudy = {
   },
   decisions: [
     {
-      text: "Parsing lives in its own service, separate from storage and queries. Both the AI path and the fallback return the same result shape to the upload flow.",
-      evidence: ["RA-D1", "RA-04"],
+      text: "Parsing lives in its own service, separate from storage and queries.",
+      evidence: ["RA-D1"],
     },
     {
       text: "A failed AI call falls back to basic parsing instead of failing the upload.",

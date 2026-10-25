@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ProjectStory } from "@/components/work/ProjectStory";
+import { workIntro } from "@/content/pages";
 import { publishedProjects } from "@/content/projects";
 import { profile } from "@/content/profile";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/work",
   title: `Work | ${profile.name}`,
-  description: "Case studies of backend and AI projects, written from a review of their source code.",
-};
+  description: workIntro,
+});
 
 export default function WorkPage() {
   return (
@@ -14,30 +17,12 @@ export default function WorkPage() {
       <div className="work-index site-shell">
         <p className="eyebrow">Work</p>
         <h1>Selected work</h1>
-        <p className="work-index-intro">
-          Backend and AI projects, each described from a read-only review of its source
-          code. Unfinished parts and untested paths are labeled in every case study.
-        </p>
-        <ol className="work-index-list">
+        <p className="work-index-intro">{workIntro}</p>
+        <div className="project-stories">
           {publishedProjects.map((project) => (
-            <li key={project.slug}>
-              <span className="work-index-number" aria-hidden="true">
-                {String(project.order).padStart(2, "0")}
-              </span>
-              <div>
-                <h2>
-                  <Link href={`/work/${project.slug}`}>{project.title}</Link>
-                </h2>
-                <p>{project.summary}</p>
-                <ul className="stack-list" aria-label="Stack">
-                  {project.stack.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </li>
+            <ProjectStory key={project.slug} project={project} headingLevel={2} />
           ))}
-        </ol>
+        </div>
       </div>
     </main>
   );

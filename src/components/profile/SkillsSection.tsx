@@ -1,19 +1,21 @@
 import Link from "next/link";
+import { Reveal } from "@/components/lab/Reveal";
 import { getPublishedProject } from "@/content/projects";
 import { skillGroups } from "@/content/skills";
 
 export function SkillsSection() {
   return (
-    <section className="profile-section profile-section-alt" id="skills" aria-labelledby="skills-title" tabIndex={-1}>
+    <section className="profile-section profile-section-alt" id="skills" aria-labelledby="skills-title" tabIndex={-1} data-probe-section="skills">
       <div className="site-shell">
-        <p className="eyebrow">04 / Skills</p>
+        <p className="eyebrow" data-probe-tip="Linked skills open a case study that shows them in use.">04 / Skills</p>
         <h2 id="skills-title">Tools I work with</h2>
         <p className="profile-intro">
           Grouped as on my résumé. Linked skills open a case study that shows them in use.
         </p>
         <div className="skill-groups">
-          {skillGroups.map((group) => (
-            <section className="skill-group" key={group.name} aria-label={group.name}>
+          {skillGroups.map((group, index) => (
+            <Reveal variant="scale" delay={(index % 2) * 90} key={group.name}>
+            <section className="skill-group" aria-label={group.name}>
               <h3>{group.name}</h3>
               <ul className="skill-list">
                 {group.skills.map((skill) => {
@@ -32,6 +34,7 @@ export function SkillsSection() {
                 })}
               </ul>
             </section>
+            </Reveal>
           ))}
         </div>
       </div>

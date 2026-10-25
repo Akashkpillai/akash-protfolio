@@ -26,6 +26,7 @@ export function CopyEmailButton({ email }: { email: string }) {
     try {
       await navigator.clipboard.writeText(email);
       setState("copied");
+      window.dispatchEvent(new CustomEvent("lab:celebrate"));
     } catch {
       setState("failed");
     }

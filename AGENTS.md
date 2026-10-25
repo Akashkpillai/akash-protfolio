@@ -7,3 +7,13 @@
 - Before every phase verify root, Git status/actual branch, and active feature. Inspect `SPECIFY_INIT_DIR`, `SPECIFY_FEATURE_DIRECTORY`, and `SPECIFY_FEATURE`; reject cross-project context. Resolve active feature via directory override, otherwise `.specify/feature.json`'s `feature_directory`, then read that directory's `spec.md`/plan/tasks. No active feature exists at this baseline. Once one exists, `.\.specify\scripts\powershell\check-prerequisites.ps1 -PathsOnly -Json` resolves paths without persistence; its branch label is not proof of Git branch. Branch and spec directory names may differ; confirm intended feature, and never assume a branch switch changes active state.
 - Baseline has no Git repository; establish a stable `main` before branch-based feature work. No branch hook is configured, so do not assume specify creates branches. Preserve Spec Kit files during future scaffolding, use npm/lockfile, and record actual versions/checks. Keep specs/plans/tasks aligned before code. Do not claim unrun validation or publish a release implicitly.
 - Current authorization is planning only: no application components, constitution ratification, feature creation, or deployment in the preparation step.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

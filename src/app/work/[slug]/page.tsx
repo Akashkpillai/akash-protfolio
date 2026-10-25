@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getPublishedProject, publishedProjects } from "@/content/projects";
 import { profile } from "@/content/profile";
 import { CaseStudyArticle } from "@/components/work/CaseStudyArticle";
+import { pageMetadata } from "@/lib/metadata";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -20,10 +21,11 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   if (!project) {
     return {};
   }
-  return {
+  return pageMetadata({
+    path: `/work/${project.slug}`,
     title: `${project.title} | ${profile.name}`,
     description: project.summary,
-  };
+  });
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {

@@ -17,6 +17,15 @@ Since then: constitution 1.0.0 ratified; Git `main` established; features 001–
 Meridian was published in spec folder 003 after evidence review, earlier than "Later"
 below. Next: launch readiness (`1.0.0`).
 
+Update 2026-10-26: `specs/005-launch-readiness` is paused (partly implemented, uncommitted).
+`specs/006-systems-lab-redesign` (owner-directed Systems Lab redesign, target `0.4.0`,
+constitution 2.0.0) is the active feature. 005 resumes afterwards and re-runs its UI,
+accessibility, and performance checks on the new design before `1.0.0`.
+
+Update 2026-10-26 (later): 006 implemented (awaiting owner acceptance). `specs/007-lab-companion-motion`
+(Probe companion, scripted Ask the lab, pausable ambient motion, message form; target `0.5.0`)
+implemented and verified; awaiting owner acceptance together with 006.
+
 ## Current state and next step (preparation baseline, historical)
 
 - Confirmed root: `C:\Users\HP\Desktop\akash-portfolio`.

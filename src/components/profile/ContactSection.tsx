@@ -6,9 +6,9 @@ export function ContactSection() {
   const others = contactLinks.filter((link) => link.kind !== "email");
 
   return (
-    <section className="profile-section profile-section-contact" id="contact" aria-labelledby="contact-title" tabIndex={-1}>
+    <section className="profile-section profile-section-contact" id="contact" aria-labelledby="contact-title" tabIndex={-1} data-probe-section="contact">
       <div className="site-shell">
-        <p className="eyebrow">07 / Contact</p>
+        <p className="eyebrow" data-probe-tip="Get in touch">07 / Contact</p>
         <h2 id="contact-title">Get in touch</h2>
         <div className="contact-grid">
           <div className="contact-email">

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/lab/Reveal";
 import { roles, type YearMonth } from "@/content/experience";
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -12,10 +13,12 @@ function isoMonth({ year, month }: YearMonth) {
 
 export function ExperienceSection() {
   return (
-    <section className="profile-section" id="experience" aria-labelledby="experience-title" tabIndex={-1}>
+    <section className="profile-section" id="experience" aria-labelledby="experience-title" tabIndex={-1} data-probe-section="experience">
       <div className="site-shell">
-        <p className="eyebrow">03 / Experience</p>
+        <p className="eyebrow" data-probe-tip="Where I have worked">03 / Experience</p>
         <h2 id="experience-title">Where I have worked</h2>
+        {/* The timeline rail draws as the list is revealed (feature 007 FR-016). */}
+        <Reveal className="timeline">
         <ol className="role-list">
           {roles.map((role) => (
             <li key={role.organization}>
@@ -65,6 +68,7 @@ export function ExperienceSection() {
             </li>
           ))}
         </ol>
+        </Reveal>
       </div>
     </section>
   );

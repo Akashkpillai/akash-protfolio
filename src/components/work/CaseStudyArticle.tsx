@@ -7,7 +7,10 @@ import type {
   ProjectScreenshot,
 } from "@/content/projects";
 import { publishedProjects, repositoryName } from "@/content/projects";
+import { projectAccents, systemFlows } from "@/content/systems";
 import { ArchitectureDiagram } from "@/components/diagrams/ArchitectureDiagram";
+import { CaseStudyNav } from "@/components/lab/CaseStudyNav";
+import { Reveal } from "@/components/lab/Reveal";
 import { DataModelDiagram } from "@/components/diagrams/DataModelDiagram";
 import { ModuleMapDiagram } from "@/components/diagrams/ModuleMapDiagram";
 import { PipelineDiagram } from "@/components/diagrams/PipelineDiagram";
@@ -56,20 +59,34 @@ function Screenshot({ screenshot }: { screenshot: ProjectScreenshot }) {
 
 function Section({ id, title, claims }: { id: string; title: string; claims: readonly Claim[] }) {
   return (
-    <section className="case-section" aria-labelledby={id}>
-      <h2 id={id}>{title}</h2>
-      <ClaimList claims={claims} />
-    </section>
+    <Reveal>
+      <section className="case-section" aria-labelledby={id}>
+        <h2 id={id}>{title}</h2>
+        <ClaimList claims={claims} />
+      </section>
+    </Reveal>
   );
 }
+
+const sections = [
+  { id: "problem", label: "Problem" },
+  { id: "contribution", label: "My contribution" },
+  { id: "implementation", label: "Implementation" },
+  { id: "architecture", label: "Architecture" },
+  { id: "decisions", label: "Decisions" },
+  { id: "tradeoffs", label: "Tradeoffs" },
+  { id: "limitations", label: "Limitations" },
+] as const;
 
 export function CaseStudyArticle({ project }: { project: Project }) {
   const { caseStudy } = project;
   const others = publishedProjects.filter((other) => other.slug !== project.slug);
   const repo = repositoryName(project);
+  // Plain labels only cross into the client summary; evidence IDs stay on the server.
+  const steps = (systemFlows[project.slug]?.steps ?? []).map(({ label, status }) => ({ label, status }));
 
   return (
-    <article className="case-study site-shell">
+    <article className={`case-study site-shell lab-accent-${projectAccents[project.slug]}`}>
       <header className="case-header">
         <p className="eyebrow">Case study {String(project.order).padStart(2, "0")}</p>
         <h1>{project.title}</h1>
@@ -121,17 +138,27 @@ export function CaseStudyArticle({ project }: { project: Project }) {
         </aside>
       </header>
 
-      <Section id="problem" title="Problem" claims={caseStudy.problem} />
-      <Section id="contribution" title="My contribution" claims={caseStudy.contribution} />
-      <Section id="implementation" title="Implementation" claims={caseStudy.implementation} />
-      <section className="case-section" aria-labelledby="architecture">
-        <h2 id="architecture">Architecture</h2>
-        <Diagram architecture={caseStudy.architecture} />
-        {project.screenshot && <Screenshot screenshot={project.screenshot} />}
-      </section>
-      <Section id="decisions" title="Decisions" claims={caseStudy.decisions} />
-      <Section id="tradeoffs" title="Tradeoffs" claims={caseStudy.tradeoffs} />
-      <Section id="limitations" title="Limitations" claims={caseStudy.limitations} />
+      {/* Wide screens: content and a sticky summary side by side; narrow: summary first. */}
+      <div className="case-layout">
+        <aside className="case-aside">
+          <CaseStudyNav sections={sections} steps={steps} />
+        </aside>
+        <div className="case-body">
+          <Section id="problem" title="Problem" claims={caseStudy.problem} />
+          <Section id="contribution" title="My contribution" claims={caseStudy.contribution} />
+          <Section id="implementation" title="Implementation" claims={caseStudy.implementation} />
+          <Reveal>
+            <section className="case-section" aria-labelledby="architecture">
+              <h2 id="architecture">Architecture</h2>
+              <Diagram architecture={caseStudy.architecture} />
+              {project.screenshot && <Screenshot screenshot={project.screenshot} />}
+            </section>
+          </Reveal>
+          <Section id="decisions" title="Decisions" claims={caseStudy.decisions} />
+          <Section id="tradeoffs" title="Tradeoffs" claims={caseStudy.tradeoffs} />
+          <Section id="limitations" title="Limitations" claims={caseStudy.limitations} />
+        </div>
+      </div>
 
       <nav className="case-footer" aria-label="More work">
         <Link className="case-back" href="/work">

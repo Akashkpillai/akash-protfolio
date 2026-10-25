@@ -1,14 +1,15 @@
+import { Reveal } from "@/components/lab/Reveal";
 import { profile } from "@/content/profile";
 
 export function AboutSection() {
   return (
-    <section className="profile-section" id="about" aria-labelledby="about-title" tabIndex={-1}>
+    <section className="profile-section" id="about" aria-labelledby="about-title" tabIndex={-1} data-probe-section="about">
       <div className="site-shell about-layout">
         <div>
-          <p className="eyebrow">05 / About</p>
+          <p className="eyebrow" data-probe-tip="From physics to backend systems">05 / About</p>
           <h2 id="about-title">From physics to backend systems</h2>
         </div>
-        <div className="about-body">
+        <Reveal variant="clip" className="about-body">
           {profile.about.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -24,7 +25,7 @@ export function AboutSection() {
               </dd>
             </div>
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

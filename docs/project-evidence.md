@@ -134,9 +134,9 @@ Owner-confirmed rationale:
 | --- | --- | --- | --- |
 | — | — | None confirmed yet | — |
 
-## 04 — Meridian Assistant — Discord RAG and Proposal Agent (DRAFT)
+## 04 — Meridian Assistant — Discord RAG and Proposal Agent
 
-**Status: draft.** Excluded from every public surface until a feature specifies it and the owner approves this record. No record exists in site content.
+**Status: published.** Owner approved this record and the page text, including the AI-tools wording in "My contribution", on 2026-10-25 (feature 003 T013).
 
 - Source: private repository; no public link. Reviewed from an owner-supplied local copy, branch `main`, clean working tree.
 - Reviewed commit: `22ca5b01c5934c521e769776ab96b2035c4e33bf` (committed 2026-10-10); reviewer Claude; review date 2026-10-25. Read only; nothing installed or executed; `.env` not opened (variable names read from `.env.example` only).
@@ -176,14 +176,55 @@ Limitations (from the README's own "Known limitations" and the review):
 - Data: all brands, clients, documents, and seeded staff IDs are fictional (Meridian, Arc, Foundry).
 - Assets: one owner-supplied composite image (2026-10-25) with a title banner and four Discord captures. **Not approved yet**: owner must confirm the captures are unedited, and a real Discord user ID visible in the approval reply must be blurred before use.
 - Demo: none; no demo action.
-- Pending: owner confirmation of contribution wording (including AI-tool use), screenshot approval and sanitization, owner review of this record. Public text names no company or context beyond the project itself.
+- Screenshot: not used; owner has not confirmed the captures are unedited. Public text names no company or context beyond the project itself.
+
+## 05 — HRMS Backend — Multi-Tenant HR Platform
+
+**Status: published.** Owner approved the exact public text and module map on 2026-10-25 (feature 003 T020). Publishable material only; file-level evidence is held outside the repository.
+
+- Source: private; no public link. Reviewed read-only from an owner-supplied local copy at commit `9456d56a73564ae56ca9538e0b13bf8e7a5040c7` (a feature branch, committed 2026-09-04); reviewer Claude; review date 2026-10-25. Nothing run, installed, or copied; secret files not opened.
+- Permission: owner-confirmed 2026-10-25 that the project may be described publicly. No organization is named in any public or committed text.
+- Contribution: commit history shows a small team. The owner started and wrote most commits in the large majority of HR-domain modules; teammates built the project skeleton, authentication, tenancy, the workflow engine, billing, and platform modules. Owner-approved wording (2026-10-25): "I built most of the HR modules — leave, attendance, onboarding, documents, scheduling and more — in a multi-tenant backend developed by a small team."
+- Supported stack: NestJS 10, TypeScript, PostgreSQL, TypeORM, JWT, AWS S3, Nodemailer with EJS templates, Jest
+
+| ID | Statement (module level) |
+| --- | --- |
+| HR-01 | A modular NestJS backend with about 37 feature modules covering employee records, organization, onboarding, offboarding, leave, attendance, timesheets, overtime, shift rosters, workforce scheduling, holidays, probation, salary structures, documents, notifications, and employee and manager self-service |
+| HR-02 | Data is tenant-scoped (tenant identifier on most entities); scheduled jobs run per tenant |
+| HR-03 | Leave: categories, balances with a transaction history, daily scheduled accrual per tenant, carry-forward, encashment, a leave calendar, and multi-level approval through the shared workflow engine, falling back to the next level when a level has no workflow configured |
+| HR-04 | Attendance: records, policies, regularization with approval, and reports; approved leave and holidays are read through adapter services |
+| HR-05 | Onboarding: from offer and candidate joining form through document verification, identity-document extraction, asset requests, and induction to creating the employee record and account |
+| HR-06 | Shift rosters and workforce scheduling: roster generation, rotation, swaps, weekly offs, coverage rules, conflict checks, and schedule change requests with approval |
+| HR-07 | Documents: folders, versions, approvals, expiry, e-signature, sharing and permissions; files kept in S3 storage and served through signed URLs |
+| HR-08 | Email notifications: templated, branded emails with recipient resolution and a send log; failed sends retry with exponential backoff, re-reading state from the database on each attempt |
+| HR-09 | Probation, overtime (with compensatory off and payroll data), timesheets, salary structures, offboarding (asset return, letters), and employment documents |
+| HR-10 | Modules record changes through their own audit services |
+| HR-11 | About 250 unit test files and about 200 integration test files are present; schema changes are kept as per-module migrations (about 276 files) |
+| HR-D1 | Design choice: modules read each other's data through adapter services rather than other modules' tables |
+| HR-D2 | Design choice: approvals across modules are delegated to one shared workflow engine, with approval levels mapped to configured workflows |
+| HR-D3 | Design choice: each email retry re-reads the send and its attachments from the database instead of carrying them in a queued job |
+
+Limitations:
+
+| ID | Limitation |
+| --- | --- |
+| HR-L1 | Team-built: authentication, tenancy, the workflow engine, billing, and platform modules are teammates' work |
+| HR-L2 | Reviewed at a feature-branch commit; source private; no production usage or performance figures are claimed |
+| HR-L3 | Tests were not run by this review |
+| HR-L4 | No independent security review; no security or scalability guarantee is made |
+
+- Assets: none; preview is a labeled explanatory module map. Demo: none.
+
+Owner-confirmed rationale:
+
+| ID | Explains | Reason (owner's words) | Confirmed |
+| --- | --- | --- | --- |
+| — | — | None confirmed yet | — |
 
 ## Unpublished candidates and supporting work
 
 | Project | Current disposition | Evidence or condition needed |
 | --- | --- | --- |
-| Meridian Assistant | Draft; see section 04. Excluded from public pages, routes, indexes, metadata, sitemap. | Feature spec, owner review of section 04, screenshot approval |
-| Company HRMS assistant | Possible future experience/sanitized case study | Shareable evidence, employer permission, confirmed contribution and dates; no private code or borrowed feature/configuration/constitution |
 | [Elbow-Grease](https://github.com/Akashkpillai/Elbow-Grease) | Earlier-work candidate, outside initial three | README describes MERN bookings, user/admin/expert flows, JWT/email verification, Stripe; explicitly in development. Check actual flows and clean documentation before promotion. |
 | [mayaNetz](https://github.com/Akashkpillai/mayaNetz) | Secondary UI candidate | Next.js cybersecurity marketing frontend; README says backend APIs unbuilt and contact simulated. Retain those limitations. |
 | [Microservice-with-Redis-in-NestJS](https://github.com/Akashkpillai/Microservice-with-Redis-in-NestJS) | Learning work; not featured | Incomplete setup documentation; completeness review and private credential hygiene check needed |

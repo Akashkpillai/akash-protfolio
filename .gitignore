@@ -62,3 +62,6 @@ serviceAccount*.json
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Private evidence for employer-owned work (feature 003); never committed
+private-evidence/

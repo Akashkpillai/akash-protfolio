@@ -5,7 +5,7 @@ import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
   title: `Work | ${profile.name}`,
-  description: "Case studies of three backend projects, written from a review of their public source.",
+  description: "Case studies of backend and AI projects, written from a review of their source code.",
 };
 
 export default function WorkPage() {
@@ -15,8 +15,8 @@ export default function WorkPage() {
         <p className="eyebrow">Work</p>
         <h1>Selected work</h1>
         <p className="work-index-intro">
-          Three backend projects, each described from a read-only review of its public
-          repository. Unfinished parts and untested paths are labeled in every case study.
+          Backend and AI projects, each described from a read-only review of its source
+          code. Unfinished parts and untested paths are labeled in every case study.
         </p>
         <ol className="work-index-list">
           {publishedProjects.map((project) => (

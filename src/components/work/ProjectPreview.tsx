@@ -6,6 +6,8 @@ const kindLabels = {
   pipeline: "Pipeline",
   architecture: "Architecture",
   "data-model": "Data model",
+  workflow: "Workflow",
+  "module-map": "Module map",
 } as const;
 
 // Static compact preview for every kind, so the homepage adds no client JavaScript.

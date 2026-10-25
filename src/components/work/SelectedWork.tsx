@@ -9,9 +9,9 @@ export function SelectedWork() {
     <section className="work-section" id="work" aria-labelledby="work-title" tabIndex={-1}>
       <div className="site-shell">
         <p className="eyebrow">02 / Selected work</p>
-        <h2 id="work-title">Three systems, explained from their source</h2>
+        <h2 id="work-title">Systems, explained from their source</h2>
         <p className="work-intro">
-          Each project is described from a read-only review of its public repository, with
+          Each project is described from a read-only review of its source code, with
           unfinished parts and untested paths marked.
         </p>
         <div className="project-stories">

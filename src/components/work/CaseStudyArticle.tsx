@@ -1,9 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-import type { ArchitectureExplanation, Claim, Project } from "@/content/projects";
+import type {
+  ArchitectureExplanation,
+  Claim,
+  Project,
+  ProjectScreenshot,
+} from "@/content/projects";
 import { publishedProjects, repositoryName } from "@/content/projects";
 import { ArchitectureDiagram } from "@/components/diagrams/ArchitectureDiagram";
 import { DataModelDiagram } from "@/components/diagrams/DataModelDiagram";
+import { ModuleMapDiagram } from "@/components/diagrams/ModuleMapDiagram";
 import { PipelineDiagram } from "@/components/diagrams/PipelineDiagram";
+import { WorkflowDiagram } from "@/components/diagrams/WorkflowDiagram";
 import { ClaimList } from "@/components/work/ClaimList";
 
 function Diagram({ architecture }: { architecture: ArchitectureExplanation }) {
@@ -22,7 +30,28 @@ function Diagram({ architecture }: { architecture: ArchitectureExplanation }) {
       );
     case "data-model":
       return <DataModelDiagram architecture={architecture} />;
+    case "workflow":
+      return <WorkflowDiagram architecture={architecture} />;
+    case "module-map":
+      return <ModuleMapDiagram architecture={architecture} />;
   }
+}
+
+function Screenshot({ screenshot }: { screenshot: ProjectScreenshot }) {
+  return (
+    <figure className="case-screenshot">
+      <Image
+        src={screenshot.src}
+        alt={screenshot.alt}
+        width={screenshot.width}
+        height={screenshot.height}
+        sizes="(min-width: 76rem) 76rem, 100vw"
+      />
+      <figcaption>
+        Screenshot of the running project. All names and data shown are fictional test data.
+      </figcaption>
+    </figure>
+  );
 }
 
 function Section({ id, title, claims }: { id: string; title: string; claims: readonly Claim[] }) {
@@ -59,7 +88,11 @@ export function CaseStudyArticle({ project }: { project: Project }) {
           <div>
             <dt>Source</dt>
             <dd>
-              <a href={project.repositoryUrl}>Source: {repo} on GitHub</a>
+              {project.source.kind === "public" ? (
+                <a href={project.source.url}>Source: {repo} on GitHub</a>
+              ) : (
+                <span className="case-source-private">Source code is private</span>
+              )}
               <span className="case-commit">
                 Reviewed at commit <code>{project.reviewedCommit.slice(0, 7)}</code>; read,
                 not run.
@@ -94,6 +127,7 @@ export function CaseStudyArticle({ project }: { project: Project }) {
       <section className="case-section" aria-labelledby="architecture">
         <h2 id="architecture">Architecture</h2>
         <Diagram architecture={caseStudy.architecture} />
+        {project.screenshot && <Screenshot screenshot={project.screenshot} />}
       </section>
       <Section id="decisions" title="Decisions" claims={caseStudy.decisions} />
       <Section id="tradeoffs" title="Tradeoffs" claims={caseStudy.tradeoffs} />

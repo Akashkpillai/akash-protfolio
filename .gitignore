@@ -1,0 +1,64 @@
+# Dependencies and package-manager caches (keep lockfiles)
+node_modules/
+.pnp.*
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Next.js, builds, and generated TypeScript files
+.next/
+out/
+build/
+dist/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# Test output and logs
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Local environment secrets; keep sanitized example files
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.example.*
+
+# Credentials and private keys
+.aws/
+.ssh/
+.secrets/
+secrets/
+credentials.json
+credentials.*.json
+service-account*.json
+serviceAccount*.json
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
+
+# Local hosting metadata
+.vercel/
+.netlify/
+
+# Local agent sessions (keep shareable skills and Spec Kit configuration)
+.codex/
+.agents/sessions/
+.agents/history/
+.agents/logs/
+.agents/tmp/
+.agents/cache/
+.claude/settings.local.json
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,3029 @@
+{
+  "date": "2026-10-25T12:53:11.805Z",
+  "baseURL": "http://127.0.0.1:3000",
+  "checks": {
+    "contrast": {
+      "status": "FAIL",
+      "desktop": {
+        "conditions": {
+          "innerWidth": 1440,
+          "innerHeight": 900,
+          "outerWidth": 1440,
+          "outerHeight": 900,
+          "dpr": 1,
+          "visualScale": 1,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+        },
+        "text": [
+          {
+            "tag": "A",
+            "class": "skip-link",
+            "text": "Skip to content",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "brand-name",
+            "text": "Akash K Pillai",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "brand-note",
+            "text": "The Engineering Journal",
+            "foreground": "rgb(74, 85, 94)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 6.824715959758199,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": null,
+            "text": "Home",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": null,
+            "text": "Approach",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "The Engineering Journal",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-name",
+            "text": "Akash K Pillai",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-role",
+            "text": "Backend & AI Developer",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 5.664556720819077,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H1",
+            "class": null,
+            "text": "Backend systems. Practical AI. Thoughtfully built.",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "108px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-intro",
+            "text": "A journal of engineering work, with clear explanations of the systems behind it.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": "hero-action",
+            "text": "Explore the flow",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": null,
+            "text": "↓",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "hero-aside-number",
+            "text": "01",
+            "foreground": "rgb(180, 78, 48)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "36px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 5.071713734046727,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-label",
+            "text": "A considered view of the work",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "20px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-copy",
+            "text": "Systems are easier to trust when their parts and trade-offs are clear.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-foot",
+            "text": "Notes on building, one decision at a time.",
+            "foreground": "rgb(74, 85, 94)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 7.505841966992835,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "02 / Approach",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H2",
+            "class": null,
+            "text": "How systems fit together",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "68px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "approach-intro",
+            "text": "A clear view of the steps behind a system, with the full explanation available alongside the illustration.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "Illustrative flow",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H3",
+            "class": null,
+            "text": "From request to useful result",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "36px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "flow-disclaimer",
+            "text": "A simple example of how a system can handle information. This is not live telemetry or a verified project workflow.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "text",
+            "class": null,
+            "text": "Input",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "text",
+            "class": null,
+            "text": "Process",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "text",
+            "class": null,
+            "text": "Result",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 1",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Input",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Receive a request or a piece of information.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show input step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 2",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Process",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Apply a defined transformation to what was received.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show process step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 3",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Result",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Return an outcome that the next person or system can use.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show result step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-control-secondary",
+            "text": "Trace the flow",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-control-primary",
+            "text": "Next step",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": true,
+            "effects": [
+              {
+                "opacity": "0.55",
+                "image": "none",
+                "filter": "none"
+              }
+            ],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "EXEMPT-INACTIVE"
+          },
+          {
+            "tag": "SPAN",
+            "class": null,
+            "text": "→",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": true,
+            "effects": [
+              {
+                "opacity": "0.55",
+                "image": "none",
+                "filter": "none"
+              }
+            ],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "EXEMPT-INACTIVE"
+          },
+          {
+            "tag": "P",
+            "class": "flow-current",
+            "text": "All three stages are explained above.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          }
+        ]
+      },
+      "mobile": {
+        "conditions": {
+          "innerWidth": 390,
+          "innerHeight": 844,
+          "outerWidth": 522,
+          "outerHeight": 844,
+          "dpr": 1,
+          "visualScale": 1,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+        },
+        "text": [
+          {
+            "tag": "A",
+            "class": "skip-link",
+            "text": "Skip to content",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "brand-name",
+            "text": "Akash K Pillai",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "brand-note",
+            "text": "The Engineering Journal",
+            "foreground": "rgb(74, 85, 94)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 6.824715959758199,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": null,
+            "text": "Menu",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": null,
+            "text": "Home",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": null,
+            "text": "Approach",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(245, 242, 235, 0.94)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "The Engineering Journal",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-name",
+            "text": "Akash K Pillai",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-role",
+            "text": "Backend & AI Developer",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 5.664556720819077,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H1",
+            "class": null,
+            "text": "Backend systems. Practical AI. Thoughtfully built.",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "44.8px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-intro",
+            "text": "A journal of engineering work, with clear explanations of the systems behind it.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "A",
+            "class": "hero-action",
+            "text": "Explore the flow",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": null,
+            "text": "↓",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "hero-aside-number",
+            "text": "01",
+            "foreground": "rgb(180, 78, 48)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "36px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 5.071713734046727,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-label",
+            "text": "A considered view of the work",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "20px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-copy",
+            "text": "Systems are easier to trust when their parts and trade-offs are clear.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "hero-aside-foot",
+            "text": "Notes on building, one decision at a time.",
+            "foreground": "rgb(74, 85, 94)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 7.505841966992835,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "02 / Approach",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H2",
+            "class": null,
+            "text": "How systems fit together",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "36px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "approach-intro",
+            "text": "A clear view of the steps behind a system, with the full explanation available alongside the illustration.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "eyebrow",
+            "text": "Illustrative flow",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H3",
+            "class": null,
+            "text": "From request to useful result",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 3,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "flow-disclaimer",
+            "text": "A simple example of how a system can handle information. This is not live telemetry or a verified project workflow.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 1",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Input",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Receive a request or a piece of information.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show input step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 2",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Process",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Apply a defined transformation to what was received.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show process step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgb(229, 240, 237)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              229,
+              240,
+              237
+            ],
+            "ratio": 13.980224790398454,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": "flow-stage-index",
+            "text": "0 3",
+            "foreground": "rgb(23, 107, 98)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "12px",
+            "fontWeight": "700",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 6.229895545871412,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "H4",
+            "class": null,
+            "text": "Result",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "18px",
+            "fontWeight": "650",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": null,
+            "text": "Return an outcome that the next person or system can use.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 9.79967939336664,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-select",
+            "text": "Show result step",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              255,
+              253,
+              248
+            ],
+            "ratio": 16.027813739081054,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-control-secondary",
+            "text": "Trace the flow",
+            "foreground": "rgb(23, 33, 43)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 14.573351891255268,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "flow-control-primary",
+            "text": "Next step",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "SPAN",
+            "class": null,
+            "text": "→",
+            "foreground": "rgb(255, 255, 255)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(23, 33, 43)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "14.4px",
+            "fontWeight": "600",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              23,
+              33,
+              43
+            ],
+            "ratio": 16.293495425950333,
+            "threshold": 4.5,
+            "status": "PASS"
+          },
+          {
+            "tag": "P",
+            "class": "flow-current",
+            "text": "Current step: Process. Apply a defined transformation to what was received.",
+            "foreground": "rgb(57, 68, 77)",
+            "backgrounds": [
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(255, 253, 248)",
+              "rgba(0, 0, 0, 0)",
+              "rgb(245, 242, 235)",
+              "rgba(0, 0, 0, 0)"
+            ],
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "inactive": false,
+            "effects": [],
+            "background": [
+              245,
+              242,
+              235
+            ],
+            "ratio": 8.91039654851911,
+            "threshold": 4.5,
+            "status": "PASS"
+          }
+        ],
+        "controls": [
+          {
+            "text": "Menu",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgb(255, 253, 248)",
+            "border": "rgb(216, 210, 199)",
+            "outline": "rgb(23, 107, 98)",
+            "outlineWidth": "3px",
+            "outlineOffset": "4px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": true,
+            "hover": false
+          },
+          {
+            "text": "",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgba(0, 0, 0, 0)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(23, 33, 43)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "none",
+            "stroke": "rgb(23, 107, 98)",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(23, 33, 43)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(255, 253, 248)",
+            "stroke": "rgb(23, 33, 43)",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(23, 33, 43)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(215, 235, 230)",
+            "stroke": "rgb(23, 107, 98)",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(23, 33, 43)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(255, 253, 248)",
+            "stroke": "rgb(23, 33, 43)",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "Show input step",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(216, 210, 199)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "Show process step",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgb(229, 240, 237)",
+            "border": "rgb(23, 107, 98)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": false,
+            "hover": false
+          },
+          {
+            "text": "Show result step",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "rgb(216, 210, 199)",
+            "outline": "rgb(23, 33, 43)",
+            "outlineWidth": "3px",
+            "outlineOffset": "0px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": false,
+            "hover": false
+          }
+        ]
+      },
+      "states": {
+        "desktopLinkHover": {
+          "text": [
+            {
+              "tag": "A",
+              "class": null,
+              "text": "Approach",
+              "foreground": "rgb(23, 107, 98)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(245, 242, 235, 0.94)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)"
+              ],
+              "fontSize": "15px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                245,
+                242,
+                235
+              ],
+              "ratio": 5.664556720819077,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "skipHover": {
+          "style": [
+            {
+              "text": "Skip to content",
+              "color": "rgb(23, 107, 98)",
+              "background": "rgb(23, 33, 43)",
+              "border": "rgb(23, 107, 98)",
+              "outline": "rgb(23, 107, 98)",
+              "outlineWidth": "3px",
+              "outlineOffset": "4px",
+              "fill": "rgb(0, 0, 0)",
+              "stroke": "none",
+              "focusVisible": true,
+              "hover": true
+            }
+          ],
+          "text": [
+            {
+              "tag": "A",
+              "class": "skip-link",
+              "text": "Skip to content",
+              "foreground": "rgb(23, 107, 98)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(245, 242, 235, 0.94)",
+                "rgb(23, 33, 43)"
+              ],
+              "fontSize": "17px",
+              "fontWeight": "400",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                23,
+                33,
+                43
+              ],
+              "ratio": 2.572725918286508,
+              "threshold": 4.5,
+              "status": "FAIL"
+            }
+          ]
+        },
+        "heroHover": {
+          "style": [
+            {
+              "text": "Explore the flow ↓",
+              "color": "rgb(255, 255, 255)",
+              "background": "rgb(23, 107, 98)",
+              "border": "rgb(23, 107, 98)",
+              "outline": "rgb(255, 255, 255)",
+              "outlineWidth": "3px",
+              "outlineOffset": "0px",
+              "fill": "rgb(0, 0, 0)",
+              "stroke": "none",
+              "focusVisible": false,
+              "hover": true
+            }
+          ],
+          "text": [
+            {
+              "tag": "A",
+              "class": "hero-action",
+              "text": "Explore the flow",
+              "foreground": "rgb(255, 255, 255)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(23, 107, 98)"
+              ],
+              "fontSize": "15px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                23,
+                107,
+                98
+              ],
+              "ratio": 6.333164100434826,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "nextHover": {
+          "style": [
+            {
+              "text": "Next step →",
+              "color": "rgb(255, 255, 255)",
+              "background": "rgb(23, 107, 98)",
+              "border": "rgb(23, 107, 98)",
+              "outline": "rgb(255, 255, 255)",
+              "outlineWidth": "3px",
+              "outlineOffset": "0px",
+              "fill": "rgb(0, 0, 0)",
+              "stroke": "none",
+              "focusVisible": false,
+              "hover": true
+            }
+          ],
+          "text": [
+            {
+              "tag": "BUTTON",
+              "class": "flow-control-primary",
+              "text": "Next step",
+              "foreground": "rgb(255, 255, 255)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(23, 107, 98)"
+              ],
+              "fontSize": "14.4px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                23,
+                107,
+                98
+              ],
+              "ratio": 6.333164100434826,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "traceHover": {
+          "style": [
+            {
+              "text": "Trace the flow",
+              "color": "rgb(23, 33, 43)",
+              "background": "rgb(255, 253, 248)",
+              "border": "rgb(23, 33, 43)",
+              "outline": "rgb(23, 107, 98)",
+              "outlineWidth": "3px",
+              "outlineOffset": "4px",
+              "fill": "rgb(0, 0, 0)",
+              "stroke": "none",
+              "focusVisible": true,
+              "hover": true
+            }
+          ],
+          "text": [
+            {
+              "tag": "BUTTON",
+              "class": "flow-control-secondary",
+              "text": "Trace the flow",
+              "foreground": "rgb(23, 33, 43)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)"
+              ],
+              "fontSize": "14.4px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                255,
+                253,
+                248
+              ],
+              "ratio": 16.027813739081054,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "selected": {
+          "style": [
+            {
+              "text": "",
+              "color": "rgb(23, 33, 43)",
+              "background": "rgba(0, 0, 0, 0)",
+              "border": "rgb(23, 33, 43)",
+              "outline": "rgb(23, 33, 43)",
+              "outlineWidth": "3px",
+              "outlineOffset": "0px",
+              "fill": "rgb(215, 235, 230)",
+              "stroke": "rgb(23, 107, 98)",
+              "focusVisible": false,
+              "hover": false
+            },
+            {
+              "text": "Show process step",
+              "color": "rgb(23, 33, 43)",
+              "background": "rgb(229, 240, 237)",
+              "border": "rgb(23, 107, 98)",
+              "outline": "rgb(23, 107, 98)",
+              "outlineWidth": "3px",
+              "outlineOffset": "4px",
+              "fill": "rgb(0, 0, 0)",
+              "stroke": "none",
+              "focusVisible": true,
+              "hover": false
+            }
+          ],
+          "text": [
+            {
+              "tag": "BUTTON",
+              "class": "flow-select",
+              "text": "Show process step",
+              "foreground": "rgb(23, 33, 43)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)",
+                "rgb(229, 240, 237)"
+              ],
+              "fontSize": "14px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                229,
+                240,
+                237
+              ],
+              "ratio": 13.980224790398454,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "mobileLinkHover": {
+          "text": [
+            {
+              "tag": "A",
+              "class": null,
+              "text": "Approach",
+              "foreground": "rgb(23, 107, 98)",
+              "backgrounds": [
+                "rgba(0, 0, 0, 0)",
+                "rgb(245, 242, 235)",
+                "rgba(245, 242, 235, 0.94)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgb(255, 253, 248)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)",
+                "rgba(0, 0, 0, 0)"
+              ],
+              "fontSize": "15px",
+              "fontWeight": "600",
+              "inactive": false,
+              "effects": [],
+              "background": [
+                255,
+                253,
+                248
+              ],
+              "ratio": 6.229895545871412,
+              "threshold": 4.5,
+              "status": "PASS"
+            }
+          ]
+        },
+        "menuFocus": [
+          {
+            "text": "Menu",
+            "color": "rgb(23, 33, 43)",
+            "background": "rgb(255, 253, 248)",
+            "border": "rgb(216, 210, 199)",
+            "outline": "rgb(23, 107, 98)",
+            "outlineWidth": "3px",
+            "outlineOffset": "4px",
+            "fill": "rgb(0, 0, 0)",
+            "stroke": "none",
+            "focusVisible": true,
+            "hover": false
+          }
+        ]
+      },
+      "graphics": [
+        {
+          "name": "Flow connection against canvas",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(245, 242, 235)",
+          "threshold": 3,
+          "ratio": 5.664556720819077,
+          "status": "PASS"
+        },
+        {
+          "name": "Selected node stroke against fill",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(215, 235, 230)",
+          "threshold": 3,
+          "ratio": 5.101327832397809,
+          "status": "PASS"
+        },
+        {
+          "name": "Selected node stroke against canvas",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(245, 242, 235)",
+          "threshold": 3,
+          "ratio": 5.664556720819077,
+          "status": "PASS"
+        },
+        {
+          "name": "Selected stage boundary against surface",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(255, 253, 248)",
+          "threshold": 3,
+          "ratio": 6.229895545871412,
+          "status": "PASS"
+        },
+        {
+          "name": "Selected stage boundary against selected fill",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(229, 240, 237)",
+          "threshold": 3,
+          "ratio": 5.434012496639981,
+          "status": "PASS"
+        },
+        {
+          "name": "Keyboard focus outside stage button",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(255, 253, 248)",
+          "threshold": 3,
+          "ratio": 6.229895545871412,
+          "status": "PASS"
+        },
+        {
+          "name": "Unselected button boundary (advisory: text identifies button)",
+          "foreground": "rgb(216, 210, 199)",
+          "background": "rgb(255, 253, 248)",
+          "threshold": null,
+          "ratio": 1.4794374652575268,
+          "status": "ADVISORY"
+        },
+        {
+          "name": "Text selection",
+          "foreground": "rgb(23, 33, 43)",
+          "background": "rgb(232, 179, 159)",
+          "threshold": 4.5,
+          "ratio": 8.829399778190657,
+          "status": "PASS"
+        },
+        {
+          "name": "Menu icon against summary",
+          "foreground": "rgb(23, 33, 43)",
+          "background": "rgb(255, 253, 248)",
+          "threshold": 3,
+          "ratio": 16.027813739081054,
+          "status": "PASS"
+        },
+        {
+          "name": "Menu focus against canvas",
+          "foreground": "rgb(23, 107, 98)",
+          "background": "rgb(245, 242, 235)",
+          "threshold": 3,
+          "ratio": 5.664556720819077,
+          "status": "PASS"
+        },
+        {
+          "name": "Menu boundary (advisory: icon/text identify control)",
+          "foreground": "rgb(216, 210, 199)",
+          "background": "rgb(255, 253, 248)",
+          "threshold": null,
+          "ratio": 1.4794374652575268,
+          "status": "ADVISORY"
+        }
+      ],
+      "failures": [
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "text": "Skip to content",
+          "foreground": "rgb(23, 107, 98)",
+          "backgrounds": [
+            "rgba(0, 0, 0, 0)",
+            "rgb(245, 242, 235)",
+            "rgba(245, 242, 235, 0.94)",
+            "rgb(23, 33, 43)"
+          ],
+          "fontSize": "17px",
+          "fontWeight": "400",
+          "inactive": false,
+          "effects": [],
+          "background": [
+            23,
+            33,
+            43
+          ],
+          "ratio": 2.572725918286508,
+          "threshold": 4.5,
+          "status": "FAIL"
+        }
+      ]
+    },
+    "reducedMotion": {
+      "status": "PASS",
+      "conditions": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "outerWidth": 1440,
+        "outerHeight": 900,
+        "dpr": 1,
+        "visualScale": 1,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "overflow": false,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+      },
+      "preference": {
+        "reducedMotion": true,
+        "scrollBehavior": "auto"
+      },
+      "transitions": [
+        {
+          "class": "hero-action",
+          "duration": "1e-05s"
+        },
+        {
+          "class": null,
+          "duration": "1e-05s"
+        },
+        {
+          "class": null,
+          "duration": "1e-05s"
+        },
+        {
+          "class": null,
+          "duration": "1e-05s"
+        },
+        {
+          "class": "flow-stage",
+          "duration": "1e-05s"
+        },
+        {
+          "class": "flow-stage",
+          "duration": "1e-05s"
+        },
+        {
+          "class": "flow-stage",
+          "duration": "1e-05s"
+        }
+      ],
+      "sequence": [
+        "Current step: Input. Receive a request or a piece of information.",
+        "Current step: Process. Apply a defined transformation to what was received.",
+        "Current step: Result. Return an outcome that the next person or system can use.",
+        "Current step: Input. Receive a request or a piece of information."
+      ],
+      "staticBefore": [
+        "Receive a request or a piece of information.",
+        "Apply a defined transformation to what was received.",
+        "Return an outcome that the next person or system can use."
+      ],
+      "staticAfter": [
+        "Receive a request or a piece of information.",
+        "Apply a defined transformation to what was received.",
+        "Return an outcome that the next person or system can use."
+      ]
+    },
+    "javaScriptDisabled": {
+      "status": "PASS",
+      "cases": [
+        {
+          "status": "PASS",
+          "javaScriptEnabled": false,
+          "conditions": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "outerWidth": 1440,
+            "outerHeight": 900,
+            "dpr": 1,
+            "visualScale": 1,
+            "clientWidth": 1440,
+            "scrollWidth": 1440,
+            "overflow": false,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+          },
+          "name": "Akash K Pillai",
+          "role": "Backend & AI Developer",
+          "headline": "Backend systems. Practical AI. Thoughtfully built.",
+          "stages": [
+            "Receive a request or a piece of information.",
+            "Apply a defined transformation to what was received.",
+            "Return an outcome that the next person or system can use."
+          ],
+          "labels": [
+            "Input",
+            "Process",
+            "Result"
+          ],
+          "interactiveControls": 0,
+          "disclaimer": "A simple example of how a system can handle information. This is not live telemetry or a verified project workflow.",
+          "destinations": [
+            "http://127.0.0.1:3000/#approach",
+            "http://127.0.0.1:3000/#home",
+            "http://127.0.0.1:3000/#approach"
+          ]
+        },
+        {
+          "status": "PASS",
+          "javaScriptEnabled": false,
+          "conditions": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "outerWidth": 522,
+            "outerHeight": 844,
+            "dpr": 1,
+            "visualScale": 1,
+            "clientWidth": 390,
+            "scrollWidth": 390,
+            "overflow": false,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+          },
+          "name": "Akash K Pillai",
+          "role": "Backend & AI Developer",
+          "headline": "Backend systems. Practical AI. Thoughtfully built.",
+          "stages": [
+            "Receive a request or a piece of information.",
+            "Apply a defined transformation to what was received.",
+            "Return an outcome that the next person or system can use."
+          ],
+          "labels": [
+            "Input",
+            "Process",
+            "Result"
+          ],
+          "interactiveControls": 0,
+          "disclaimer": "A simple example of how a system can handle information. This is not live telemetry or a verified project workflow.",
+          "destinations": [
+            "http://127.0.0.1:3000/#approach",
+            "http://127.0.0.1:3000/#home",
+            "http://127.0.0.1:3000/#approach"
+          ]
+        }
+      ]
+    },
+    "browserZoom": {
+      "status": "PASS",
+      "actualZoomVerified": true,
+      "dprRatio": 2,
+      "cases": [
+        {
+          "requestedFactor": 1,
+          "zoomSetting": {
+            "value": "1",
+            "label": "100%"
+          },
+          "conditions": {
+            "innerWidth": 1422,
+            "innerHeight": 804,
+            "outerWidth": 1440,
+            "outerHeight": 900,
+            "dpr": 1,
+            "visualScale": 1,
+            "clientWidth": 1422,
+            "scrollWidth": 1422,
+            "overflow": false,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+          },
+          "clippedText": [],
+          "navigation": "http://127.0.0.1:3000/#approach",
+          "currentStep": "Current step: Process. Apply a defined transformation to what was received."
+        },
+        {
+          "requestedFactor": 2,
+          "zoomSetting": {
+            "value": "2",
+            "label": "200%"
+          },
+          "conditions": {
+            "innerWidth": 711,
+            "innerHeight": 402,
+            "outerWidth": 1440,
+            "outerHeight": 900,
+            "dpr": 2,
+            "visualScale": 1,
+            "clientWidth": 711,
+            "scrollWidth": 711,
+            "overflow": false,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+          },
+          "clippedText": [],
+          "navigation": "http://127.0.0.1:3000/#approach",
+          "currentStep": "Current step: Process. Apply a defined transformation to what was received."
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "browser": "156.0.8078.47",
+  "tool": "playwright-core 1.64.1; installed temporarily, not in package.json",
+  "lastRun": {
+    "date": "2026-10-25T12:55:54.232Z",
+    "checks": [
+      "contrast"
+    ]
+  }
+}

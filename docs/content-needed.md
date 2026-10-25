@@ -1,5 +1,15 @@
 # Content needed
 
+## Status update (2026-10-25)
+
+Supplied since this list was written: current résumé PDF (in `public/resume/`), public
+email, LinkedIn and GitHub URLs, employer names, roles and dates, education, languages,
+confirmed positioning ("Backend Developer | AI Developer"), confirmed contribution for each
+featured project, current source reviews, and permission to publish the HRMS work.
+Meridian and the HRMS backend are published case studies (spec folder 003). Still
+outstanding: approved screenshots (optional), any demo check, and the deployment domain
+and sharing assets for launch. The sections below are the original list, kept as history.
+
 Status: missing unless explicitly described below. Recorded 2026-10-25 from [the build guide](portfolio-build-guide.md); no personal inputs or project assets were supplied in this workspace.
 
 ## Before the constitution step

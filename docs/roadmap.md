@@ -2,7 +2,22 @@
 
 Baseline: 2026-10-25. This workspace contains the guide and Spec Kit installation; no application, package manifest, feature spec, or release exists. Preparation is documentation only.
 
-## Current state and next step
+## Status update (2026-10-25)
+
+The section below describes the original preparation baseline and is kept as history.
+Since then: constitution 1.0.0 ratified; Git `main` established; features 001–004 built.
+
+| Spec folder | Roadmap feature | Status |
+| --- | --- | --- |
+| `specs/001-portfolio-foundation` | 001 portfolio foundation | Merged; recorded as 0.1.0 |
+| `specs/002-engineering-case-studies` | 002 engineering case studies | Merged; recorded as 0.2.0 |
+| `specs/003-additional-case-studies` | Part of 002 (HRMS and Meridian case studies; User Management API unpublished) | Merged; part of 0.2.0 |
+| `specs/004-professional-profile` | 003 professional profile | Built on `feat/004-resume`; package at 0.3.0; changelog and footer added |
+
+Meridian was published in spec folder 003 after evidence review, earlier than "Later"
+below. Next: launch readiness (`1.0.0`).
+
+## Current state and next step (preparation baseline, historical)
 
 - Confirmed root: `C:\Users\HP\Desktop\akash-portfolio`.
 - Spec Kit CLI and Codex integration: **1.2.3**; bundled Full SDD Cycle workflow: **1.0.1**. See [toolchain](toolchain.md).

@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import { ResumeLink } from "@/components/profile/ResumeLink";
 
 export function Hero() {
   return (
@@ -16,6 +17,7 @@ export function Hero() {
           <a className="hero-action hero-action-secondary" href="#work">
             View selected work <span aria-hidden="true">↓</span>
           </a>
+          <ResumeLink className="hero-action hero-action-secondary" />
         </div>
       </div>
       <aside className="hero-aside" aria-label="Journal introduction">

@@ -26,6 +26,14 @@ Update 2026-10-26 (later): 006 implemented (awaiting owner acceptance). `specs/0
 (Probe companion, scripted Ask the lab, pausable ambient motion, message form; target `0.5.0`)
 implemented and verified; awaiting owner acceptance together with 006.
 
+Update 2026-10-26 (evening): owner accepted 004, 006, and 007 (package 0.5.0; constitution 2.0.0
+confirmed). 005 resumed on `feat/005-launch-readiness`: re-checked on the Systems Lab design
+(22/22 browser checks, metadata, served output, evidence, Lighthouse mobile 95–97), version
+1.0.0 prepared, `docs/deployment.md` written. **1.0.0 is prepared — blocked** on: the
+production domain, the LinkedIn manual check, the owner's review of the Resume Analyzer and
+Notification Platform evidence records, and the release-candidate commit (then the fresh-install
+test). The demo stays absent unless the owner approves the live Resume Analyzer test.
+
 ## Current state and next step (preparation baseline, historical)
 
 - Confirmed root: `C:\Users\HP\Desktop\akash-portfolio`.

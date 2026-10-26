@@ -78,7 +78,7 @@ description: "Implementation tasks for the Probe companion, Ask the lab, motion,
 - [X] T025 Update `docs/design-direction.md` (Probe, Ask the lab, motion inventory, pause control, messages) and dated status in `docs/roadmap.md`.
 - [X] T026 Full verification: lint, typecheck, build, 005 metadata/served-output/evidence scripts, 006 content-preserved, 003 confidentiality, `check-lab-knowledge.mjs`, full browser script, Lighthouse home mobile/desktop; screenshot review; record environment, results, not-run items.
 - [X] T027 Reconcile FR-001–FR-025 and SC-001–SC-008 in `verification.md`.
-- [ ] T028 Acceptance (owner): with 006, approve; version 0.5.0 + changelog entry; no commit/tag/push/deploy unless asked.
+- [X] T028 Acceptance (owner): with 006, approve; version 0.5.0 + changelog entry; no commit/tag/push/deploy unless asked.
 
 ## Phase 7: User Story 4 - 3D orbit and a livelier Probe (Revision 2, P2)
 
@@ -111,3 +111,5 @@ description: "Implementation tasks for the Probe companion, Ask the lab, motion,
 
 - Ask the lab and message delivery each sit behind one replaceable function for the future AI
   service and server-side sender.
+
+**Accepted 2026-10-26**: owner approved 007 including Revisions 3–4 ("everything is approved"). Package 0.5.0; 0.5.0 changelog entry describes 007 only.

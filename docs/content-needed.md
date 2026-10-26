@@ -1,5 +1,19 @@
 # Content needed
 
+## Status update (2026-10-26)
+
+Resolved since the last update: sharing image and icon (redrawn in 006, accepted 2026-10-26).
+Still outstanding for the 1.0.0 release:
+
+- **Production domain and host** (blocks release; `SITE_URL` in `docs/deployment.md`).
+- **LinkedIn manual check**: open the LinkedIn link on the site and confirm it reaches the
+  right profile (LinkedIn blocks automated checks).
+- **Evidence register review**: confirm the Resume Analyzer and Notification Platform records
+  in `docs/project-evidence.md` (still "Owner review of this register: pending").
+- **Demo decision**: approve one test run of the live Resume Analyzer with a fictional résumé
+  (creates an account and uses its AI quota), or launch without a demo link (allowed).
+- Optional: approved project screenshots.
+
 ## Status update (2026-10-25)
 
 Supplied since this list was written: current résumé PDF (in `public/resume/`), public

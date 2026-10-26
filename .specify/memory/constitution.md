@@ -12,7 +12,8 @@ Sync Impact Report
 - Affected artifacts: docs/design-direction.md and docs/product-brief.md describe the old
   identity (update in feature 006); specs/001–005 keep their history and remain valid records
   of the identity in force when they were accepted; feature 005 re-runs its UI checks.
-- Deferred TODOs: owner confirmation of this amendment at feature 006 acceptance.
+- Deferred TODOs: none. The owner confirmed this amendment when accepting features 006 and 007
+  (2026-10-26).
 -->
 # Akash K Pillai Portfolio Constitution
 

@@ -114,7 +114,7 @@ US4 Navigation (P2).
 - [X] T025 Run `npm run lint`, `npm run typecheck`, `npm run build`, then the browser script against `next start`; review screenshots at 390/768/1440 and zoom for clipping and visual fit; record results in `specs/004-professional-profile/verification.md`.
 - [X] T026 Run `specs/003-additional-case-studies/verification/check-confidentiality.mjs` with `PAGES` set to the four case studies; expect zero matches on case-study pages, `src/content/case-studies/`, and the register; record in `specs/004-professional-profile/verification.md` (case studies still name no organization).
 - [X] T027 Update `docs/content-needed.md` (Meridian and HRMS are no longer blocked; résumé, contacts, experience, education supplied 2026-10-25) and `docs/roadmap.md` (002–004 status); record the 001 role/headline gate as closed in `specs/004-professional-profile/verification.md`.
-- [ ] T028 Acceptance: with owner approval, set `"version": "0.3.0"` in `package.json` and `package-lock.json` (`npm install --package-lock-only`), set the 0.3.0 date in `src/content/changelog.ts`, rebuild, confirm footer = package = changelog, and reconcile FR-001–FR-015 and SC-001–SC-007 in `specs/004-professional-profile/verification.md`; no tag, push, or deployment unless the owner asks.
+- [X] T028 Acceptance: with owner approval, set `"version": "0.3.0"` in `package.json` and `package-lock.json` (`npm install --package-lock-only`), set the 0.3.0 date in `src/content/changelog.ts`, rebuild, confirm footer = package = changelog, and reconcile FR-001–FR-015 and SC-001–SC-007 in `specs/004-professional-profile/verification.md`; no tag, push, or deployment unless the owner asks.
 
 ---
 
@@ -153,3 +153,5 @@ Task: T015 [US2] Create src/components/profile/CopyEmailButton.tsx
 
 - If the corrected résumé is not supplied, everything else ships and the download stays absent.
 - No deployment, tag, or push is authorized by this list.
+
+**Accepted 2026-10-26**: the owner said "everything is approved" (with 006 and 007); 0.3.0 was already set in package, footer, and changelog. Later releases 0.4.0 and 0.5.0 supersede it.

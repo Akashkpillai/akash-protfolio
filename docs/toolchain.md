@@ -20,6 +20,20 @@ Observed 2026-10-25 in `C:\Users\HP\Desktop\akash-portfolio`. These are local co
 
 The guide's pinned Spec Kit version matches the installed CLI and integration. Portfolio target release versions (`0.1.0` through `1.0.0`) are separate and have not been released.
 
+### QA tools (2026-10-26, feature 005 resumed)
+
+Installed outside the app in `%TEMP%\akash-portfolio-qa-tools` (never in `package.json`):
+
+| Tool | Version | Use |
+| --- | --- | --- |
+| playwright-core | `1.64.1` | Browser checks (features 001–007) |
+| axe-core | `4.14.0` | Automated accessibility checks |
+| Lighthouse | `13.5.0` | Performance measurements |
+| Google Chrome | `156.0.8078.47` | Installed browser driven headless by the above |
+| Next.js | `16.4.3` | App framework (from `next build` output) |
+
+Node `24.12.0` and npm `11.6.2` unchanged; `.nvmrc` pins `24.12.0`.
+
 ## Integration health and isolation
 
 `specify integration status` exited 0 and reported OK: default/installed integration `codex`, multi-install safe yes, shared templates aligned to codex, **0 modified managed files, 0 missing managed files, 0 invalid manifest paths, 0 unchecked manifests**. Initialization settings use PowerShell (`ps`), skills mode, sequential feature numbering, and hyphen invocation separator.

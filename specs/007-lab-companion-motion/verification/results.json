@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-26T06:56:47.381Z",
+  "date": "2026-10-26T07:19:34.466Z",
   "baseURL": "http://127.0.0.1:3100",
   "checks": {
     "responsive": {
@@ -454,7 +454,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 10941,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [
             "/work/hrms-backend",
             "/work/meridian-assistant",
@@ -478,7 +478,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 2682,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -496,8 +496,8 @@
           "path": "/changelog",
           "h1": 1,
           "navLinks": 5,
-          "mainText": 835,
-          "footer": "Version 0.3.0",
+          "mainText": 2277,
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -516,7 +516,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 6708,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -543,7 +543,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 6709,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -570,7 +570,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 6040,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -597,7 +597,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 5428,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -624,7 +624,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 190,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -643,7 +643,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 190,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -662,7 +662,7 @@
           "h1": 1,
           "navLinks": 5,
           "mainText": 190,
-          "footer": "Version 0.3.0",
+          "footer": "Version 1.0.0",
           "nodeLinks": [],
           "nodeButtons": 0,
           "traceButtons": 0,
@@ -1079,7 +1079,7 @@
             }
           ],
           "axePasses": 23,
-          "textElements": 32,
+          "textElements": 52,
           "minTextRatio": 6.15,
           "contrastFailures": [],
           "contrastUnresolved": [],
@@ -1329,7 +1329,7 @@
             }
           ],
           "axePasses": 24,
-          "textElements": 33,
+          "textElements": 53,
           "minTextRatio": 6.15,
           "contrastFailures": [],
           "contrastUnresolved": [],
@@ -2109,7 +2109,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2206,7 +2206,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2231,7 +2231,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2311,7 +2311,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2391,7 +2391,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2476,7 +2476,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2561,7 +2561,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2596,7 +2596,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2631,7 +2631,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -2666,7 +2666,7 @@
           },
           {
             "kind": "link",
-            "text": "Version 0.3.0",
+            "text": "Version 1.0.0",
             "href": "/changelog"
           },
           {
@@ -3077,17 +3077,17 @@
         "/resume/Akash_K_Pillai_Resume.pdf"
       ],
       "pdfStatus": 200,
-      "pkgVersion": "0.3.0",
+      "pkgVersion": "1.0.0",
       "footers": [
-        "Version 0.3.0",
-        "Version 0.3.0",
-        "Version 0.3.0",
-        "Version 0.3.0",
-        "Version 0.3.0",
-        "Version 0.3.0",
-        "Version 0.3.0"
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0"
       ],
-      "newest": "Version 0.3.0 2026-10-25"
+      "newest": "Version 1.0.0 2026-10-26"
     },
     "probe": {
       "status": "PASS",
@@ -3115,10 +3115,10 @@
         "haloSpinning": true,
         "floating": true
       },
-      "idleBlinks": 3,
+      "idleBlinks": 2,
       "reducedBlinks": 0,
-      "maxSpeed": 459,
-      "nodeGap": 0.16181481555716304,
+      "maxSpeed": 458,
+      "nodeGap": 0.3005123794508137,
       "traceDy": 0.140625,
       "initial": {
         "mode": "perched",
@@ -3131,7 +3131,7 @@
       },
       "afterSelect": {
         "mode": "perched",
-        "x": 577,
+        "x": 578,
         "y": 393,
         "width": 52,
         "height": 52,
@@ -3200,12 +3200,12 @@
         "homepageOnly": true,
         "pauseEndsAtOnce": true
       },
-      "removedAt": 2982,
+      "removedAt": 2990,
       "during": {
         "cx": 720,
         "cy": 450,
         "width": 114.4000244140625,
-        "minLetterOpacity": 0.822636
+        "minLetterOpacity": 0.725342
       },
       "after": {
         "mode": "perched",
@@ -3349,7 +3349,7 @@
   },
   "errors": [],
   "lastRun": {
-    "date": "2026-10-26T06:56:47.381Z",
+    "date": "2026-10-26T07:19:34.466Z",
     "checks": []
   },
   "browser": "156.0.8078.47",

@@ -107,7 +107,7 @@ case studies (P2), US3 profile, navigation, and site-wide identity (P3).
 - [X] T025 Remove the now-unreferenced homepage-only components (`src/components/layout/Hero.tsx`, `src/components/diagrams/FlowDiagram.tsx`, `src/content/flow.ts`) and their CSS only if nothing imports them; record what was removed.
 - [X] T026 Full verification: `npm run lint`, `npm run typecheck`, build, `check-evidence-ids.mjs`, `check-content-preserved.mjs`, `check-metadata.mjs`, `check-served-output.mjs`, 003 `check-confidentiality.mjs` (case-study pages), the full browser script, and Lighthouse home mobile/desktop; inspect all screenshots; record every result, environment, and anything not run in `specs/006-systems-lab-redesign/verification.md`.
 - [X] T027 Reconcile FR-001–FR-027 and SC-001–SC-009 in `specs/006-systems-lab-redesign/verification.md`; add to `specs/005-launch-readiness/verification.md` that its UI results are stale and list what 005 must re-run.
-- [ ] T028 Acceptance (owner): confirm the constitution 2.0.0 amendment and the design; then set `package.json`/lockfile to `0.4.0` with a 0.4.0 changelog entry describing only completed 006 work, rebuild, confirm footer = package = changelog; no commit, tag, push, or deployment unless the owner asks (FR-027).
+- [X] T028 Acceptance (owner): confirm the constitution 2.0.0 amendment and the design; then set `package.json`/lockfile to `0.4.0` with a 0.4.0 changelog entry describing only completed 006 work, rebuild, confirm footer = package = changelog; no commit, tag, push, or deployment unless the owner asks (FR-027).
 
 ---
 
@@ -144,3 +144,5 @@ Task: T019 [US2] Create verification/check-content-preserved.mjs
 
 - Feature 005 stays paused; its scripts are reused unchanged.
 - If browser tooling is unavailable, browser checks are recorded as not run.
+
+**Accepted 2026-10-26**: owner approved the design and the constitution 2.0.0 amendment ("everything is approved"), together with 007. Package set to 0.5.0 (0.4.0 entry describes 006 only), recorded in feature 005's branch eat/005-launch-readiness.

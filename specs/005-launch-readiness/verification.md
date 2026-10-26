@@ -152,3 +152,178 @@ still pass unchanged on the 006 build. The sharing card and icon were redrawn, s
 approval applies to the new artwork. Open
 owner items: LinkedIn manual check, demo-flow approval, card/icon approval, register owner
 review (Resume Analyzer, Notification Platform), production domain, 004 T028 acceptance.
+
+## Resumed (2026-10-26): checks on the Systems Lab design, version 1.0.0
+
+Context: owner accepted 004, 006, and 007 on 2026-10-26. Branch `feat/005-launch-readiness`
+moved to `main` at `b5687cb` (it had no commits of its own); `.specify/feature.json` points to
+this feature again. Package `0.5.0` then `1.0.0` (T029). Results below are from the
+**uncommitted release-candidate working tree** (`b5687cb` + 005 changes) and supersede every
+earlier UI, accessibility, and performance result in this file, which described the Journal
+design. They become final only when re-run on the tested commit (T030–T031).
+
+Environment: Windows 11 Home Single Language 10.0.26200; Node v24.12.0; npm 11.6.2; Chrome
+156.0.8078.47 (headless); playwright-core 1.64.1; axe-core 4.14.0; Lighthouse 13.5.0;
+`SITE_URL=https://portfolio.example` (reserved test host: **not releasable**); `next start` on
+127.0.0.1:3100.
+
+### T037 Site quality (FR-001–FR-006, SC-001–SC-003)
+
+Build: lint exit 0, typecheck exit 0, build exit 0 (17 s). Suite of record
+`specs/007-lab-companion-motion/verification/run-browser-checks.mjs`: **22/22 PASS, 0 errors**
+(205 s), including:
+
+| Check | Result | Measurements |
+| --- | --- | --- |
+| Direct routes | pass | 7 public pages 200 with full content |
+| 404 and draft exclusion | pass | `/work/user-management-api`, `/work/meridian`, `/nope`: 404, title "Page not found / Akash K Pillai", links to `/` and `/work` |
+| Responsive (390/768/1440, emulated 200%) | pass | 0 overflow, 0 clipped text; reduced-motion re-capture of all 16 page/width pairs: overflow 0 px, 0 transparent text |
+| Keyboard and focus | pass | 20 page/width runs, 394 focusable elements, all reached in DOM order, 0 positive tabindex, lowest focus-indicator ratio 9.38:1 |
+| Reduced motion | pass | every page: no moving elements, `scroll-behavior: auto`; entrance, Probe travel, and blinking off |
+| JavaScript disabled | pass | every page: one h1, 5 nav links, full main text, footer `Version 1.0.0`, static project links |
+| Accessibility (automated) | pass | axe tags wcag2a/aa, 21a/aa, 22aa: 0 violations on 20 runs; computed contrast over 2,166 text elements: 0 failures, 0 unresolved, lowest 5.52:1 |
+| Confidentiality (003, case-study scope) | pass | 4 case-study pages 0 hits, `.next/static` 0; script exit 1 only for the 25 expected homepage Experience hits (employer names, owner-approved), same as 005/006/007 |
+
+Manual review of axe "incomplete": all 20 are `color-contrast` "cannot determine" over the
+layered background (grid, glows, translucent header); resolved by the computed-contrast check
+above (0 failures). Screenshots inspected: the suite's full-page shots leave scroll-reveal
+sections blank (a full-page capture never scrolls) and the 200% homepage shot exceeds Chrome's
+16,384 px capture limit (content repeats); so a reduced-motion tiled set was captured and
+inspected at 390 and 1440 for all 8 pages — no clipping or overlap. Observation: on phones the
+docked Probe (fixed bottom-right button) overlaps a line of text until scrolled; pre-existing,
+floating-button pattern, not a focus obstruction (focus walk passed).
+
+Limitations: zoom is emulated by viewport width, not the browser zoom setting; no screen
+reader test; Chrome only (no Firefox/Safari); no real devices.
+
+### T038 Action inventory (FR-008, SC-004)
+
+From the suite's `links` check (60 destination cases, 0 failing) and the feature checks that
+operate each button. Distinct destinations and in-page actions:
+
+| Action | Destination | Pages | Method | Date | Result |
+| --- | --- | --- | --- | --- | --- |
+| Akash/Systems Lab | `/` | 10 pages | automated | 2026-10-26 | pass |
+| Skip to content | `/#main-content` | / | automated | 2026-10-26 | pass |
+| Explore systems ↓ | `/#project-map` | / | automated | 2026-10-26 | pass |
+| Version 1.0.0 | `/changelog` | 10 pages | automated | 2026-10-26 | pass |
+| Skip to content | `/changelog#main-content` | /changelog | automated | 2026-10-26 | pass |
+| Skip to content | `/nope#main-content` | /nope | automated | 2026-10-26 | pass |
+| Resume (PDF) | `/resume/Akash_K_Pillai_Resume.pdf` | / | automated | 2026-10-26 | pass |
+| View all work → | `/work` | 8 pages | automated | 2026-10-26 | pass |
+| Open case study → | `/work/hrms-backend` | 5 pages | automated | 2026-10-26 | pass |
+| Architecture | `/work/hrms-backend#architecture` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| My contribution | `/work/hrms-backend#contribution` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Decisions | `/work/hrms-backend#decisions` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Implementation | `/work/hrms-backend#implementation` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Limitations | `/work/hrms-backend#limitations` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Skip to content | `/work/hrms-backend#main-content` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Problem | `/work/hrms-backend#problem` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Tradeoffs | `/work/hrms-backend#tradeoffs` | /work/hrms-backend | automated | 2026-10-26 | pass |
+| Meridian Assistant — Discord RAG and Proposal Agent | `/work/meridian-assistant` | 5 pages | automated | 2026-10-26 | pass |
+| Architecture | `/work/meridian-assistant#architecture` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| My contribution | `/work/meridian-assistant#contribution` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Decisions | `/work/meridian-assistant#decisions` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Implementation | `/work/meridian-assistant#implementation` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Limitations | `/work/meridian-assistant#limitations` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Skip to content | `/work/meridian-assistant#main-content` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Problem | `/work/meridian-assistant#problem` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Tradeoffs | `/work/meridian-assistant#tradeoffs` | /work/meridian-assistant | automated | 2026-10-26 | pass |
+| Skip to content | `/work/meridian#main-content` | /work/meridian | automated | 2026-10-26 | pass |
+| Notification Platform — Event-Driven Backend | `/work/notification-platform` | 5 pages | automated | 2026-10-26 | pass |
+| Architecture | `/work/notification-platform#architecture` | /work/notification-platform | automated | 2026-10-26 | pass |
+| My contribution | `/work/notification-platform#contribution` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Decisions | `/work/notification-platform#decisions` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Implementation | `/work/notification-platform#implementation` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Limitations | `/work/notification-platform#limitations` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Skip to content | `/work/notification-platform#main-content` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Problem | `/work/notification-platform#problem` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Tradeoffs | `/work/notification-platform#tradeoffs` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Resume Analyzer — AI Document Processing | `/work/resume-analyzer` | 5 pages | automated | 2026-10-26 | pass |
+| Architecture | `/work/resume-analyzer#architecture` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| My contribution | `/work/resume-analyzer#contribution` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Decisions | `/work/resume-analyzer#decisions` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Implementation | `/work/resume-analyzer#implementation` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Limitations | `/work/resume-analyzer#limitations` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Skip to content | `/work/resume-analyzer#main-content` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Problem | `/work/resume-analyzer#problem` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Tradeoffs | `/work/resume-analyzer#tradeoffs` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| Skip to content | `/work/user-management-api#main-content` | /work/user-management-api | automated | 2026-10-26 | pass |
+| Skip to content | `/work#main-content` | /work | automated | 2026-10-26 | pass |
+| GitHub ↗ | `https://github.com/Akashkpillai` | / | automated | 2026-10-26 | pass |
+| Source: notificationservice on GitHub | `https://github.com/Akashkpillai/notificationservice` | /work/notification-platform | automated | 2026-10-26 | pass |
+| Source: resume-analyzer on GitHub | `https://github.com/Akashkpillai/resume-analyzer` | /work/resume-analyzer | automated | 2026-10-26 | pass |
+| LinkedIn ↗ | `https://www.linkedin.com/in/akash-k-pillai/` | / | automated + manual (pending) | 2026-10-26 | unconfirmed (status 999 to automation; owner check T041) |
+| akashkpillai55@gmail.com | `mailto:akashkpillai55@gmail.com` | / | automated | 2026-10-26 | pass |
+| Ask the lab (floating Probe) (button) | in-page | / | automated (askLab, probe) | 2026-10-26 | pass |
+| Ask the lab (button) | in-page | 10 pages | automated (askLab, probe) | 2026-10-26 | pass |
+| Compose email → (button) | in-page | / | automated (messageForm) | 2026-10-26 | pass |
+| Copy email (button) | in-page | / | automated (profile (clipboard = owner email)) | 2026-10-26 | pass |
+| HRMS Backend (button) | in-page | / | automated (constellation (selects project, updates panel)) | 2026-10-26 | pass |
+| Meridian Assistant (button) | in-page | / | automated (constellation (selects project, updates panel)) | 2026-10-26 | pass |
+| Notification Platform (button) | in-page | / | automated (constellation (selects project, updates panel)) | 2026-10-26 | pass |
+| Pause motion (button) | in-page | 10 pages | automated (motionPause) | 2026-10-26 | pass |
+| Resume Analyzer (button) | in-page | / | automated (constellation (selects project, updates panel)) | 2026-10-26 | pass |
+| Trace flow (button) | in-page | / | automated (constellation, probe) | 2026-10-26 | pass |
+
+No demo action is shown (T043 decision pending; FR-009).
+
+### T039 Metadata and generated files (SC-005)
+
+| Script | Result |
+| --- | --- |
+| `check-metadata.mjs` | exit 0, "all checks passed" (titles, descriptions, canonicals, sharing tags, 404 metadata, sitemap, robots, `/og.png` 1200×630) |
+| `check-served-output.mjs` | exit 0; served surface draft 0, personal 0 (7 terms); server-only chunks hold draft markers (informational, never served) |
+| `check-evidence-ids.mjs` | exit 0; 51 register IDs, 49 cited, 150 citations, 0 missing |
+
+The sharing card and icon were redrawn in 006 and accepted with it: release blocker
+"owner approval of sharing card and icon" **resolved 2026-10-26**.
+
+### T040 Performance (FR-021)
+
+Lighthouse 13.5.0, Chrome 156, simulated throttling (mobile: 4× CPU, 150 ms RTT; desktop
+preset), fresh profile (the homepage entrance plays), localhost (no network or CDN), single
+runs. JSON in `verification/lighthouse/*-r2.json`.
+
+| Page | Profile | Perf | A11y | BP | SEO | LCP | TBT | CLS |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `/` | mobile | 95 | 100 | 100 | 100 | 2.61 s | 165 ms | 0.025 |
+| `/` | desktop | 100 | 100 | 100 | 100 | 0.59 s | 0 ms | 0.004 |
+| `/work/notification-platform` | mobile | 97 | 100 | 100 | 100 | 2.55 s | 77 ms | 0 |
+| `/work/notification-platform` | desktop | 100 | 100 | 100 | 100 | 0.52 s | 0 ms | 0 |
+
+Investigation (mobile LCP above 2.5 s): LCP elements are the hero intro paragraph (`/`) and
+the case-study `h1`; the one render-blocking request is the site stylesheet (estimated 155 ms
+and 303 ms); the case study has no entrance animation and lands at the same time, so the
+entrance is not the cause. Simulated, not measured on a network; the Journal design measured
+the same 2.6 s. No change made (scores exceed the ≥ 85 target; fixing only observed failures).
+
+### T027 and T029
+
+- `docs/deployment.md` written for the owner per the deployment contract (host-neutral).
+- `npm version 1.0.0 --no-git-tag-version`; 1.0.0 changelog entry (005 work only); footer and
+  changelog read `Version 1.0.0` (suite `profile` check: package = footer = newest entry).
+
+### Reconciliation (pre-candidate, 2026-10-26; final after T031)
+
+| Requirement | Status | Evidence |
+| --- | --- | --- |
+| FR-001, SC-001 direct routes | pass | T037 direct routes, notFound |
+| FR-002 404 | pass | T037 notFound (3 addresses, status 404, links) |
+| FR-003, SC-002 responsive | pass | T037 responsive + reduced-motion tiled screenshots (emulated zoom) |
+| FR-004, SC-003 keyboard | pass | T037 focus walk (394 elements) |
+| FR-005 reduced motion / no JS | pass | T037 reducedMotionAll, noJavaScript |
+| FR-006 contrast | pass (automated + manual) | T037 axe 0 violations, computed contrast ≥ 5.52:1 |
+| FR-007 evidence | **open** | IDs pass (T039); owner review of RA/NP register records pending (T042) |
+| FR-008, SC-004 actions | **open** | T038: all pass except LinkedIn `unconfirmed` (T041) |
+| FR-009 demo | pass (no demo shown) | T043 decision pending; no demo action rendered |
+| FR-010 confidentiality | pass | T039 served output; T037 confidentiality (case-study scope) |
+| FR-011–FR-017, SC-005 metadata | pass on test host | T039 `check-metadata.mjs`; real domain pending (T036) |
+| FR-018, SC-006 fresh install | **open** | needs tested commit (T030 → T031) |
+| FR-019, SC-007 version | pass | 1.0.0 in package, footer, changelog (T029, suite `profile`) |
+| FR-020, SC-008 report | **open** | this file; final rows on tested commit (T031–T032) |
+| FR-021 performance | pass | T040 four Lighthouse runs, investigation recorded |
+| FR-022 deployment guide | pass | `docs/deployment.md` |
+| FR-023 release notes | **open** | `docs/releases/1.0.0.md` drafted; tested commit pending |
+| FR-024 not published | pass | no tag, push, or deployment; status prepared — blocked |
+| SC-009 owner can act from documents | pass | `docs/deployment.md`, `docs/releases/1.0.0.md` blockers table |

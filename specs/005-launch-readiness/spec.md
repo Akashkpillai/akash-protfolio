@@ -27,6 +27,30 @@
   domain-dependent values from one setting filled in later; the release stays blocked until
   it is set. Deployment and rollback instructions stay host-neutral until a host is chosen.
 
+## Resumed (2026-10-26)
+
+Paused for features 006 (Systems Lab redesign, 0.4.0) and 007 (Probe, Ask the lab, motion,
+messages, entrance, 0.5.0), both accepted by the owner on 2026-10-26 ("everything is
+approved"). Work continues on branch `feat/005-launch-readiness` from `main` at `b5687cb`.
+
+- **Design**: requirements are unchanged, but every UI, accessibility, and performance result
+  recorded before the pause describes the old Journal design and is stale. The browser suite of
+  record is now `specs/007-lab-companion-motion/verification/run-browser-checks.mjs`, which
+  carries forward 005's checks (every page, 404s, responsive and zoom screenshots, focus walk,
+  reduced motion, JavaScript disabled, axe and computed contrast, links and actions) plus the
+  006/007 checks. 005's own browser script is retired (it expects the removed Journal layout);
+  its metadata, served-output, and evidence-ID scripts remain in force.
+- **Motion added since the pause** (Probe, ambient background, entrance) is in scope for the
+  reduced-motion, accessibility, and performance checks; FR-005 applies to it.
+- **Release-blocker status**: feature 004 acceptance — resolved 2026-10-26; sharing card and
+  icon — resolved 2026-10-26 (redrawn in 006, accepted with 006). Still open: production
+  address (FR-012); LinkedIn manual confirmation (FR-008); owner review of the Resume Analyzer
+  and Notification Platform evidence records (FR-007; register still says "pending").
+- **Demo (FR-009)**: running the Resume Analyzer flow creates an account on the owner's live
+  service and spends its AI quota, so it needs the owner's approval; without it, 1.0.0 ships with
+  no demo action (allowed, not a blocker).
+- **Version (FR-019)**: 1.0.0 follows 0.5.0; the 1.0.0 changelog entry describes only 005 work.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Visitors get a complete, working site on every device (Priority: P1)

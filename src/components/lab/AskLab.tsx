@@ -52,6 +52,10 @@ export function AskLab({ topics }: { topics: readonly LabTopic[] }) {
   const [typing, setTyping] = useState(false);
   const [question, setQuestion] = useState("");
   const [hint, setHint] = useState("");
+  // Four starter questions; the rest on request (feature 008 FR-021).
+  const [moreOpen, setMoreOpen] = useState(false);
+  const initialTopics = topics.filter((topic) => topic.initial);
+  const moreTopics = topics.filter((topic) => !topic.initial);
 
   useEffect(() => {
     function open(event: Event) {
@@ -159,11 +163,29 @@ export function AskLab({ topics }: { topics: readonly LabTopic[] }) {
       </div>
 
       <div className="ask-lab-suggestions" role="group" aria-label="Suggested questions">
-        {topics.map((topic) => (
+        {initialTopics.map((topic) => (
           <button key={topic.id} type="button" onClick={() => void ask(topic.label)} disabled={typing}>
             {topic.label}
           </button>
         ))}
+        {moreTopics.length > 0 && (
+          <button
+            className="ask-lab-more"
+            type="button"
+            aria-expanded={moreOpen}
+            aria-controls="ask-lab-more"
+            onClick={() => setMoreOpen((open) => !open)}
+          >
+            {moreOpen ? "Fewer questions" : "More questions"}
+          </button>
+        )}
+        <div className="ask-lab-more-list" id="ask-lab-more" hidden={!moreOpen}>
+          {moreTopics.map((topic) => (
+            <button key={topic.id} type="button" onClick={() => void ask(topic.label)} disabled={typing}>
+              {topic.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <form className="ask-lab-form" onSubmit={submit}>

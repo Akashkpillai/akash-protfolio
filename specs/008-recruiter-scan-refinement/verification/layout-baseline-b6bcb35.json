@@ -1,0 +1,32 @@
+{
+  "baseURL": "http://127.0.0.1:3101",
+  "rows": [
+    {
+      "width": 390,
+      "heroHeight": 1832,
+      "workTop": 1905,
+      "nameVisible": true,
+      "introVisible": true,
+      "actionsVisible": true,
+      "mapVisible": false
+    },
+    {
+      "width": 768,
+      "heroHeight": 1241,
+      "workTop": 1314,
+      "nameVisible": true,
+      "introVisible": true,
+      "actionsVisible": true,
+      "mapVisible": true
+    },
+    {
+      "width": 1440,
+      "heroHeight": 904,
+      "workTop": 977,
+      "nameVisible": true,
+      "introVisible": true,
+      "actionsVisible": true,
+      "mapVisible": true
+    }
+  ]
+}

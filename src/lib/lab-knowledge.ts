@@ -30,6 +30,8 @@ export type LabTopic = {
   keywords: readonly string[];
   paragraphs: readonly LabParagraph[];
   links: readonly LabLink[];
+  // Shown before "More questions" in Ask the lab (feature 008 FR-021); exactly four topics.
+  initial?: boolean;
 };
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -75,6 +77,7 @@ export function labTopics(): LabTopic[] {
     },
     {
       id: "projects",
+      initial: true,
       label: "What has he built?",
       strong: ["projects", "built"],
       keywords: ["project", "build", "portfolio", "case", "study", "studies", "showcase", "made"],
@@ -83,6 +86,7 @@ export function labTopics(): LabTopic[] {
     },
     {
       id: "experience",
+      initial: true,
       label: "Where has he worked?",
       strong: ["experience", "worked"],
       keywords: ["job", "jobs", "work", "history", "company", "companies", "role", "career", "years"],
@@ -98,6 +102,7 @@ export function labTopics(): LabTopic[] {
     },
     {
       id: "skills",
+      initial: true,
       label: "What's his stack?",
       strong: ["stack", "skills"],
       keywords: ["skill", "tech", "technology", "technologies", "tool", "tools", "framework", "language", "database", "know", "nestjs", "node", "typescript", "postgresql", "postgres", "ai", "llm"],
@@ -120,6 +125,7 @@ export function labTopics(): LabTopic[] {
     },
     {
       id: "contact",
+      initial: true,
       label: "How can I contact him?",
       strong: ["contact", "email"],
       keywords: ["hire", "reach", "linkedin", "github", "resume", "cv", "message", "talk", "call", "connect", "available", "touch"],

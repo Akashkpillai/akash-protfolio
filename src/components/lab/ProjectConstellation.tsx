@@ -40,6 +40,7 @@ export function ProjectConstellation({ projects }: { projects: readonly LabProje
   const hydrated = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
   const [selectedSlug, setSelectedSlug] = useState(projects[0]?.slug);
   const [traceIndex, setTraceIndex] = useState<number | null>(null);
+  const [architectureOpen, setArchitectureOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [selections, setSelections] = useState(0);
   const [packetTo, setPacketTo] = useState<{ x: number; y: number } | null>(null);
@@ -195,6 +196,7 @@ export function ProjectConstellation({ projects }: { projects: readonly LabProje
   function trace() {
     const next = traceIndex === null || traceIndex >= steps.length - 1 ? 0 : traceIndex + 1;
     setTraceIndex(next);
+    setArchitectureOpen(true);
     window.dispatchEvent(new CustomEvent("lab:focus", { detail: { selector: `#lab-step-${next}`, placement: "left" } }));
     setMessage(`Step ${next + 1} of ${steps.length}: ${steps[next].label}.`);
   }
@@ -209,7 +211,7 @@ export function ProjectConstellation({ projects }: { projects: readonly LabProje
           Project systems
         </h2>
         <p className="lab-map-hint">
-          Select a project to see how its system works.
+          Select a project for a summary; open its architecture for the full flow.
         </p>
         <div className="lab-orbit" ref={orbitRef}>
           <svg className="lab-orbit-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -291,73 +293,90 @@ export function ProjectConstellation({ projects }: { projects: readonly LabProje
         </div>
       </section>
 
+      {/* Selected-project summary (feature 008 FR-003): the flow sits behind a native disclosure,
+          so it stays usable without scripts; its open state survives a change of project. */}
       <section
         className={`lab-panel lab-accent-${selected.accent}`}
         id="architecture-panel"
         aria-labelledby="lab-panel-title"
       >
-        <p className="lab-panel-label">
-          <span className="lab-dot" aria-hidden="true" />
-          Explanatory diagram from the reviewed source — not live system data
-        </p>
         {/* Animates only after a visitor's selection (message set), never on page load. */}
         <div className={`lab-panel-body${message ? " lab-panel-enter" : ""}`} key={selected.slug}>
+          <p className="lab-panel-kicker">Selected project</p>
           <h3 id="lab-panel-title">{selected.name}</h3>
           <p className="lab-panel-summary">{selected.summary}</p>
-          {steps.length > 0 && (
-            <ol className={`lab-flow${traceIndex === null ? "" : " lab-flow-tracing"}`}>
-              {steps.map((step, index) => {
-                const state =
-                  traceIndex === null ? "" : index === traceIndex ? " lab-step-current" : index < traceIndex ? " lab-step-done" : "";
-                return (
-                  <li
-                    className={`lab-step${state}`}
-                    id={`lab-step-${index}`}
-                    style={{ "--i": index } as CSSProperties}
-                    key={step.id}
-                    aria-current={index === traceIndex ? "step" : undefined}
-                  >
-                    <span className="lab-step-index" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="lab-step-text">
+          <details
+            className="lab-architecture"
+            open={architectureOpen}
+            onToggle={(event) => setArchitectureOpen(event.currentTarget.open)}
+          >
+            <summary>
+              Explore architecture
+              {steps.length > 0 && (
+                <span className="lab-architecture-count">
+                  {steps.length} {steps.length === 1 ? "step" : "steps"}
+                </span>
+              )}
+            </summary>
+            <p className="lab-panel-label">
+              <span className="lab-dot" aria-hidden="true" />
+              Explanatory diagram from the reviewed source — not live system data
+            </p>
+            {steps.length > 0 && (
+              <ol className={`lab-flow${traceIndex === null ? "" : " lab-flow-tracing"}`}>
+                {steps.map((step, index) => {
+                  const state =
+                    traceIndex === null ? "" : index === traceIndex ? " lab-step-current" : index < traceIndex ? " lab-step-done" : "";
+                  return (
+                    <li
+                      className={`lab-step${state}`}
+                      id={`lab-step-${index}`}
+                      style={{ "--i": index } as CSSProperties}
+                      key={step.id}
+                      aria-current={index === traceIndex ? "step" : undefined}
+                    >
+                      <span className="lab-step-index" aria-hidden="true">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="lab-step-text">
+                        <p className="lab-step-label">
+                          {step.label} <ClaimStatus status={step.status} />
+                        </p>
+                        <p className="lab-step-detail">{step.detail}</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+            {branch && (
+              <div className="lab-branch">
+                <p className="lab-branch-label">
+                  {branch.label} <span>(from step {branchFrom})</span>
+                </p>
+                <ul>
+                  {branch.steps.map((step) => (
+                    <li key={step.id}>
                       <p className="lab-step-label">
                         {step.label} <ClaimStatus status={step.status} />
                       </p>
                       <p className="lab-step-detail">{step.detail}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          )}
-          {branch && (
-            <div className="lab-branch">
-              <p className="lab-branch-label">
-                {branch.label} <span>(from step {branchFrom})</span>
-              </p>
-              <ul>
-                {branch.steps.map((step) => (
-                  <li key={step.id}>
-                    <p className="lab-step-label">
-                      {step.label} <ClaimStatus status={step.status} />
-                    </p>
-                    <p className="lab-step-detail">{step.detail}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="lab-panel-actions">
-            {hydrated && steps.length > 0 && (
-              <button className="lab-button lab-button-ghost" type="button" onClick={trace}>
-                {traceLabel}
-              </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
-            <Link className="lab-panel-link" href={`/work/${selected.slug}`}>
-              Open case study <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+            {hydrated && steps.length > 0 && (
+              <div className="lab-panel-actions">
+                <button className="lab-button lab-button-ghost" type="button" onClick={trace}>
+                  {traceLabel}
+                </button>
+              </div>
+            )}
+          </details>
+          <Link className="lab-panel-link" href={`/work/${selected.slug}`}>
+            Open case study<span className="visually-hidden">: {selected.name}</span> <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
       <p className="visually-hidden" aria-live="polite">

@@ -1,0 +1,3598 @@
+{
+  "date": "2026-10-26T08:54:24.485Z",
+  "baseURL": "http://127.0.0.1:3102",
+  "checks": {
+    "responsive": {
+      "status": "PASS",
+      "method": "zoom200 is emulated by viewport, not the browser zoom setting",
+      "cases": [
+        {
+          "viewport": "390",
+          "path": "/",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/changelog",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/hrms-backend",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/meridian-assistant",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/notification-platform",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/resume-analyzer",
+          "status": 200,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/user-management-api",
+          "status": 404,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/work/meridian",
+          "status": 404,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "390",
+          "path": "/nope",
+          "status": 404,
+          "innerWidth": 390,
+          "scrollWidth": 390,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/changelog",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/hrms-backend",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/meridian-assistant",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/notification-platform",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/resume-analyzer",
+          "status": 200,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/user-management-api",
+          "status": 404,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/work/meridian",
+          "status": 404,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "768",
+          "path": "/nope",
+          "status": 404,
+          "innerWidth": 768,
+          "scrollWidth": 768,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/changelog",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/hrms-backend",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/meridian-assistant",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/notification-platform",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/resume-analyzer",
+          "status": 200,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/user-management-api",
+          "status": 404,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/work/meridian",
+          "status": 404,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "1440",
+          "path": "/nope",
+          "status": 404,
+          "innerWidth": 1440,
+          "scrollWidth": 1440,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/changelog",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/hrms-backend",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/meridian-assistant",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/notification-platform",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/resume-analyzer",
+          "status": 200,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/user-management-api",
+          "status": 404,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/work/meridian",
+          "status": 404,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        },
+        {
+          "viewport": "zoom200",
+          "path": "/nope",
+          "status": 404,
+          "innerWidth": 720,
+          "scrollWidth": 720,
+          "overflow": false,
+          "clipped": [],
+          "pass": true
+        }
+      ]
+    },
+    "notFound": {
+      "status": "PASS",
+      "cases": [
+        {
+          "path": "/work/user-management-api",
+          "status": 404,
+          "title": "Page not found | Akash K Pillai",
+          "h1": "This page isn’t here",
+          "links": [
+            "/work",
+            "/"
+          ],
+          "pass": true
+        },
+        {
+          "path": "/work/meridian",
+          "status": 404,
+          "title": "Page not found | Akash K Pillai",
+          "h1": "This page isn’t here",
+          "links": [
+            "/work",
+            "/"
+          ],
+          "pass": true
+        },
+        {
+          "path": "/nope",
+          "status": 404,
+          "title": "Page not found | Akash K Pillai",
+          "h1": "This page isn’t here",
+          "links": [
+            "/work",
+            "/"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    "noJavaScript": {
+      "status": "PASS",
+      "cases": [
+        {
+          "path": "/",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 12113,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [
+            "/work/hrms-backend",
+            "/work/meridian-assistant",
+            "/work/notification-platform",
+            "/work/resume-analyzer"
+          ],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 4,
+          "staticSteps": 20,
+          "panelSteps": 5,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 4441,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/changelog",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 2277,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/hrms-backend",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 6708,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [
+            "Problem",
+            "My contribution",
+            "Implementation",
+            "Architecture",
+            "Decisions",
+            "Tradeoffs",
+            "Limitations"
+          ],
+          "diagramItems": 10,
+          "selectButtons": 0,
+          "limitations": 4,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/meridian-assistant",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 6709,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [
+            "Problem",
+            "My contribution",
+            "Implementation",
+            "Architecture",
+            "Decisions",
+            "Tradeoffs",
+            "Limitations"
+          ],
+          "diagramItems": 8,
+          "selectButtons": 0,
+          "limitations": 6,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/notification-platform",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 6040,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [
+            "Problem",
+            "My contribution",
+            "Implementation",
+            "Architecture",
+            "Decisions",
+            "Tradeoffs",
+            "Limitations"
+          ],
+          "diagramItems": 8,
+          "selectButtons": 0,
+          "limitations": 5,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/resume-analyzer",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 5428,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [
+            "Problem",
+            "My contribution",
+            "Implementation",
+            "Architecture",
+            "Decisions",
+            "Tradeoffs",
+            "Limitations"
+          ],
+          "diagramItems": 6,
+          "selectButtons": 0,
+          "limitations": 6,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/user-management-api",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 190,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/work/meridian",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 190,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        },
+        {
+          "path": "/nope",
+          "h1": 1,
+          "navLinks": 5,
+          "mainText": 190,
+          "footer": "Version 1.0.0",
+          "nodeLinks": [],
+          "nodeButtons": 0,
+          "traceButtons": 0,
+          "staticProjects": 0,
+          "staticSteps": 0,
+          "panelSteps": 0,
+          "sections": [],
+          "diagramItems": 0,
+          "selectButtons": 0,
+          "limitations": 0,
+          "hiddenSections": 0,
+          "pass": true
+        }
+      ]
+    },
+    "focusWalk": {
+      "status": "PASS",
+      "method": "Tab key from page load; order compared with DOM order of visible focusable elements",
+      "cases": [
+        {
+          "width": 1440,
+          "path": "/",
+          "focusable": 58,
+          "reached": 58,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work",
+          "focusable": 18,
+          "reached": 18,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/changelog",
+          "focusable": 10,
+          "reached": 10,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/hrms-backend",
+          "focusable": 21,
+          "reached": 21,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/meridian-assistant",
+          "focusable": 21,
+          "reached": 21,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/notification-platform",
+          "focusable": 30,
+          "reached": 30,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/resume-analyzer",
+          "focusable": 22,
+          "reached": 22,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/user-management-api",
+          "focusable": 12,
+          "reached": 12,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/meridian",
+          "focusable": 12,
+          "reached": 12,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/nope",
+          "focusable": 12,
+          "reached": 12,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/",
+          "focusable": 54,
+          "reached": 54,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work",
+          "focusable": 14,
+          "reached": 14,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/changelog",
+          "focusable": 6,
+          "reached": 6,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/hrms-backend",
+          "focusable": 17,
+          "reached": 17,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/meridian-assistant",
+          "focusable": 17,
+          "reached": 17,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/notification-platform",
+          "focusable": 26,
+          "reached": 26,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/resume-analyzer",
+          "focusable": 18,
+          "reached": 18,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 9.38,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/user-management-api",
+          "focusable": 8,
+          "reached": 8,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/meridian",
+          "focusable": 8,
+          "reached": 8,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/nope",
+          "focusable": 8,
+          "reached": 8,
+          "inOrder": true,
+          "reachedAll": true,
+          "positiveTabindex": 0,
+          "minRatio": 10.13,
+          "problems": [],
+          "pass": true
+        }
+      ]
+    },
+    "reducedMotionAll": {
+      "status": "PASS",
+      "cases": [
+        {
+          "path": "/",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/changelog",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/hrms-backend",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/meridian-assistant",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/notification-platform",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/resume-analyzer",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/user-management-api",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/work/meridian",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        },
+        {
+          "path": "/nope",
+          "matches": true,
+          "scrollBehavior": "auto",
+          "moving": [],
+          "pass": true
+        }
+      ]
+    },
+    "accessibility": {
+      "status": "PASS",
+      "tags": [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "wcag22aa"
+      ],
+      "note": "Automated checks only; \"incomplete\" and unresolved-effect items need manual review. Not a conformance claim.",
+      "cases": [
+        {
+          "width": 1440,
+          "path": "/",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 101,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 32,
+          "textElements": 335,
+          "minTextRatio": 5.62,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 54,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 147,
+          "minTextRatio": 5.7,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/changelog",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 21,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 23,
+          "textElements": 52,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/hrms-backend",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 28,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 143,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/meridian-assistant",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 26,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 131,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/notification-platform",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 29,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 151,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/resume-analyzer",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 24,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 127,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/user-management-api",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 12,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 23,
+          "textElements": 18,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/work/meridian",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 12,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 23,
+          "textElements": 18,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "path": "/nope",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 12,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".desktop-nav > ul > li:nth-child(1) > a[href$=\"/#work\"]",
+                ".desktop-nav > ul > li:nth-child(2) > a[href$=\"/#experience\"]",
+                ".desktop-nav > ul > li:nth-child(3) > a[href$=\"/#about\"]"
+              ]
+            }
+          ],
+          "axePasses": 23,
+          "textElements": 18,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 61,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".lab-kicker",
+                ".intro-letter:nth-child(1)",
+                ".intro-letter:nth-child(2)"
+              ]
+            }
+          ],
+          "axePasses": 31,
+          "textElements": 335,
+          "minTextRatio": 5.62,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 12,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".eyebrow",
+                "h1",
+                ".work-index-intro"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 148,
+          "minTextRatio": 5.7,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/changelog",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 17,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".eyebrow",
+                "h1",
+                ".changelog-intro"
+              ]
+            }
+          ],
+          "axePasses": 24,
+          "textElements": 53,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/hrms-backend",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 11,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".case-header > .eyebrow",
+                "h1",
+                ".case-summary"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 133,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/meridian-assistant",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 11,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".case-header > .eyebrow",
+                "h1",
+                ".case-summary"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 123,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/notification-platform",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 11,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".case-header > .eyebrow",
+                "h1",
+                ".case-summary"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 140,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/resume-analyzer",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 11,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".case-header > .eyebrow",
+                "h1",
+                ".case-summary"
+              ]
+            }
+          ],
+          "axePasses": 26,
+          "textElements": 121,
+          "minTextRatio": 5.52,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/user-management-api",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 7,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".eyebrow",
+                "h1",
+                ".not-found > p:nth-child(3)"
+              ]
+            }
+          ],
+          "axePasses": 24,
+          "textElements": 19,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/work/meridian",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 7,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".eyebrow",
+                "h1",
+                ".not-found > p:nth-child(3)"
+              ]
+            }
+          ],
+          "axePasses": 24,
+          "textElements": 19,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "path": "/nope",
+          "axeViolations": [],
+          "axeIncomplete": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "nodes": 7,
+              "targets": [
+                ".brand-name",
+                ".brand-note",
+                ".eyebrow",
+                "h1",
+                ".not-found > p:nth-child(3)"
+              ]
+            }
+          ],
+          "axePasses": 24,
+          "textElements": 19,
+          "minTextRatio": 6.15,
+          "contrastFailures": [],
+          "contrastUnresolved": [],
+          "pass": true
+        }
+      ]
+    },
+    "links": {
+      "status": "PASS",
+      "unconfirmed": [
+        "https://www.linkedin.com/in/akash-k-pillai/"
+      ],
+      "cases": [
+        {
+          "href": "http://127.0.0.1:3102/#main-content",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#work",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#experience",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#about",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#contact",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#work",
+          "from": "/",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work#main-content",
+          "from": "/work",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/changelog#main-content",
+          "from": "/changelog",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#main-content",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#problem",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#contribution",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#implementation",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#architecture",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#decisions",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#tradeoffs",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend#limitations",
+          "from": "/work/hrms-backend",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#main-content",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#problem",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#contribution",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#implementation",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#architecture",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#decisions",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#tradeoffs",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant#limitations",
+          "from": "/work/meridian-assistant",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#main-content",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#problem",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#contribution",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#implementation",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#architecture",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#decisions",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#tradeoffs",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform#limitations",
+          "from": "/work/notification-platform",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#main-content",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#problem",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#contribution",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#implementation",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#architecture",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#decisions",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#tradeoffs",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer#limitations",
+          "from": "/work/resume-analyzer",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/user-management-api#main-content",
+          "from": "/work/user-management-api",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian#main-content",
+          "from": "/work/meridian",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/nope#main-content",
+          "from": "/nope",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/",
+          "from": 13,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/resume/Akash_K_Pillai_Resume.pdf",
+          "from": 12,
+          "status": 200,
+          "type": "application/pdf",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/hrms-backend",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/meridian-assistant",
+          "from": 19,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/notification-platform",
+          "from": 12,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work/resume-analyzer",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/work",
+          "from": 8,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "mailto:akashkpillai55@gmail.com",
+          "from": [
+            "/"
+          ],
+          "method": "value",
+          "pass": true
+        },
+        {
+          "href": "https://www.linkedin.com/in/akash-k-pillai/",
+          "from": 1,
+          "status": 999,
+          "unconfirmed": true,
+          "pass": true
+        },
+        {
+          "href": "https://github.com/Akashkpillai",
+          "from": 1,
+          "status": 200,
+          "unconfirmed": false,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/changelog",
+          "from": 10,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#work",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#experience",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#about",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "http://127.0.0.1:3102/#contact",
+          "from": 9,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "target": true,
+          "pass": true
+        },
+        {
+          "href": "https://github.com/Akashkpillai/notificationservice",
+          "from": 1,
+          "status": 200,
+          "unconfirmed": false,
+          "pass": true
+        },
+        {
+          "href": "https://github.com/Akashkpillai/resume-analyzer",
+          "from": 1,
+          "status": 200,
+          "unconfirmed": false,
+          "pass": true
+        }
+      ],
+      "actions": {
+        "/": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "View selected work ↓",
+            "href": "#work"
+          },
+          {
+            "kind": "link",
+            "text": "Resume PDF",
+            "href": "/resume/Akash_K_Pillai_Resume.pdf"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: HRMS Backend →",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "HRMS Backend — Multi-Tenant HR Platform",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: HRMS Backend — Multi-Tenant HR Platform →",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Meridian Assistant — Discord RAG and Proposal Agent",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Meridian Assistant — Discord RAG and Propos",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Notification Platform — Event-Driven Backend",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Notification Platform — Event-Driven Backen",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Resume Analyzer — AI Document Processing",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Resume Analyzer — AI Document Processing →",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "View all work →",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "NestJS",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "OpenAI API",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Groq API",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "RAG",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "pgvector",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Embeddings",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Vector search",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Tool/function calling",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Custom agent workflows",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Prisma",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Kafka",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Microservices",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Event-driven architecture",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Deterministic evaluations",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Citation validation",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Bounded retries",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Agent step limits",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Docker Compose",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Nodemailer",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Twilio",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "akashkpillai55@gmail.com",
+            "href": "mailto:akashkpillai55@gmail.com"
+          },
+          {
+            "kind": "link",
+            "text": "LinkedIn ↗",
+            "href": "https://www.linkedin.com/in/akash-k-pillai/"
+          },
+          {
+            "kind": "link",
+            "text": "GitHub ↗",
+            "href": "https://github.com/Akashkpillai"
+          },
+          {
+            "kind": "link",
+            "text": "Download résumé (PDF)",
+            "href": "/resume/Akash_K_Pillai_Resume.pdf"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          },
+          {
+            "kind": "button",
+            "text": "HRMS Backend"
+          },
+          {
+            "kind": "button",
+            "text": "Meridian Assistant"
+          },
+          {
+            "kind": "button",
+            "text": "Notification Platform"
+          },
+          {
+            "kind": "button",
+            "text": "Resume Analyzer"
+          },
+          {
+            "kind": "button",
+            "text": "Trace flow"
+          },
+          {
+            "kind": "button",
+            "text": "Copy email"
+          },
+          {
+            "kind": "button",
+            "text": "Compose email →"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "HRMS Backend — Multi-Tenant HR Platform",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: HRMS Backend — Multi-Tenant HR Platform →",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Meridian Assistant — Discord RAG and Proposal Agent",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Meridian Assistant — Discord RAG and Propos",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Notification Platform — Event-Driven Backend",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Notification Platform — Event-Driven Backen",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Resume Analyzer — AI Document Processing",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Open case study: Resume Analyzer — AI Document Processing →",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/changelog": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/hrms-backend": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Problem",
+            "href": "#problem"
+          },
+          {
+            "kind": "link",
+            "text": "My contribution",
+            "href": "#contribution"
+          },
+          {
+            "kind": "link",
+            "text": "Implementation",
+            "href": "#implementation"
+          },
+          {
+            "kind": "link",
+            "text": "Architecture",
+            "href": "#architecture"
+          },
+          {
+            "kind": "link",
+            "text": "Decisions",
+            "href": "#decisions"
+          },
+          {
+            "kind": "link",
+            "text": "Tradeoffs",
+            "href": "#tradeoffs"
+          },
+          {
+            "kind": "link",
+            "text": "Limitations",
+            "href": "#limitations"
+          },
+          {
+            "kind": "link",
+            "text": "← All work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "Meridian Assistant — Discord RAG and Proposal Agent",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Notification Platform — Event-Driven Backend",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Resume Analyzer — AI Document Processing",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/meridian-assistant": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Problem",
+            "href": "#problem"
+          },
+          {
+            "kind": "link",
+            "text": "My contribution",
+            "href": "#contribution"
+          },
+          {
+            "kind": "link",
+            "text": "Implementation",
+            "href": "#implementation"
+          },
+          {
+            "kind": "link",
+            "text": "Architecture",
+            "href": "#architecture"
+          },
+          {
+            "kind": "link",
+            "text": "Decisions",
+            "href": "#decisions"
+          },
+          {
+            "kind": "link",
+            "text": "Tradeoffs",
+            "href": "#tradeoffs"
+          },
+          {
+            "kind": "link",
+            "text": "Limitations",
+            "href": "#limitations"
+          },
+          {
+            "kind": "link",
+            "text": "← All work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "HRMS Backend — Multi-Tenant HR Platform",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Notification Platform — Event-Driven Backend",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Resume Analyzer — AI Document Processing",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/notification-platform": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Source: notificationservice on GitHub",
+            "href": "https://github.com/Akashkpillai/notificationservice"
+          },
+          {
+            "kind": "link",
+            "text": "Problem",
+            "href": "#problem"
+          },
+          {
+            "kind": "link",
+            "text": "My contribution",
+            "href": "#contribution"
+          },
+          {
+            "kind": "link",
+            "text": "Implementation",
+            "href": "#implementation"
+          },
+          {
+            "kind": "link",
+            "text": "Architecture",
+            "href": "#architecture"
+          },
+          {
+            "kind": "link",
+            "text": "Decisions",
+            "href": "#decisions"
+          },
+          {
+            "kind": "link",
+            "text": "Tradeoffs",
+            "href": "#tradeoffs"
+          },
+          {
+            "kind": "link",
+            "text": "Limitations",
+            "href": "#limitations"
+          },
+          {
+            "kind": "link",
+            "text": "← All work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "HRMS Backend — Multi-Tenant HR Platform",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Meridian Assistant — Discord RAG and Proposal Agent",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Resume Analyzer — AI Document Processing",
+            "href": "/work/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/resume-analyzer": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Source: resume-analyzer on GitHub",
+            "href": "https://github.com/Akashkpillai/resume-analyzer"
+          },
+          {
+            "kind": "link",
+            "text": "Problem",
+            "href": "#problem"
+          },
+          {
+            "kind": "link",
+            "text": "My contribution",
+            "href": "#contribution"
+          },
+          {
+            "kind": "link",
+            "text": "Implementation",
+            "href": "#implementation"
+          },
+          {
+            "kind": "link",
+            "text": "Architecture",
+            "href": "#architecture"
+          },
+          {
+            "kind": "link",
+            "text": "Decisions",
+            "href": "#decisions"
+          },
+          {
+            "kind": "link",
+            "text": "Tradeoffs",
+            "href": "#tradeoffs"
+          },
+          {
+            "kind": "link",
+            "text": "Limitations",
+            "href": "#limitations"
+          },
+          {
+            "kind": "link",
+            "text": "← All work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "HRMS Backend — Multi-Tenant HR Platform",
+            "href": "/work/hrms-backend"
+          },
+          {
+            "kind": "link",
+            "text": "Meridian Assistant — Discord RAG and Proposal Agent",
+            "href": "/work/meridian-assistant"
+          },
+          {
+            "kind": "link",
+            "text": "Notification Platform — Event-Driven Backend",
+            "href": "/work/notification-platform"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/user-management-api": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "See all work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "Go to the homepage",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/work/meridian": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "See all work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "Go to the homepage",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ],
+        "/nope": [
+          {
+            "kind": "link",
+            "text": "Skip to content",
+            "href": "#main-content"
+          },
+          {
+            "kind": "link",
+            "text": "Akash/Systems Lab",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "See all work",
+            "href": "/work"
+          },
+          {
+            "kind": "link",
+            "text": "Go to the homepage",
+            "href": "/"
+          },
+          {
+            "kind": "link",
+            "text": "Version 1.0.0",
+            "href": "/changelog"
+          },
+          {
+            "kind": "button",
+            "text": "Pause motion"
+          },
+          {
+            "kind": "button",
+            "text": "Ask the lab"
+          }
+        ]
+      }
+    },
+    "diagramSelection": {
+      "status": "PASS",
+      "buttons": 8,
+      "steps": [
+        {
+          "index": 0,
+          "pressed": [
+            "true",
+            "false",
+            "false",
+            "false",
+            "false",
+            "false",
+            "false",
+            "false"
+          ],
+          "live": "Selected: API gateway. Authenticates and rate-limits POST /notifications, adds an event ID, and publishes to notification.requested.",
+          "selectedItem": true,
+          "pass": true
+        },
+        {
+          "index": 5,
+          "pressed": [
+            "false",
+            "false",
+            "false",
+            "false",
+            "false",
+            "true",
+            "false",
+            "false"
+          ],
+          "live": "Selected: Push worker. Placeholder only: returns “Hello World!” and does not consume the push topic.",
+          "selectedItem": true,
+          "pass": true
+        }
+      ]
+    },
+    "mobileNav": {
+      "status": "PASS",
+      "opened": true,
+      "items": [
+        "Work",
+        "Experience",
+        "About",
+        "Contact",
+        "Resume"
+      ],
+      "resume": "/resume/Akash_K_Pillai_Resume.pdf",
+      "escape": {
+        "open": false,
+        "focusOnSummary": true
+      }
+    },
+    "constellation": {
+      "status": "PASS",
+      "count": 4,
+      "selections": [
+        {
+          "name": "HRMS Backend",
+          "method": "click",
+          "pressed": [
+            "true",
+            "false",
+            "false",
+            "false"
+          ],
+          "heading": "HRMS Backend",
+          "link": "/work/hrms-backend",
+          "live": "Showing HRMS Backend: 5 steps.",
+          "focused": "HRMS Backend",
+          "scrollY": 0,
+          "steps": 5,
+          "pass": true
+        },
+        {
+          "name": "Meridian Assistant",
+          "method": "Enter",
+          "pressed": [
+            "false",
+            "true",
+            "false",
+            "false"
+          ],
+          "heading": "Meridian Assistant",
+          "link": "/work/meridian-assistant",
+          "live": "Showing Meridian Assistant: 4 steps.",
+          "focused": "Meridian Assistant",
+          "scrollY": 0,
+          "steps": 4,
+          "pass": true
+        },
+        {
+          "name": "Notification Platform",
+          "method": "Space",
+          "pressed": [
+            "false",
+            "false",
+            "true",
+            "false"
+          ],
+          "heading": "Notification Platform",
+          "link": "/work/notification-platform",
+          "live": "Showing Notification Platform: 5 steps.",
+          "focused": "Notification Platform",
+          "scrollY": 0,
+          "steps": 5,
+          "pass": true
+        },
+        {
+          "name": "Resume Analyzer",
+          "method": "click",
+          "pressed": [
+            "false",
+            "false",
+            "false",
+            "true"
+          ],
+          "heading": "Resume Analyzer",
+          "link": "/work/resume-analyzer",
+          "live": "Showing Resume Analyzer: 6 steps.",
+          "focused": "Resume Analyzer",
+          "scrollY": 0,
+          "steps": 6,
+          "pass": true
+        }
+      ],
+      "disclosure": {
+        "closedAtFirst": true,
+        "openedByKeyboard": true,
+        "keptOpen": true
+      },
+      "traceStates": [
+        {
+          "label": "Trace flow",
+          "current": 0,
+          "live": "Step 1 of 6: PDF upload."
+        },
+        {
+          "label": "Next step",
+          "current": 1,
+          "live": "Step 2 of 6: Text extraction."
+        },
+        {
+          "label": "Next step",
+          "current": 2,
+          "live": "Step 3 of 6: Cleanup."
+        },
+        {
+          "label": "Next step",
+          "current": 3,
+          "live": "Step 4 of 6: AI parsing."
+        },
+        {
+          "label": "Next step",
+          "current": 4,
+          "live": "Step 5 of 6: Structured record."
+        },
+        {
+          "label": "Next step",
+          "current": 5,
+          "live": "Step 6 of 6: Search and filters."
+        },
+        {
+          "label": "Restart trace",
+          "current": 0,
+          "live": "Step 1 of 6: PDF upload."
+        }
+      ],
+      "tap": {
+        "name": "Notification Platform",
+        "pressed": [
+          "false",
+          "false",
+          "true",
+          "false"
+        ],
+        "heading": "Notification Platform",
+        "pass": true
+      }
+    },
+    "mobileMap": {
+      "status": "PASS",
+      "twoColumns": true,
+      "sized": true,
+      "inside": true,
+      "panelAfter": true,
+      "collapsed": true,
+      "nodes": [
+        {
+          "top": 536.484375,
+          "bottom": 580.484375,
+          "left": 20,
+          "right": 191,
+          "width": 171,
+          "height": 44
+        },
+        {
+          "top": 536.484375,
+          "bottom": 590.046875,
+          "left": 199,
+          "right": 370,
+          "width": 171,
+          "height": 53.5625
+        },
+        {
+          "top": 598.046875,
+          "bottom": 651.609375,
+          "left": 20,
+          "right": 191,
+          "width": 171,
+          "height": 53.5625
+        },
+        {
+          "top": 598.046875,
+          "bottom": 651.609375,
+          "left": 199,
+          "right": 370,
+          "width": 171,
+          "height": 53.5625
+        }
+      ],
+      "panel": {
+        "top": 675.609375,
+        "bottom": 966.671875,
+        "left": 20,
+        "right": 370,
+        "width": 350,
+        "height": 291.0625
+      },
+      "flowOpen": false,
+      "actions": [
+        {
+          "top": 14,
+          "bottom": 58,
+          "left": 287.296875,
+          "right": 370,
+          "width": 82.703125,
+          "height": 44
+        },
+        {
+          "top": 309.96875,
+          "bottom": 357.96875,
+          "left": 20,
+          "right": 217.15625,
+          "width": 197.15625,
+          "height": 48
+        },
+        {
+          "top": 309.96875,
+          "bottom": 357.96875,
+          "left": 233.15625,
+          "right": 360.71875,
+          "width": 127.5625,
+          "height": 48
+        }
+      ],
+      "viewport": 390
+    },
+    "firstScreen": {
+      "status": "PASS",
+      "items": [
+        {
+          "text": "Backend & AI Developer",
+          "top": 183,
+          "bottom": 205,
+          "visible": true
+        },
+        {
+          "text": "Akash K Pillai",
+          "top": 221,
+          "bottom": 290,
+          "visible": true
+        },
+        {
+          "text": "I build backend systems with N",
+          "top": 310,
+          "bottom": 375,
+          "visible": true
+        },
+        {
+          "text": "View selected work ↓",
+          "top": 403,
+          "bottom": 451,
+          "visible": true
+        },
+        {
+          "text": "Resume PDF",
+          "top": 403,
+          "bottom": 451,
+          "visible": true
+        },
+        {
+          "text": "Ask the lab",
+          "top": 403,
+          "bottom": 451,
+          "visible": true
+        },
+        {
+          "text": "HRMS Backend",
+          "top": 243,
+          "bottom": 310,
+          "visible": true
+        },
+        {
+          "text": "Meridian Assistant",
+          "top": 335,
+          "bottom": 410,
+          "visible": true
+        },
+        {
+          "text": "Notification Platform",
+          "top": 417,
+          "bottom": 503,
+          "visible": true
+        },
+        {
+          "text": "Resume Analyzer",
+          "top": 327,
+          "bottom": 402,
+          "visible": true
+        }
+      ]
+    },
+    "navFromEveryRoute": {
+      "status": "PASS",
+      "checked": 30,
+      "failures": []
+    },
+    "caseStudyNav": {
+      "status": "PASS",
+      "cases": [
+        {
+          "width": 1440,
+          "exists": 1,
+          "position": "sticky",
+          "inView": true,
+          "current": [
+            {
+              "id": "limitations",
+              "current": "#limitations"
+            },
+            {
+              "id": "implementation",
+              "current": "#implementation"
+            }
+          ],
+          "pass": true
+        },
+        {
+          "width": 390,
+          "exists": 1,
+          "position": "static",
+          "inView": false,
+          "current": [
+            {
+              "id": "limitations",
+              "current": "#limitations"
+            },
+            {
+              "id": "implementation",
+              "current": "#implementation"
+            }
+          ],
+          "pass": true
+        }
+      ]
+    },
+    "reveal": {
+      "status": "PASS",
+      "reducedOpacities": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "before": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "after": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1"
+      ],
+      "note": "before: sections waiting below the fold may be < 1; after scrolling, Limitations must be 1"
+    },
+    "profile": {
+      "status": "PASS",
+      "copyStatus": "Email copied",
+      "clipboard": "akashkpillai55@gmail.com",
+      "resumeLinks": [
+        "/resume/Akash_K_Pillai_Resume.pdf",
+        "/resume/Akash_K_Pillai_Resume.pdf",
+        "/resume/Akash_K_Pillai_Resume.pdf",
+        "/resume/Akash_K_Pillai_Resume.pdf"
+      ],
+      "pdfStatus": 200,
+      "pkgVersion": "1.0.0",
+      "footers": [
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0",
+        "Version 1.0.0"
+      ],
+      "newest": "Version 1.0.0 2026-10-26"
+    },
+    "probe": {
+      "status": "PASS",
+      "checks": {
+        "hasEyeParts": true,
+        "blinksWhenIdle": true,
+        "startsDocked": true,
+        "stillWhileTracing": true,
+        "calmTravelSpeed": true,
+        "squashedOnLanding": true,
+        "nameIsAskTheLab": true,
+        "perchedAtNode": true,
+        "besideTracedStep": true,
+        "dragFollows": true,
+        "dragDidNotOpenDialog": true,
+        "returnsAfterDrag": true,
+        "clickOpensDialog": true,
+        "focusReturns": true,
+        "dockedOnTouch": true,
+        "dockedWithReducedMotion": true,
+        "noBlinkWithReducedMotion": true
+      },
+      "parts": {
+        "eye": true,
+        "lids": true,
+        "haloSpinning": true,
+        "floating": true
+      },
+      "duringTrace": {
+        "samples": 200,
+        "moves": 0
+      },
+      "idleBlinks": 1,
+      "reducedBlinks": 0,
+      "maxSpeed": 460,
+      "nodeGap": 0.07179308089483052,
+      "traceDy": 0.328125,
+      "initial": {
+        "mode": "docked",
+        "x": 1364,
+        "y": 824,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "afterSelect": {
+        "mode": "perched",
+        "x": 945,
+        "y": 357,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "afterTrace": {
+        "mode": "perched",
+        "x": 677,
+        "y": 412,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "dragging": {
+        "mode": "dragged",
+        "x": 837,
+        "y": 502,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "afterDrag": {
+        "mode": "perched",
+        "x": 677,
+        "y": 413,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "touchState": {
+        "mode": "docked",
+        "x": 314,
+        "y": 768,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "reducedState": {
+        "mode": "docked",
+        "x": 1364,
+        "y": 824,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      }
+    },
+    "intro": {
+      "status": "PASS",
+      "checks": {
+        "setBeforePaint": true,
+        "navUsableDuringIntro": true,
+        "textNeverTransparent": true,
+        "probeLargeAtCentre": true,
+        "endsInTime": true,
+        "probeLeavesCentre": true,
+        "nameUnchanged": true,
+        "oncePerSession": true,
+        "notWithReducedMotion": true,
+        "notWithSavedPause": true,
+        "homepageOnly": true,
+        "pauseEndsAtOnce": true
+      },
+      "removedAt": 2902,
+      "during": {
+        "cx": 720,
+        "cy": 450,
+        "width": 114.4000244140625,
+        "minLetterOpacity": 0.725421
+      },
+      "after": {
+        "mode": "travelling",
+        "x": 1363,
+        "y": 823,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the lab",
+        "dialogOpen": false
+      },
+      "h1": "Akash K Pillai",
+      "variants": {
+        "reducedMotion": null,
+        "savedPause": null,
+        "caseStudyFirst": null
+      },
+      "pausedMid": {
+        "intro": null,
+        "probe": null
+      }
+    },
+    "askLab": {
+      "status": "PASS",
+      "checks": {
+        "openedByKeyboard": true,
+        "fourInitialSuggestions": true,
+        "moreQuestionsDisclosure": true,
+        "everySuggestionAnswered": true,
+        "linksPublished": true,
+        "noDraft": true,
+        "typedKafkaToNotification": true,
+        "fallback": true,
+        "typedHireToContact": true,
+        "emptyHint": true,
+        "keepsLatest20": true,
+        "axeOpenDialog": true,
+        "closesAndReturnsFocus": true
+      },
+      "initialSuggestions": [
+        "What has he built?",
+        "Where has he worked?",
+        "What's his stack?",
+        "How can I contact him?"
+      ],
+      "suggestions": 10,
+      "entries": 20,
+      "axe": [],
+      "typed": [
+        {
+          "q": "What did he build with Kafka?",
+          "links": [
+            "/work/notification-platform",
+            "https://github.com/Akashkpillai/notificationservice"
+          ]
+        },
+        {
+          "q": "what is the weather today",
+          "links": [
+            "/work"
+          ]
+        },
+        {
+          "q": "How do I hire him?",
+          "links": [
+            "/#message",
+            "mailto:akashkpillai55@gmail.com",
+            "https://www.linkedin.com/in/akash-k-pillai/",
+            "https://github.com/Akashkpillai",
+            "/resume/Akash_K_Pillai_Resume.pdf"
+          ]
+        }
+      ]
+    },
+    "motionPause": {
+      "status": "PASS",
+      "before": {
+        "running": 11,
+        "progress": "block"
+      },
+      "paused": {
+        "pressed": "true",
+        "motion": "paused",
+        "probe": "docked",
+        "progress": "none"
+      },
+      "pausedRunning": 0,
+      "pausedNames": [],
+      "reloaded": {
+        "motion": "paused",
+        "running": 0,
+        "pressed": "true"
+      },
+      "resumed": 42
+    },
+    "messageForm": {
+      "status": "PASS",
+      "checks": {
+        "emptyErrors": true,
+        "emptyFocusName": true,
+        "summary": true,
+        "badEmailOnly": true,
+        "exactMailto": true,
+        "confirmation": true,
+        "copied": true,
+        "nothingTransmitted": true
+      },
+      "empty": {
+        "errors": [
+          "message-name-error",
+          "message-email-error",
+          "message-message-error"
+        ],
+        "invalid": [
+          "message-name",
+          "message-email",
+          "message-message"
+        ],
+        "focused": "message-name",
+        "summary": "3 fields need attention."
+      },
+      "badEmail": {
+        "errors": [
+          "message-email-error"
+        ],
+        "focused": "message-email"
+      },
+      "mailto": "mailto:akashkpillai55@gmail.com?subject=%5BPortfolio%5D%20Project%20%E2%80%94%20Ada%20Example&body=Hello%20Akash%2C%20I%27d%20like%20to%20talk%20about%20a%20backend%20role.%0A%0A%E2%80%94%20Ada%20Example%0AReply%20to%3A%20ada%40example.com",
+      "requests": []
+    },
+    "orbit": {
+      "status": "PASS",
+      "cases": {
+        "768": {
+          "revolves": true,
+          "holdsUnderPointer": true,
+          "inside": true,
+          "nearerIsLarger": true
+        },
+        "1440": {
+          "revolves": true,
+          "holdsUnderPointer": true,
+          "inside": true,
+          "nearerIsLarger": true
+        }
+      },
+      "reducedMovement": 0,
+      "pausedMovement": 0
+    },
+    "cardText": {
+      "status": "PASS",
+      "cards": 8,
+      "mismatches": [],
+      "teamAttribution": true
+    },
+    "contactSection": {
+      "status": "PASS",
+      "contactCount": 1,
+      "messageCount": 1,
+      "messageInside": true,
+      "heading": "Get in touch",
+      "formHeading": "Send a message",
+      "note": "Compose email opens your own email app with the message ready to send. This site doesn't store or send anything.",
+      "email": true,
+      "copy": true,
+      "linkedin": true,
+      "github": true,
+      "resume": true,
+      "form": true,
+      "compose": "Compose email →",
+      "otherMessageSection": false
+    },
+    "workPosition": {
+      "status": "PASS",
+      "before": 1905,
+      "after": 1000,
+      "saved": 905
+    },
+    "probeWander": {
+      "status": "PASS",
+      "checks": {
+        "oneOrTwoTrips": true,
+        "tripsAreWandering": true,
+        "longRests": true,
+        "slowTravel": true,
+        "landsInsideViewport": true,
+        "landsClearOfTextAndControls": true,
+        "noTripsWhileTyping": true,
+        "noTripsOrFramesWhenHidden": true,
+        "dockedAndStillWhenPaused": true
+      },
+      "trips": [
+        {
+          "start": 12720,
+          "end": 17665,
+          "maxSpeed": 208,
+          "wander": true,
+          "inside": true,
+          "over": null,
+          "mode": "perched",
+          "wanderAtRest": true,
+          "at": {
+            "x": 623,
+            "y": 433
+          }
+        },
+        {
+          "start": 38579,
+          "end": 40811,
+          "maxSpeed": 204,
+          "wander": true,
+          "inside": true,
+          "over": null,
+          "mode": "perched",
+          "wanderAtRest": true,
+          "at": {
+            "x": 810,
+            "y": 177
+          }
+        }
+      ],
+      "rests": [
+        20914
+      ],
+      "typing": {
+        "trips": [],
+        "unfinished": false
+      },
+      "hiddenMoves": {
+        "samples": 200,
+        "moves": 0
+      },
+      "rafDuring": 0,
+      "pausedMoves": {
+        "samples": 200,
+        "moves": 0
+      },
+      "pausedState": {
+        "mode": "docked",
+        "x": 1364,
+        "y": 824,
+        "width": 52,
+        "height": 52,
+        "name": "zzzAsk the lab",
+        "dialogOpen": false
+      }
+    },
+    "cardTilt": {
+      "status": "PASS",
+      "checks": {
+        "tiltsUnderMouse": true,
+        "atMostTwoDegrees": true,
+        "noScaling": true,
+        "gentleReturn": true,
+        "keyboardFocusDoesNotTilt": true,
+        "pauseStopsMidTilt": true,
+        "flatOnTouch": true,
+        "flatWithReducedMotion": true
+      },
+      "maxAngle": 1.92,
+      "states": [
+        {
+          "tilting": true,
+          "x": 1.76,
+          "y": -1.92,
+          "transform": "matrix3d(0.999439, -0.00102901, 0.0334882, -2.09302e-05, 0, 0.999528, 0.030713, -1.91956e-05, -0.0335041, -0.0306957, 0.998967, -0.000624354, 0, 0, 0, 1)",
+          "scaleFree": true,
+          "glow": true
+        },
+        {
+          "tilting": true,
+          "x": 1.73,
+          "y": 1.92,
+          "transform": "matrix3d(0.999439, 0.00101147, -0.0334888, 2.09305e-05, 0, 0.999544, 0.0301896, -1.88685e-05, 0.0335041, -0.0301727, 0.998983, -0.000624364, 0, 0, 0, 1)",
+          "scaleFree": true,
+          "glow": true
+        },
+        {
+          "tilting": false,
+          "x": 0,
+          "y": 0,
+          "transform": "matrix3d(1, 1.00296e-07, -0.000377299, 2.65505e-09, 0, 1, 0.000265826, -1.87061e-09, 0.000377299, -0.000265826, 1, -7.03699e-06, 0, 0, 0, 1)",
+          "scaleFree": true,
+          "glow": false
+        },
+        {
+          "tilting": false,
+          "x": 0,
+          "y": 0,
+          "transform": "none",
+          "scaleFree": true,
+          "glow": false
+        },
+        {
+          "tilting": true,
+          "x": -0.07,
+          "y": 0,
+          "transform": "matrix3d(1, 0, 0, 0, 0, 0.999999, -0.00122173, 7.63581e-07, 0, 0.00122173, 0.999999, -0.000625, 0, 0, 0, 1)",
+          "scaleFree": true,
+          "glow": true
+        }
+      ],
+      "returning": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "matrix3d(0.999969, 5.95415e-05, -0.00789063, 1.39355e-06, 0, 0.999972, 0.00754564, -1.33262e-06, 0.00789085, -0.0075454, 0.99994, -0.000176598, 0, 0, 0, 1)",
+        "scaleFree": true,
+        "glow": true
+      },
+      "afterLeave": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": false
+      },
+      "focused": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": true
+      },
+      "beforePause": {
+        "tilting": true,
+        "x": 1.53,
+        "y": 1.8,
+        "transform": "matrix3d(0.999507, 0.000838679, -0.0313996, 1.96247e-05, 0, 0.999643, 0.0267004, -1.66877e-05, 0.0314108, -0.0266872, 0.99915, -0.000624469, 0, 0, 0, 1)",
+        "scaleFree": true,
+        "glow": true
+      },
+      "pausedMidTilt": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": false
+      },
+      "pausedMove": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": false
+      },
+      "touchState": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": true
+      },
+      "reducedState": {
+        "tilting": false,
+        "x": 0,
+        "y": 0,
+        "transform": "none",
+        "scaleFree": true,
+        "glow": true
+      }
+    }
+  },
+  "errors": [],
+  "lastRun": {
+    "date": "2026-10-26T08:54:24.485Z",
+    "checks": []
+  },
+  "browser": "156.0.8078.47",
+  "tools": {
+    "playwright-core": "1.64.1",
+    "axe-core": "4.14.0"
+  }
+}

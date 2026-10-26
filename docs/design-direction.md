@@ -30,11 +30,18 @@ assumed from the palette.
 
 - Navigation: brand "AKASH / SYSTEMS LAB"; Work, Experience, About, Contact, and Resume when
   the approved PDF exists. Accessible disclosure menu on narrow screens.
-- Hero (three parts on wide screens): introduction (name, role, headline "Backend systems.
-  Practical AI. Thoughtfully built.", honest intro, "Explore systems", "Resume"); a map of
-  published projects around an "AK" node; an architecture panel for the selected project.
-- A "current focus" strip of the owner's statements — never presented as monitoring data.
-- Work as system previews; experience, skills, about, and contact follow.
+- Hero (two columns on wide screens since feature 008): role, name, one plain sentence on
+  what Akash builds, "View selected work" and "Resume PDF" (primary) and "Ask the lab"
+  (secondary); beside it the map of published projects around an "AK" node, above a compact
+  selected-project summary whose flow opens from "Explore architecture" (collapsed on load).
+  The headline "Backend systems. Practical AI. Thoughtfully built." remains the site's default
+  description, not hero text.
+- The owner's "current focus" statements sit in About — never presented as monitoring data.
+- Work as "Built to solve real problems": each card leads with the problem, what the project
+  does, and "My contribution" (existing records, verbatim); HRMS and Meridian featured,
+  Notification Platform and Resume Analyzer compact; evidence line and explanatory preview
+  kept. Experience, skills, about, and one contact section (links and the message form)
+  follow.
 - Case studies: a sticky system summary that marks the section being read; sections may
   reveal gently.
 
@@ -84,14 +91,33 @@ equivalent, and essential text is present without JavaScript.
   splash screen, or skip button: everything is usable from the first frame; text never starts
   fully transparent; reduced motion, the pause, and no-JavaScript skip it.
 
+### Calmer motion (feature 008, 2026-10-26)
+
+- The Probe wanders only occasionally (Revision 1, owner request): after a long rest (first
+  trip 12–16 s after it settles, then 18–30 s) it drifts at no more than 200 px/s to a free spot
+  beside a visible heading or project-card title, never over text, links, or controls. It does not
+  wander while the visitor types, while Ask the lab is open, while it is dragged, while a selection
+  or traced step holds its attention (and 15 s after), while it dozes, or in a hidden tab; never on
+  touch, with reduced motion, or with motion paused. It still follows selections and traces, shows
+  each section's tip once per visit (only for sections the visitor scrolls to), can be dragged,
+  blinks, and opens Ask the lab.
+- Project cards tilt subtly under a mouse (Revision 1): at most ±2°, deep perspective, quick
+  follow and a gentle settle; no scaling or spotlight; never on touch, with reduced motion, with
+  motion paused, or from keyboard focus.
+- Removed: the card spotlight, the entrance scan line, three of the six grid signals, and the
+  varied reveal styles (one gentle rise remains). Kept: orbit, glows, pointer spotlight, scroll
+  progress, timeline draw, packet, flow-step stagger, typing indicator, the entrance, and the
+  pause control.
+
 Borrowed from delin.dev as techniques only; its robot, terminal, windows, cursor, and palette
 remain excluded.
 
 ## Responsive behaviour
 
-Desktop: three-part hero. Tablet: two columns with the panel below the map. Phone: single
-column, projects as large selectable cards, panel below, no horizontal scrolling, targets at
-least 44 px. Verified at 390, 768, 1440 px and 200% zoom.
+Desktop: two-column hero (introduction; map above the summary). Tablet: introduction across
+the top, then map beside summary. Phone: single column, projects as four compact selectors in
+two columns, summary below with the flow collapsed, no horizontal scrolling, targets at least
+44 px. Verified at 390, 768, 1440 px (feature 008; 200% zoom last checked in features 005/007).
 
 ## Explicit differentiation
 

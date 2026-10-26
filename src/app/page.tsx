@@ -3,7 +3,6 @@ import { SystemsLab } from "@/components/layout/SystemsLab";
 import { AboutSection } from "@/components/profile/AboutSection";
 import { ContactSection } from "@/components/profile/ContactSection";
 import { ExperienceSection } from "@/components/profile/ExperienceSection";
-import { MessageSection } from "@/components/profile/MessageSection";
 import { SkillsSection } from "@/components/profile/SkillsSection";
 import { SelectedWork } from "@/components/work/SelectedWork";
 import { profile } from "@/content/profile";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <ExperienceSection />
       <SkillsSection />
       <AboutSection />
-      <MessageSection />
       <ContactSection />
     </main>
   );

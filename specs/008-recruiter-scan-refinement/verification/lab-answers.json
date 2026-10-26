@@ -1,0 +1,571 @@
+[
+  {
+    "question": "What has he built?",
+    "paragraphs": [
+      {
+        "label": "HRMS Backend",
+        "text": "A multi-tenant HR management backend where I built most of the HR modules: leave, attendance, onboarding, documents, scheduling, and more.",
+        "items": []
+      },
+      {
+        "label": "Meridian Assistant",
+        "text": "A Discord assistant that answers from a brand-scoped document library with sources, and drafts proposal estimates that render only after an explicit stored approval.",
+        "items": []
+      },
+      {
+        "label": "Notification Platform",
+        "text": "A NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.",
+        "items": []
+      },
+      {
+        "label": "Resume Analyzer",
+        "text": "A full-stack app that turns uploaded PDF résumés into structured, searchable records, with a basic fallback when AI parsing fails.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "All work",
+        "href": "/work"
+      },
+      {
+        "label": "HRMS Backend",
+        "href": "/work/hrms-backend"
+      },
+      {
+        "label": "Meridian Assistant",
+        "href": "/work/meridian-assistant"
+      },
+      {
+        "label": "Notification Platform",
+        "href": "/work/notification-platform"
+      },
+      {
+        "label": "Resume Analyzer",
+        "href": "/work/resume-analyzer"
+      }
+    ],
+    "text": "The lab answered: HRMS BackendA multi-tenant HR management backend where I built most of the HR modules: leave, attendance, onboarding, documents, scheduling, and more.Meridian AssistantA Discord assistant that answers from a brand-scoped document library with sources, and drafts proposal estimates that render only after an explicit stored approval.Notification PlatformA NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.Resume AnalyzerA full-stack app that turns uploaded PDF résumés into structured, searchable records, with a basic fallback when AI parsing fails.All workHRMS BackendMeridian AssistantNotification PlatformResume Analyzer"
+  },
+  {
+    "question": "Where has he worked?",
+    "paragraphs": [
+      {
+        "label": "Software Developer",
+        "note": "Jul 2026 – Present",
+        "items": [
+          "Built most of the HR modules in an HR management backend developed by a small team, using NestJS and PostgreSQL.",
+          "Implemented notification services and Nodemailer email delivery, and created Swagger API documentation for frontend integration.",
+          "Ran project demonstrations, resolved frontend integration issues, and guided new developers through the codebase and API workflows.",
+          "Built an OpenAI-powered HR assistant for employee information, date-specific leave enquiries, and upcoming holidays."
+        ]
+      },
+      {
+        "label": "Backend Developer",
+        "note": "Mar 2023 – Jul 2026",
+        "items": [
+          "Built and maintained REST APIs and backend services with Node.js, Express.js, NestJS, and Sails.js for production web applications.",
+          "Led backend development with NestJS, Prisma, and PostgreSQL, including schema design, database integration, and API architecture.",
+          "Optimized API performance and database queries, tested services with Postman and Jest, and resolved critical production bugs.",
+          "Mentored 2 junior developers on backend practices, code quality, and Git workflows."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Companies and dates in Experience",
+        "href": "/#experience"
+      }
+    ],
+    "text": "The lab answered: Software Developer · Jul 2026 – PresentBuilt most of the HR modules in an HR management backend developed by a small team, using NestJS and PostgreSQL.Implemented notification services and Nodemailer email delivery, and created Swagger API documentation for frontend integration.Ran project demonstrations, resolved frontend integration issues, and guided new developers through the codebase and API workflows.Built an OpenAI-powered HR assistant for employee information, date-specific leave enquiries, and upcoming holidays.Backend Developer · Mar 2023 – Jul 2026Built and maintained REST APIs and backend services with Node.js, Express.js, NestJS, and Sails.js for production web applications.Led backend development with NestJS, Prisma, and PostgreSQL, including schema design, database integration, and API architecture.Optimized API performance and database queries, tested services with Postman and Jest, and resolved critical production bugs.Mentored 2 junior developers on backend practices, code quality, and Git workflows.Companies and dates in Experience"
+  },
+  {
+    "question": "What's his stack?",
+    "paragraphs": [
+      {
+        "label": "Languages & Backend",
+        "items": [
+          "JavaScript",
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "Express.js",
+          "Sails.js",
+          "REST APIs"
+        ]
+      },
+      {
+        "label": "AI & Retrieval",
+        "items": [
+          "OpenAI API",
+          "Groq API",
+          "RAG",
+          "pgvector",
+          "Embeddings",
+          "Vector search",
+          "Tool/function calling",
+          "Conversational assistants",
+          "Custom agent workflows"
+        ]
+      },
+      {
+        "label": "Databases & Architecture",
+        "items": [
+          "PostgreSQL",
+          "MongoDB",
+          "Prisma",
+          "Mongoose",
+          "Redis",
+          "Kafka",
+          "Microservices",
+          "Event-driven architecture"
+        ]
+      },
+      {
+        "label": "Quality & Security",
+        "items": [
+          "Jest",
+          "API testing",
+          "JWT",
+          "bcrypt",
+          "RBAC",
+          "Deterministic evaluations",
+          "Citation validation",
+          "Bounded retries",
+          "Agent step limits",
+          "Token/cost tracking"
+        ]
+      },
+      {
+        "label": "Tools & Integrations",
+        "items": [
+          "Git",
+          "GitHub",
+          "Docker",
+          "Docker Compose",
+          "Swagger/OpenAPI",
+          "Postman",
+          "Jira",
+          "Nodemailer",
+          "EJS",
+          "Razorpay",
+          "PayPal",
+          "Stripe",
+          "Twilio",
+          "TMDB",
+          "YouTube API"
+        ]
+      },
+      {
+        "label": "Frontend",
+        "items": [
+          "React.js",
+          "HTML",
+          "CSS",
+          "Tailwind CSS",
+          "Material UI"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Skills",
+        "href": "/#skills"
+      }
+    ],
+    "text": "The lab answered: Languages & BackendJavaScriptTypeScriptNode.jsNestJSExpress.jsSails.jsREST APIsAI & RetrievalOpenAI APIGroq APIRAGpgvectorEmbeddingsVector searchTool/function callingConversational assistantsCustom agent workflowsDatabases & ArchitecturePostgreSQLMongoDBPrismaMongooseRedisKafkaMicroservicesEvent-driven architectureQuality & SecurityJestAPI testingJWTbcryptRBACDeterministic evaluationsCitation validationBounded retriesAgent step limitsToken/cost trackingTools & IntegrationsGitGitHubDockerDocker ComposeSwagger/OpenAPIPostmanJiraNodemailerEJSRazorpayPayPalStripeTwilioTMDBYouTube APIFrontendReact.jsHTMLCSSTailwind CSSMaterial UISkills"
+  },
+  {
+    "question": "How can I contact him?",
+    "paragraphs": [
+      {
+        "label": "Email",
+        "text": "akashkpillai55@gmail.com",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Send a message",
+        "href": "/#message"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:akashkpillai55@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/akash-k-pillai/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Akashkpillai"
+      },
+      {
+        "label": "Download résumé (PDF)",
+        "href": "/resume/Akash_K_Pillai_Resume.pdf"
+      }
+    ],
+    "text": "The lab answered: Emailakashkpillai55@gmail.comSend a messageEmailLinkedInGitHubDownload résumé (PDF)"
+  },
+  {
+    "question": "Who is Akash?",
+    "paragraphs": [
+      {
+        "text": "I studied physics, completing a B.Sc. at NSS College, Kerala University, in 2021, and have worked as a backend developer since March 2023.",
+        "items": []
+      },
+      {
+        "text": "My work is building REST APIs and backend services with Node.js, NestJS, and PostgreSQL, and more recently AI features: LLM integration, retrieval with vector search, and tool calling.",
+        "items": []
+      },
+      {
+        "label": "Location",
+        "text": "Kerala, India",
+        "items": []
+      },
+      {
+        "label": "Languages",
+        "items": [
+          "English",
+          "Hindi",
+          "Malayalam"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "About",
+        "href": "/#about"
+      }
+    ],
+    "text": "The lab answered: I studied physics, completing a B.Sc. at NSS College, Kerala University, in 2021, and have worked as a backend developer since March 2023.My work is building REST APIs and backend services with Node.js, NestJS, and PostgreSQL, and more recently AI features: LLM integration, retrieval with vector search, and tool calling.LocationKerala, IndiaLanguagesEnglishHindiMalayalamAbout"
+  },
+  {
+    "question": "What's unfinished?",
+    "paragraphs": [
+      {
+        "label": "Meridian Assistant",
+        "status": "Unfinished",
+        "items": [
+          "A CRM webhook and resuming an unfinished proposal in a new session were not implemented."
+        ]
+      },
+      {
+        "label": "Notification Platform",
+        "status": "Unfinished",
+        "items": [
+          "Push delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.",
+          "Retry and dead-letter events are published, but no service consumes them yet, so failed notifications are not re-sent.",
+          "A placeholder that does not consume the push topic."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "HRMS Backend",
+        "href": "/work/hrms-backend#limitations"
+      },
+      {
+        "label": "Meridian Assistant",
+        "href": "/work/meridian-assistant#limitations"
+      },
+      {
+        "label": "Notification Platform",
+        "href": "/work/notification-platform#limitations"
+      },
+      {
+        "label": "Resume Analyzer",
+        "href": "/work/resume-analyzer#limitations"
+      }
+    ],
+    "text": "The lab answered: Meridian Assistant UnfinishedA CRM webhook and resuming an unfinished proposal in a new session were not implemented.Notification Platform UnfinishedPush delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.Retry and dead-letter events are published, but no service consumes them yet, so failed notifications are not re-sent.A placeholder that does not consume the push topic.HRMS BackendMeridian AssistantNotification PlatformResume Analyzer"
+  },
+  {
+    "question": "Tell me about HRMS Backend",
+    "paragraphs": [
+      {
+        "text": "A multi-tenant HR management backend where I built most of the HR modules: leave, attendance, onboarding, documents, scheduling, and more.",
+        "items": []
+      },
+      {
+        "label": "My contribution",
+        "text": "I built most of the HR modules — leave, attendance, onboarding, documents, scheduling and more — in a multi-tenant backend developed by a small team.",
+        "items": []
+      },
+      {
+        "label": "How it works",
+        "items": [
+          "Tenant-scoped data",
+          "HR module",
+          "Approval workflow",
+          "Audit and storage",
+          "Email notification"
+        ]
+      },
+      {
+        "label": "Stack",
+        "items": [
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "TypeORM",
+          "JWT",
+          "AWS S3",
+          "Nodemailer",
+          "Jest"
+        ]
+      },
+      {
+        "label": "A limitation",
+        "text": "This was built by a small team; authentication, tenancy, the workflow engine, billing, and the platform modules are my teammates' work.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Open the case study",
+        "href": "/work/hrms-backend"
+      }
+    ],
+    "text": "The lab answered: A multi-tenant HR management backend where I built most of the HR modules: leave, attendance, onboarding, documents, scheduling, and more.My contributionI built most of the HR modules — leave, attendance, onboarding, documents, scheduling and more — in a multi-tenant backend developed by a small team.How it worksTenant-scoped dataHR moduleApproval workflowAudit and storageEmail notificationStackNestJSTypeScriptPostgreSQLTypeORMJWTAWS S3NodemailerJestA limitationThis was built by a small team; authentication, tenancy, the workflow engine, billing, and the platform modules are my teammates' work.Open the case study"
+  },
+  {
+    "question": "Tell me about Meridian Assistant",
+    "paragraphs": [
+      {
+        "text": "A Discord assistant that answers from a brand-scoped document library with sources, and drafts proposal estimates that render only after an explicit stored approval.",
+        "items": []
+      },
+      {
+        "label": "My contribution",
+        "text": "I designed and built the whole project myself, using AI-assisted tools (Cursor and Spec Kit) to draft and revise code and tests, which I reviewed.",
+        "items": []
+      },
+      {
+        "label": "How it works",
+        "items": [
+          "Discord command",
+          "Actor check",
+          "Brand-filtered retrieval",
+          "Source-backed answer"
+        ]
+      },
+      {
+        "label": "Stack",
+        "items": [
+          "TypeScript",
+          "Node.js",
+          "Discord.js",
+          "PostgreSQL",
+          "pgvector",
+          "OpenAI API",
+          "Docker Compose"
+        ]
+      },
+      {
+        "label": "A limitation",
+        "text": "The evaluation suite uses a scripted model and stand-in embeddings, so it does not measure live answer quality or real retrieval ranking.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Open the case study",
+        "href": "/work/meridian-assistant"
+      }
+    ],
+    "text": "The lab answered: A Discord assistant that answers from a brand-scoped document library with sources, and drafts proposal estimates that render only after an explicit stored approval.My contributionI designed and built the whole project myself, using AI-assisted tools (Cursor and Spec Kit) to draft and revise code and tests, which I reviewed.How it worksDiscord commandActor checkBrand-filtered retrievalSource-backed answerStackTypeScriptNode.jsDiscord.jsPostgreSQLpgvectorOpenAI APIDocker ComposeA limitationThe evaluation suite uses a scripted model and stand-in embeddings, so it does not measure live answer quality or real retrieval ranking.Open the case study"
+  },
+  {
+    "question": "Tell me about Notification Platform",
+    "paragraphs": [
+      {
+        "text": "A NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.",
+        "items": []
+      },
+      {
+        "label": "My contribution",
+        "text": "I designed and built the whole system myself: the gateway, the router, the channel workers, the shared library, and the database schema.",
+        "items": []
+      },
+      {
+        "label": "How it works",
+        "items": [
+          "API gateway",
+          "Kafka topics",
+          "Router",
+          "Email and SMS workers",
+          "Status in PostgreSQL"
+        ]
+      },
+      {
+        "label": "Stack",
+        "items": [
+          "NestJS",
+          "Apache Kafka",
+          "PostgreSQL",
+          "Prisma",
+          "Nodemailer",
+          "Twilio"
+        ]
+      },
+      {
+        "label": "A limitation",
+        "status": "Unfinished",
+        "text": "Push delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Open the case study",
+        "href": "/work/notification-platform"
+      },
+      {
+        "label": "Source: notificationservice on GitHub",
+        "href": "https://github.com/Akashkpillai/notificationservice"
+      }
+    ],
+    "text": "The lab answered: A NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.My contributionI designed and built the whole system myself: the gateway, the router, the channel workers, the shared library, and the database schema.How it worksAPI gatewayKafka topicsRouterEmail and SMS workersStatus in PostgreSQLStackNestJSApache KafkaPostgreSQLPrismaNodemailerTwilioA limitation UnfinishedPush delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.Open the case studySource: notificationservice on GitHub"
+  },
+  {
+    "question": "Tell me about Resume Analyzer",
+    "paragraphs": [
+      {
+        "text": "A full-stack app that turns uploaded PDF résumés into structured, searchable records, with a basic fallback when AI parsing fails.",
+        "items": []
+      },
+      {
+        "label": "My contribution",
+        "text": "I designed and built the whole project myself: the NestJS API, the Prisma data model, the parsing pipeline, and the React dashboard.",
+        "items": []
+      },
+      {
+        "label": "How it works",
+        "items": [
+          "PDF upload",
+          "Text extraction",
+          "Cleanup",
+          "AI parsing",
+          "Structured record",
+          "Search and filters"
+        ]
+      },
+      {
+        "label": "Stack",
+        "items": [
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "Groq API",
+          "pdf-parse",
+          "React",
+          "Vite"
+        ]
+      },
+      {
+        "label": "A limitation",
+        "text": "Only the first 4,000 characters of a résumé are sent to the AI parser, so longer résumés are only partly parsed.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Open the case study",
+        "href": "/work/resume-analyzer"
+      },
+      {
+        "label": "Source: resume-analyzer on GitHub",
+        "href": "https://github.com/Akashkpillai/resume-analyzer"
+      }
+    ],
+    "text": "The lab answered: A full-stack app that turns uploaded PDF résumés into structured, searchable records, with a basic fallback when AI parsing fails.My contributionI designed and built the whole project myself: the NestJS API, the Prisma data model, the parsing pipeline, and the React dashboard.How it worksPDF uploadText extractionCleanupAI parsingStructured recordSearch and filtersStackNestJSTypeScriptPostgreSQLPrismaGroq APIpdf-parseReactViteA limitationOnly the first 4,000 characters of a résumé are sent to the AI parser, so longer résumés are only partly parsed.Open the case studySource: resume-analyzer on GitHub"
+  },
+  {
+    "question": "What did he build with Kafka?",
+    "paragraphs": [
+      {
+        "text": "A NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.",
+        "items": []
+      },
+      {
+        "label": "My contribution",
+        "text": "I designed and built the whole system myself: the gateway, the router, the channel workers, the shared library, and the database schema.",
+        "items": []
+      },
+      {
+        "label": "How it works",
+        "items": [
+          "API gateway",
+          "Kafka topics",
+          "Router",
+          "Email and SMS workers",
+          "Status in PostgreSQL"
+        ]
+      },
+      {
+        "label": "Stack",
+        "items": [
+          "NestJS",
+          "Apache Kafka",
+          "PostgreSQL",
+          "Prisma",
+          "Nodemailer",
+          "Twilio"
+        ]
+      },
+      {
+        "label": "A limitation",
+        "status": "Unfinished",
+        "text": "Push delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Open the case study",
+        "href": "/work/notification-platform"
+      },
+      {
+        "label": "Source: notificationservice on GitHub",
+        "href": "https://github.com/Akashkpillai/notificationservice"
+      }
+    ],
+    "text": "The lab answered: A NestJS microservices backend that accepts notification requests over HTTP and routes them through Kafka to email and SMS workers.My contributionI designed and built the whole system myself: the gateway, the router, the channel workers, the shared library, and the database schema.How it worksAPI gatewayKafka topicsRouterEmail and SMS workersStatus in PostgreSQLStackNestJSApache KafkaPostgreSQLPrismaNodemailerTwilioA limitation UnfinishedPush delivery is unfinished: the push app is a placeholder and nothing consumes the push topic.Open the case studySource: notificationservice on GitHub"
+  },
+  {
+    "question": "How do I hire him?",
+    "paragraphs": [
+      {
+        "label": "Email",
+        "text": "akashkpillai55@gmail.com",
+        "items": []
+      }
+    ],
+    "links": [
+      {
+        "label": "Send a message",
+        "href": "/#message"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:akashkpillai55@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/akash-k-pillai/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Akashkpillai"
+      },
+      {
+        "label": "Download résumé (PDF)",
+        "href": "/resume/Akash_K_Pillai_Resume.pdf"
+      }
+    ],
+    "text": "The lab answered: Emailakashkpillai55@gmail.comSend a messageEmailLinkedInGitHubDownload résumé (PDF)"
+  }
+]

@@ -5,13 +5,14 @@ import { AskLabButton } from "@/components/lab/AskLabButton";
 import { ProjectConstellation, type LabProject } from "@/components/lab/ProjectConstellation";
 import { publishedProjects } from "@/content/projects";
 import { profile } from "@/content/profile";
-import { focusStatements, projectAccents, systemFlows } from "@/content/systems";
+import { projectAccents, systemFlows } from "@/content/systems";
 import { baseAngle, orbitPoint } from "@/lib/orbit";
 import { hasResume, resumeHref } from "@/lib/resume";
 
 // The Systems Lab hero (feature 006), started from the owner's prototype (snapshot in
-// specs/006-systems-lab-redesign/prototype/). Server component: the résumé check and the
-// project records stay on the server; the map receives plain data.
+// specs/006-systems-lab-redesign/prototype/), simplified to two columns in feature 008.
+// Server component: the résumé check and the project records stay on the server; the map
+// receives plain data.
 
 // Planets start evenly spaced on the tilted orbit, the first at the top (far side).
 const labProjects: LabProject[] = publishedProjects.map((project, index) => ({
@@ -49,18 +50,18 @@ export function SystemsLab() {
             {profile.role}
           </p>
           <h1 id="lab-title">{letters(profile.name)}</h1>
-          <p className="lab-headline">{profile.headline}</p>
           <p className="lab-copy">{profile.intro}</p>
+          {/* Two primary actions for a quick scan; Ask the lab is secondary (feature 008 FR-002). */}
           <div className="lab-actions">
-            <a className="lab-button lab-button-primary" href="#project-map">
-              Explore systems <span aria-hidden="true">↓</span>
+            <a className="lab-button lab-button-primary" href="#work">
+              View selected work <span aria-hidden="true">↓</span>
             </a>
             {resume && (
-              <a className="lab-button lab-button-ghost" href={resumeHref} download>
-                Resume <span className="resume-format">(PDF)</span>
+              <a className="lab-button lab-button-ghost lab-button-resume" href={resumeHref} download>
+                Resume PDF
               </a>
             )}
-            <AskLabButton className="lab-button lab-button-ghost lab-button-ask" />
+            <AskLabButton className="lab-button-text lab-button-ask" />
           </div>
         </div>
 
@@ -97,15 +98,6 @@ export function SystemsLab() {
           </ol>
         </div>
       </noscript>
-
-      <aside className="site-shell lab-focus" aria-label="Current focus">
-        <p className="lab-focus-title">Current focus</p>
-        <ul>
-          {focusStatements.map((statement) => (
-            <li key={statement}>{statement}</li>
-          ))}
-        </ul>
-      </aside>
     </section>
   );
 }

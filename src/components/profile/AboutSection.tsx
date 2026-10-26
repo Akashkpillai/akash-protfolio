@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/lab/Reveal";
 import { profile } from "@/content/profile";
+import { focusStatements } from "@/content/systems";
 
 export function AboutSection() {
   return (
@@ -9,7 +10,7 @@ export function AboutSection() {
           <p className="eyebrow" data-probe-tip="From physics to backend systems">05 / About</p>
           <h2 id="about-title">From physics to backend systems</h2>
         </div>
-        <Reveal variant="clip" className="about-body">
+        <Reveal className="about-body">
           {profile.about.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -25,6 +26,15 @@ export function AboutSection() {
               </dd>
             </div>
           </dl>
+          {/* Owner-supplied statements, moved here from the hero in feature 008 (FR-006). */}
+          <div className="about-focus">
+            <p className="about-focus-title">Current focus</p>
+            <ul>
+              {focusStatements.map((statement) => (
+                <li key={statement}>{statement}</li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
     </section>

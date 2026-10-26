@@ -3,20 +3,16 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 
-export type RevealVariant = "up" | "left" | "right" | "scale" | "clip";
-
-// Gentle reveal (features 006 FR-016, 007 FR-016). Content is visible on the server, without
+// Gentle reveal (features 006 FR-016, 007 FR-016; one rise style since feature 008 FR-014). Content is visible on the server, without
 // JavaScript, with reduced motion or motion paused, and above the fold; only an element that
 // starts below the viewport is hidden after hydration and shown as it scrolls into view.
 // Children stay server-rendered: they pass through this client boundary as rendered output.
 export function Reveal({
   children,
-  variant = "up",
   delay = 0,
   className,
 }: {
   children: ReactNode;
-  variant?: RevealVariant;
   delay?: number;
   className?: string;
 }) {
@@ -58,7 +54,6 @@ export function Reveal({
       ref={ref}
       className={className ? `reveal ${className}` : "reveal"}
       data-reveal={shown}
-      data-variant={variant}
       style={delay ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties) : undefined}
     >
       {children}

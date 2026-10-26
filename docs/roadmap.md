@@ -34,6 +34,14 @@ production domain, the LinkedIn manual check, the owner's review of the Resume A
 Notification Platform evidence records, and the release-candidate commit (then the fresh-install
 test). The demo stays absent unless the owner approves the live Resume Analyzer test.
 
+Update 2026-10-26 (night): owner-requested `specs/008-recruiter-scan-refinement` (recruiter-scan
+refinement: two-column hero with an "Explore architecture" disclosure, problem-first project
+cards, calmer motion, one contact section, four-question Ask the lab) implemented on
+`feat/008-recruiter-scan-refinement`, uncommitted, awaiting owner acceptance. It changes no
+version or changelog; the owner chooses whether it ships after `1.0.0` (e.g. `1.1.0`) or with the
+first public release. 005's open items are unchanged; its UI checks are re-run on this design
+before release.
+
 ## Current state and next step (preparation baseline, historical)
 
 - Confirmed root: `C:\Users\HP\Desktop\akash-portfolio`.

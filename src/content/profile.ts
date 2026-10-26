@@ -4,9 +4,9 @@ export const profile = {
   name: "Akash K Pillai",
   role: "Backend & AI Developer",
   headline: "Backend systems. Practical AI. Thoughtfully built.",
-  // From the owner-confirmed About text below (feature 006 FR-004).
+  // Restates the owner-confirmed About text below, about[1] (feature 008 FR-001; feature 004).
   intro:
-    "I build REST APIs and backend services with Node.js, NestJS, and PostgreSQL, and more recently AI features. This lab shows how my projects work, including the parts that are unfinished.",
+    "I build backend systems with Node.js, NestJS, and PostgreSQL, and AI features using retrieval and tool calling.",
   location: "Kerala, India",
   about: [
     "I studied physics, completing a B.Sc. at NSS College, Kerala University, in 2021, and have worked as a backend developer since March 2023.",

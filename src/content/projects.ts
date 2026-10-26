@@ -75,9 +75,13 @@ export type ProjectScreenshot = {
   approvedOn: string;
 };
 
+// Card layout on the homepage and /work (feature 008 FR-010); presentation only.
+export type ProjectLayout = "featured" | "compact";
+
 export type Project = {
   slug: ProjectSlug;
   order: number;
+  layout: ProjectLayout;
   status: "draft" | "published";
   title: string;
   summary: string;
@@ -94,6 +98,7 @@ const projects: readonly Project[] = [
   {
     slug: "hrms-backend",
     order: 1,
+    layout: "featured",
     status: "published", // Owner approved the exact text 2026-10-25 (feature 003 T020).
     title: "HRMS Backend — Multi-Tenant HR Platform",
     summary:
@@ -110,6 +115,7 @@ const projects: readonly Project[] = [
   {
     slug: "meridian-assistant",
     order: 2,
+    layout: "featured",
     status: "published", // Owner approved 2026-10-25 (feature 003 T013).
     title: "Meridian Assistant — Discord RAG and Proposal Agent",
     summary:
@@ -126,6 +132,7 @@ const projects: readonly Project[] = [
   {
     slug: "resume-analyzer",
     order: 4,
+    layout: "compact",
     status: "published",
     title: "Resume Analyzer — AI Document Processing",
     summary:
@@ -142,6 +149,7 @@ const projects: readonly Project[] = [
   {
     slug: "notification-platform",
     order: 3,
+    layout: "compact",
     status: "published",
     title: "Notification Platform — Event-Driven Backend",
     summary:
@@ -158,6 +166,7 @@ const projects: readonly Project[] = [
   {
     slug: "user-management-api",
     order: 5,
+    layout: "compact",
     status: "draft", // Unpublished by the owner 2026-10-25 (feature 003 FR-016).
     title: "User Management API — Roles & Relational Data",
     summary:

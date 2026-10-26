@@ -14,7 +14,7 @@ export function SkillsSection() {
         </p>
         <div className="skill-groups">
           {skillGroups.map((group, index) => (
-            <Reveal variant="scale" delay={(index % 2) * 90} key={group.name}>
+            <Reveal delay={(index % 2) * 90} key={group.name}>
             <section className="skill-group" aria-label={group.name}>
               <h3>{group.name}</h3>
               <ul className="skill-list">

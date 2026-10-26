@@ -3260,70 +3260,105 @@ body {
 }
 
 .probe-stretch {
-  perspective: 140px;
   transform: rotate(var(--heading, 0deg)) scale(var(--stretch, 1), calc(1 / var(--stretch, 1))) rotate(calc(-1 * var(--heading, 0deg)));
 }
 
-.probe-scene {
-  transform-style: preserve-3d;
-}
-
-.probe-sphere {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 28px;
-  height: 28px;
-  margin: -14px 0 0 -14px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at calc(36% + var(--look-x, 0px)) calc(30% + var(--look-y, 0px)),
-    #eafffb 0 7%,
-    #5ee6d9 22%,
-    var(--color-teal) 42%,
-    #12746c 72%,
-    #083c38 100%
-  );
-  box-shadow:
-    inset -5px -6px 10px rgb(0 0 0 / 45%),
-    0 0 16px rgb(47 211 196 / 45%);
-}
-
-.probe-shine {
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  width: 8px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 75%);
-  filter: blur(1px);
-  transform: translate(var(--look-x, 0px), var(--look-y, 0px));
-}
-
-.probe-ring {
+/* Revision 3: a robot eye. Lens housing with a copper bezel; the iris (aperture blades and a
+   pupil) shifts with --look-x/--look-y; shutter lids slide in from above and below to blink. */
+.probe-halo {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 46px;
   height: 46px;
   margin: -23px 0 0 -23px;
-  border: 2px solid rgb(217 194 122 / 75%);
+  border: 1.5px dashed rgb(47 211 196 / 45%);
   border-radius: 50%;
-  transform: rotateX(72deg) rotateY(-14deg);
-  transform-style: preserve-3d;
 }
 
-.probe-moon {
+.probe-eye {
   position: absolute;
-  top: -5px;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #1d2731 0 52%, #0a0e12 100%);
+  box-shadow:
+    0 0 0 2px rgb(217 194 122 / 85%),
+    0 0 0 4px #141a20,
+    0 0 18px rgb(47 211 196 / 40%),
+    inset 0 0 6px rgb(0 0 0 / 80%);
+}
+
+.probe-iris {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 8deg, rgb(4 20 19 / 35%) 0 7deg, transparent 7deg 36deg),
+    radial-gradient(circle, #b6fff7 0 30%, #4fe3d5 46%, var(--color-teal) 64%, #0e5d56 100%);
+  box-shadow: 0 0 10px rgb(47 211 196 / 70%);
+  transform: translate(var(--look-x, 0px), var(--look-y, 0px));
+}
+
+.probe-pupil {
+  position: absolute;
+  top: 50%;
   left: 50%;
   width: 8px;
   height: 8px;
-  margin-left: -4px;
+  margin: -4px 0 0 -4px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ffffff 0 15%, var(--color-sand) 50%, #8a6d2a 100%);
-  transform: rotateX(-72deg);
+  background: #05100f;
+  box-shadow: 0 0 0 1px rgb(182 255 247 / 55%);
+}
+
+.probe-shine {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 7px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 70%);
+  filter: blur(0.5px);
+  transform: rotate(-30deg);
+}
+
+.probe-lid {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background: linear-gradient(#2b3540, #161c23);
+}
+
+.probe-lid-top {
+  top: 0;
+  border-bottom: 1.5px solid rgb(217 194 122 / 70%);
+  transform: translateY(-104%);
+}
+
+.probe-lid-bottom {
+  bottom: 0;
+  border-top: 1.5px solid rgb(217 194 122 / 70%);
+  transform: translateY(104%);
+}
+
+.probe[data-blink] .probe-lid-top,
+.probe[data-blink] .probe-lid-bottom {
+  transform: translateY(0);
+}
+
+.probe[data-mood="celebrate"]:not([data-blink]) .probe-lid-bottom {
+  transform: translateY(55%);
 }
 
 .probe-ping {
@@ -3371,8 +3406,16 @@ body {
   opacity: 0.8;
 }
 
-.probe[data-mood="resting"] .probe-sphere {
+.probe[data-mood="resting"] .probe-iris {
   filter: saturate(0.45) brightness(0.75);
+}
+
+.probe[data-mood="resting"]:not([data-blink]) .probe-lid-top {
+  transform: translateY(-38%);
+}
+
+.probe[data-mood="resting"]:not([data-blink]) .probe-lid-bottom {
+  transform: translateY(72%);
 }
 
 .probe[data-mood="resting"] .probe-float {
@@ -3392,12 +3435,8 @@ body {
     animation: probe-shadow 3.4s ease-in-out infinite;
   }
 
-  :root:not([data-motion="paused"]) .probe-ring {
-    animation: probe-ring-spin 6s linear infinite;
-  }
-
-  :root:not([data-motion="paused"]) .probe-moon {
-    animation: probe-moon-face 6s linear infinite;
+  :root:not([data-motion="paused"]) .probe-halo {
+    animation: probe-halo-spin 14s linear infinite;
   }
 
   :root:not([data-motion="paused"]) .probe-ping {
@@ -3405,8 +3444,7 @@ body {
   }
 
   :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-float,
-  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-ring,
-  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-moon,
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-halo,
   :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-ping {
     animation-play-state: paused;
   }
@@ -3439,8 +3477,12 @@ body {
     animation: probe-spark 900ms ease-out;
   }
 
-  .probe-sphere {
+  .probe-iris {
     transition: filter 400ms ease;
+  }
+
+  .probe-lid {
+    transition: transform 110ms ease-in-out;
   }
 
   .probe-float {
@@ -3484,23 +3526,9 @@ body {
   }
 }
 
-@keyframes probe-ring-spin {
-  from {
-    transform: rotateX(72deg) rotateY(-14deg) rotateZ(0deg);
-  }
-
+@keyframes probe-halo-spin {
   to {
-    transform: rotateX(72deg) rotateY(-14deg) rotateZ(360deg);
-  }
-}
-
-@keyframes probe-moon-face {
-  from {
-    transform: rotateZ(0deg) rotateX(-72deg);
-  }
-
-  to {
-    transform: rotateZ(-360deg) rotateX(-72deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -3643,5 +3671,192 @@ body {
   .lab-core {
     width: 4.6rem;
     height: 4.6rem;
+  }
+}
+
+/* ---- 007 Revision 4: "lab powers on" entrance. Plays only while the head script's
+   data-intro="play" is on <html> (first homepage view per session), with motion allowed and not
+   paused. Nothing is covered or fully transparent: text starts at 15 % opacity; only transform
+   (translate/scale), opacity, filter, and clip-path animate. Everything ends by 2.6 s. ---- */
+
+.ambient-scan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--color-teal) 20%, var(--color-teal) 80%, transparent);
+  box-shadow: 0 0 18px 4px rgb(47 211 196 / 45%);
+  opacity: 0;
+}
+
+.probe[data-intro="closed"] .probe-lid-top,
+.probe[data-intro="closed"] .probe-lid-bottom {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-intro="play"]:not([data-motion="paused"]) .ambient-grid {
+    animation: intro-grid 1s cubic-bezier(0.25, 0.7, 0.2, 1) both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .ambient-scan {
+    animation: intro-scan 1s cubic-bezier(0.25, 0.7, 0.2, 1) both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .intro-letter {
+    animation: intro-letter 650ms ease-out both;
+    animation-delay: calc(200ms + var(--i) * 55ms);
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-kicker,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-headline,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-copy,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-actions,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-map > .lab-label,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-map-hint,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-panel {
+    animation: intro-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-panel {
+    animation-delay: 1.2s;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-kicker {
+    animation-delay: 100ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-map > .lab-label,
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-map-hint {
+    animation-delay: 300ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-headline {
+    animation-delay: 700ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-copy {
+    animation-delay: 850ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-actions {
+    animation-delay: 1s;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-core {
+    animation: intro-core 900ms ease-out 350ms both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-orbit-lines {
+    animation: intro-orbit 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 450ms both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-node {
+    animation: intro-planet 700ms cubic-bezier(0.2, 0.8, 0.25, 1.15) 750ms both;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-node-slot:nth-of-type(2) .lab-node {
+    animation-delay: 870ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-node-slot:nth-of-type(3) .lab-node {
+    animation-delay: 990ms;
+  }
+
+  :root[data-intro="play"]:not([data-motion="paused"]) .lab-node-slot:nth-of-type(4) .lab-node {
+    animation-delay: 1.11s;
+  }
+
+  .probe-body {
+    transition: scale 450ms cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+
+  .probe[data-intro-big] .probe-body {
+    scale: 2.2;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-intro="closed"] .probe-body {
+    animation: intro-probe-in 400ms ease-out both;
+  }
+}
+
+@keyframes intro-grid {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes intro-scan {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+}
+
+/* Omitted end values animate back to each element's own styles. */
+@keyframes intro-letter {
+  0% {
+    opacity: 0.15;
+    color: var(--color-teal);
+  }
+
+  45% {
+    opacity: 1;
+    color: #dffffb;
+    text-shadow: 0 0 0.35em rgb(47 211 196 / 85%);
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0.15;
+    translate: 0 0.75rem;
+  }
+}
+
+@keyframes intro-core {
+  0% {
+    opacity: 0;
+    filter: brightness(2.5) blur(6px);
+  }
+
+  55% {
+    opacity: 1;
+    filter: brightness(1.8) blur(0);
+  }
+}
+
+@keyframes intro-orbit {
+  from {
+    opacity: 0;
+    scale: 0.55;
+  }
+}
+
+@keyframes intro-planet {
+  from {
+    opacity: 0.15;
+    scale: 0.4;
+  }
+}
+
+@keyframes intro-probe-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
   }
 }

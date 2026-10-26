@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ClaimStatus } from "@/components/work/ClaimStatus";
 import { AskLabButton } from "@/components/lab/AskLabButton";
@@ -22,6 +23,20 @@ const labProjects: LabProject[] = publishedProjects.map((project, index) => ({
   flow: systemFlows[project.slug] ?? null,
 }));
 
+// Inline spans (not inline-block) so the heading still reads as one name; spaces stay plain text.
+function letters(text: string) {
+  let index = 0;
+  return text.split(/(\s+)/).map((part, partIndex) =>
+    /^\s+$/.test(part)
+      ? part
+      : [...part].map((letter) => (
+          <span className="intro-letter" key={`${partIndex}-${index}`} style={{ "--i": index++ } as CSSProperties}>
+            {letter}
+          </span>
+        )),
+  );
+}
+
 export function SystemsLab() {
   const resume = hasResume();
 
@@ -33,7 +48,7 @@ export function SystemsLab() {
             <span aria-hidden="true" />
             {profile.role}
           </p>
-          <h1 id="lab-title">{profile.name}</h1>
+          <h1 id="lab-title">{letters(profile.name)}</h1>
           <p className="lab-headline">{profile.headline}</p>
           <p className="lab-copy">{profile.intro}</p>
           <div className="lab-actions">

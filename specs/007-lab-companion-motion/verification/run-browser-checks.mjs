@@ -28,6 +28,14 @@ const results = selectedChecks.size
 results.lastRun = { date: new Date().toISOString(), checks: [...selectedChecks] };
 
 const browser = await chromium.launch({ executablePath, headless: true });
+// Revision 4: every check starts with the homepage entrance already seen, so it sees the settled
+// page; `{ intro: true }` opts a context out of that (the `intro` check).
+const openContext = browser.newContext.bind(browser);
+browser.newContext = async ({ intro = false, ...options } = {}) => {
+  const context = await openContext(options);
+  if (!intro) await context.addInitScript(() => { try { sessionStorage.setItem('lab-intro-seen', '1'); } catch {} });
+  return context;
+};
 results.browser = await browser.version();
 results.tools = { 'playwright-core': require(join(tools, 'playwright-core/package.json')).version, 'axe-core': require(join(tools, 'axe-core/package.json')).version };
 
@@ -657,18 +665,29 @@ const probeState = page => page.evaluate(() => {
   return { mode: p.dataset.mode, x: r.x, y: r.y, width: r.width, height: r.height, name: p.textContent.trim(), dialogOpen: document.getElementById('ask-lab')?.open ?? null };
 });
 
-// FR-001–FR-005, SC-001: the Probe settles beside the selected node and traced steps, drags and
-// returns, opens Ask the lab, and stays docked on touch and with reduced motion.
+// Counts blinks (data-blink set) from now on.
+const watchBlinks = page => page.evaluate(() => {
+  window.__blinks = 0;
+  new MutationObserver(() => { if (document.querySelector('.probe').dataset.blink) window.__blinks++; })
+    .observe(document.querySelector('.probe'), { attributes: true, attributeFilter: ['data-blink'] });
+});
+
+// FR-001–FR-005, SC-001, Revision 3 FR-032–FR-036, SC-012–SC-014: the robot eye blinks, roams off
+// the dock when idle, travels at a capped speed, settles beside the selected node and traced steps,
+// drags and returns, opens Ask the lab, and stays docked (no blinking) on touch and with reduced
+// motion.
 await run('probe', async () => {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await context.newPage();
   await page.goto(baseURL + '/', { waitUntil: 'networkidle' });
-  await page.waitForTimeout(800);
+  await watchBlinks(page);
+  await page.waitForTimeout(7000);
   const initial = await probeState(page);
+  const idleBlinks = await page.evaluate(() => window.__blinks);
   const parts = await page.evaluate(() => ({
-    sphere: !!document.querySelector('.probe .probe-sphere'),
-    ring: !!document.querySelector('.probe .probe-ring .probe-moon'),
-    ringSpinning: document.querySelector('.probe-ring').getAnimations().some(a => a.playState === 'running'),
+    eye: !!document.querySelector('.probe .probe-eye .probe-iris .probe-pupil'),
+    lids: document.querySelectorAll('.probe .probe-eye .probe-lid').length === 2,
+    haloSpinning: document.querySelector('.probe-halo').getAnimations().some(a => a.playState === 'running'),
     floating: document.querySelector('.probe-float').getAnimations().some(a => a.playState === 'running'),
   }));
   await page.evaluate(() => {
@@ -679,8 +698,31 @@ await run('probe', async () => {
   await page.hover('.lab-core');
   const node = page.locator('button.lab-node').nth(2);
   const slug = (await node.evaluate(b => b.closest('.lab-node-slot').id)).replace('lab-node-', '');
+  // Sampled every frame after that frame's callbacks have run (so the Probe's own frame callback is
+  // always counted, whatever the callback order); speed averaged over ≥ 100 ms windows.
+  await page.evaluate(() => {
+    window.__samples = [];
+    window.__sampling = true;
+    const sample = t => setTimeout(() => {
+      const r = document.querySelector('.probe').getBoundingClientRect();
+      window.__samples.push({ t, x: r.x, y: r.y });
+      if (window.__sampling) requestAnimationFrame(sample);
+    }, 0);
+    requestAnimationFrame(sample);
+  });
   await node.click();
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(4000);
+  const maxSpeed = await page.evaluate(() => {
+    window.__sampling = false;
+    const s = window.__samples;
+    let max = 0;
+    for (let i = 0, j = 0; i < s.length; i++) {
+      while (j < s.length && s[j].t - s[i].t < 100) j++;
+      if (j === s.length) break;
+      max = Math.max(max, Math.hypot(s[j].x - s[i].x, s[j].y - s[i].y) / ((s[j].t - s[i].t) / 1000));
+    }
+    return Math.round(max);
+  });
   const afterSelect = await probeState(page);
   const landed = await page.evaluate(() => window.__landed);
   const nodeRect = await rectOf(page, `#lab-node-${slug}`);
@@ -688,7 +730,7 @@ await run('probe', async () => {
   const nodeGap = Math.hypot(center(afterSelect).x - (nodeRect.x + nodeRect.width / 2), afterSelect.y + afterSelect.height - 12 - nodeRect.y);
   await page.locator('#architecture-panel .lab-panel-actions button').click();
   await page.evaluate(() => document.getElementById('lab-step-0').scrollIntoView({ block: 'center', behavior: 'instant' }));
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(4000);
   const afterTrace = await probeState(page);
   const stepRect = await rectOf(page, '#lab-step-0');
   const panelRect = await rectOf(page, '#architecture-panel');
@@ -700,7 +742,7 @@ await run('probe', async () => {
   await page.mouse.move(start.x + 160, start.y + 90, { steps: 8 });
   const dragging = await probeState(page);
   await page.mouse.up();
-  await page.waitForTimeout(1600);
+  await page.waitForTimeout(4000);
   const afterDrag = await probeState(page);
   // Click (no drag) opens Ask the lab; Escape returns focus to the Probe.
   await page.locator('.probe').click();
@@ -723,14 +765,19 @@ await run('probe', async () => {
   const reduced = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
   const rp = await reduced.newPage();
   await rp.goto(baseURL + '/', { waitUntil: 'networkidle' });
+  await watchBlinks(rp);
   await rp.locator('button.lab-node').nth(1).click();
-  await rp.waitForTimeout(800);
+  await rp.waitForTimeout(7000);
   const reducedState = await probeState(rp);
+  const reducedBlinks = await rp.evaluate(() => window.__blinks);
   await reduced.close();
 
   const docked = (s, w, h) => s.mode === 'docked' && Math.abs(s.x - (w - 24 - 52)) <= 2 && Math.abs(s.y - (h - 24 - 52)) <= 2;
   const checks = {
-    has3dParts: parts.sphere && parts.ring && parts.ringSpinning && parts.floating,
+    hasEyeParts: parts.eye && parts.lids && parts.haloSpinning && parts.floating,
+    blinksWhenIdle: idleBlinks >= 1,
+    roamsOffDockWhenIdle: !docked(initial, 1440, 900) && initial.x >= 0 && initial.y >= 0 && initial.x + initial.width <= 1440 && initial.y + initial.height <= 900,
+    calmTravelSpeed: maxSpeed <= 470,
     squashedOnLanding: landed,
     nameIsAskTheLab: initial.name.startsWith('Ask the lab'),
     perchedAtNode: afterSelect.mode === 'perched' && nodeGap < 60,
@@ -742,8 +789,90 @@ await run('probe', async () => {
     focusReturns: focusBack,
     dockedOnTouch: docked(touchState, 390, 844),
     dockedWithReducedMotion: docked(reducedState, 1440, 900),
+    noBlinkWithReducedMotion: reducedBlinks === 0,
   };
-  return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, parts, nodeGap, traceDy, initial, afterSelect, afterTrace, dragging, afterDrag, touchState, reducedState };
+  return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, parts, idleBlinks, reducedBlinks, maxSpeed, nodeGap, traceDy, initial, afterSelect, afterTrace, dragging, afterDrag, touchState, reducedState };
+});
+
+// Revision 4 FR-037–FR-041, SC-015: the entrance plays once per session on the homepage only, with
+// motion allowed; nothing is covered; the Probe starts large at the centre and leaves; the name is
+// unchanged; pausing ends it at once.
+await run('intro', async () => {
+  const fresh = (options = {}) => browser.newContext({ viewport: { width: 1440, height: 900 }, intro: true, ...options });
+  const introAttr = page => page.evaluate(() => document.documentElement.dataset.intro ?? null);
+
+  const context = await fresh();
+  const page = await context.newPage();
+  await page.goto(baseURL + '/', { waitUntil: 'domcontentloaded' });
+  const atStart = await introAttr(page);
+  const watch = page.evaluate(() => new Promise(resolve => {
+    const root = document.documentElement;
+    if (root.dataset.intro !== 'play') return resolve(null);
+    new MutationObserver((_, observer) => {
+      if (root.dataset.intro !== 'play') { observer.disconnect(); resolve(Math.round(performance.now())); }
+    }).observe(root, { attributes: true, attributeFilter: ['data-intro'] });
+    setTimeout(() => resolve(-1), 8000);
+  }));
+  await page.waitForTimeout(300);
+  const navUsable = await page.evaluate(() => {
+    const link = document.querySelector('header nav a');
+    const r = link.getBoundingClientRect();
+    return link.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+  });
+  await page.waitForSelector('.probe[data-intro-big]', { timeout: 3000 });
+  await page.waitForTimeout(600);
+  const during = await page.evaluate(() => {
+    const body = document.querySelector('.probe .probe-body').getBoundingClientRect();
+    const letters = Array.from(document.querySelectorAll('.intro-letter')).map(l => Number(getComputedStyle(l).opacity));
+    return { cx: body.x + body.width / 2, cy: body.y + body.height / 2, width: body.width, minLetterOpacity: Math.min(...letters) };
+  });
+  await shot(page, { path: join(output, 'intro-mid-1440.png') });
+  const removedAt = await watch;
+  await page.waitForTimeout(1500);
+  const after = await probeState(page);
+  const h1 = await page.locator('h1').textContent();
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  const afterReload = await introAttr(page);
+  await context.close();
+
+  const variants = {};
+  for (const [name, options, path, init] of [
+    ['reducedMotion', { reducedMotion: 'reduce' }, '/'],
+    ['savedPause', {}, '/', () => localStorage.setItem('lab-motion', 'paused')],
+    ['caseStudyFirst', {}, '/work/hrms-backend'],
+  ]) {
+    const variant = await fresh(options);
+    if (init) await variant.addInitScript(init);
+    const vp = await variant.newPage();
+    await vp.goto(baseURL + path, { waitUntil: 'domcontentloaded' });
+    variants[name] = await introAttr(vp);
+    await variant.close();
+  }
+
+  const pausing = await fresh();
+  const pp = await pausing.newPage();
+  await pp.goto(baseURL + '/', { waitUntil: 'domcontentloaded' });
+  await pp.waitForSelector('.probe[data-intro]', { timeout: 3000 });
+  await pp.locator('.motion-toggle').click();
+  await pp.waitForTimeout(150);
+  const pausedMid = await pp.evaluate(() => ({ intro: document.documentElement.dataset.intro ?? null, probe: document.querySelector('.probe').dataset.intro ?? null }));
+  await pausing.close();
+
+  const checks = {
+    setBeforePaint: atStart === 'play',
+    navUsableDuringIntro: navUsable,
+    textNeverTransparent: during.minLetterOpacity >= 0.15,
+    probeLargeAtCentre: Math.abs(during.cx - 720) < 6 && Math.abs(during.cy - 450) < 6 && during.width > 52 * 1.9,
+    endsInTime: removedAt > 0 && removedAt <= 3500,
+    probeLeavesCentre: Math.hypot(after.x + after.width / 2 - 720, after.y + after.height / 2 - 450) > 40,
+    nameUnchanged: h1 === 'Akash K Pillai',
+    oncePerSession: afterReload === null,
+    notWithReducedMotion: variants.reducedMotion === null,
+    notWithSavedPause: variants.savedPause === null,
+    homepageOnly: variants.caseStudyFirst === null,
+    pauseEndsAtOnce: pausedMid.intro === null && pausedMid.probe === null,
+  };
+  return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, removedAt, during, after, h1, variants, pausedMid };
 });
 
 // FR-007–FR-011, SC-002, SC-003: open by button, keyboard, and Probe; every suggestion answers with

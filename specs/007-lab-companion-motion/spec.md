@@ -330,6 +330,105 @@ throw the Probe; then pause motion and request reduced motion and confirm everyt
   768 or 1440 px.
 - **SC-011**: All 007 checks still pass; Lighthouse mobile ≥ 85 and CLS < 0.1.
 
+## Revision 3 (2026-10-26): a slower, roaming robot-eye Probe
+
+**Input**: "Slow the Probe down and can you make the Probe look like a robot eye which can blink
+and make sure it can go around the website instead of sticking at the right bottom." (Owner,
+2026-10-26, during the 006/007 acceptance review.)
+
+**Owner decisions recorded**: this revision supersedes FR-001 and FR-029 ("no face, eyes, …")
+for the Probe's look, and the assumption that the Probe never moves on a timer. The design stays
+original: a single mechanical eye with no face, body, limbs, or mouth, in the Systems Lab colours;
+it is not delin.dev's robot pet (constitution principle II prohibition still met).
+
+### User Story 5 - A curious robot eye that explores the page (Priority: P2)
+
+The Probe is a small mechanical eye: a dark lens housing with a copper bezel, a glowing teal iris
+with an aperture pattern and a pupil, and shutter lids that blink every few seconds. It glides
+calmly rather than darting, looks where it is going and at the pointer, and when nothing is
+selected it wanders the visible page, pausing beside headings, instead of waiting in the corner.
+
+**Independent Test**: On desktop with motion on, load the homepage and do nothing: the eye leaves
+the corner, visits headings in view, and blinks; scroll and it moves to headings in the new view;
+select a project and it glides (visibly slower than before) to the planet, then resumes wandering
+later. On a phone, with reduced motion, and with motion paused, it stays docked; with reduced
+motion or paused it does not blink.
+
+### Requirements (Revision 3)
+
+- **FR-032**: The Probe MUST look like a single robot eye: lens housing with a copper bezel, a teal
+  iris with a dark pupil, and top and bottom shutter lids; no face, mouth, body, or limbs. The iris
+  MUST look toward the direction of travel while moving and toward the pointer otherwise.
+- **FR-033**: With motion active, the eye MUST blink (lids close and open in under 0.3 s) at
+  random intervals of 2–6 s, sometimes twice; lids MUST be half closed while resting and the eye
+  MUST squint while celebrating. With reduced motion or motion paused it MUST NOT blink.
+- **FR-034**: Travel MUST be calm: top travel speed at most 450 px/s (a throw may briefly exceed
+  it), easing in to land.
+- **FR-035**: Wherever the Probe may travel (FR-002/FR-005 conditions) and it has no current
+  target in view, it MUST roam instead of docking: visit a heading or section label in the
+  viewport (beside its text, never over the main text column), choose a new one every 6–11 s
+  and whenever the current one leaves the view, and stay put while resting. A selected project
+  or traced step holds it for 15 s after the last such event before roaming resumes; a target
+  scrolled out of view sends it roaming, not to the corner.
+- **FR-036**: FR-004, FR-005, FR-031 still hold: constant-name keyboard button, docked as a
+  button on touch, narrow screens, reduced motion, motion paused, or while Ask the lab is open.
+
+### Success Criteria (Revision 3)
+
+- **SC-012**: With motion on at 1440 × 900 and no interaction, within 6 s of load the Probe is not
+  in the dock and is fully on screen; it blinks at least once in 7 s.
+- **SC-013**: Sampled every 50 ms during a selection trip, the Probe never exceeds 470 px/s
+  (450 plus sampling tolerance) and is perched beside the selected node within 4 s
+  (supersedes SC-001's 1.5 s).
+- **SC-014**: With reduced motion or motion paused, 0 blinks in 7 s and the Probe is docked; all
+  007 checks, Lighthouse mobile ≥ 85, and CLS < 0.1 still hold.
+
+## Revision 4 (2026-10-26): "lab powers on" entrance
+
+**Input**: The owner asked for a loading page like delin.dev's full-screen intro. Advised that
+constitution principle II forbids copying its boot sequence, robot, and purple palette and that
+principle III forbids a blocking intro, the owner chose the suggested alternative: "ok build the
+intro according to your suggestion" (2026-10-26). No constitution change is needed.
+
+### User Story 6 - The lab powers on (Priority: P3)
+
+On a first visit to the homepage, the real page plays a short entrance: a scan line sweeps across
+and the grid draws in behind it, the name lights up letter by letter, the AK sun powers on and the
+planets fade into orbit, and the Probe eye appears large in the middle of the screen, opens, looks
+left and right, shrinks, and glides off to its first spot. Everything on the page is present and
+usable from the first frame.
+
+**Independent Test**: In a fresh tab with motion allowed, open `/` and watch the entrance; click a
+navigation link or button during it. Reload: no entrance. Open a fresh tab with reduced motion,
+with motion paused, or straight to a case study: no entrance.
+
+### Requirements (Revision 4)
+
+- **FR-037**: The entrance MUST play only on the homepage, only on the first homepage view of a
+  browser session, and only when motion is allowed and not paused. It MUST NOT play with reduced
+  motion, with motion paused, or without JavaScript.
+- **FR-038**: It MUST NOT block, cover, or delay content: no overlay or separate screen; text is
+  never fully transparent (the name and hero copy start at 15 % opacity or more); links, buttons,
+  and the navigation work throughout; layout does not shift (transform, opacity, and filter only).
+- **FR-039**: The entrance MUST finish within 2.6 s of the page becoming interactive. Pausing
+  motion during it MUST end it at once, leaving the final state.
+- **FR-040**: The heading's text MUST stay the owner's name exactly (letter animation by inline
+  spans, no duplicated text), so assistive technology and checks read it unchanged.
+- **FR-041**: The Probe part (appear large at the screen centre, open, look left and right, shrink,
+  glide away) runs only where the Probe may travel (FR-002/FR-005); elsewhere the eye just opens
+  in its dock. Its glide obeys FR-034.
+
+### Success Criteria (Revision 4)
+
+- **SC-015**: In a fresh session at 1440 × 900 with motion on: `data-intro="play"` is set before
+  first paint and removed within 3.5 s of navigation start (2.6 s after the page becomes
+  interactive, FR-039); during it the Probe sits at the viewport centre at about
+  twice its size; afterwards it has left the centre; a navigation link is clickable 300 ms after
+  load. A reload in the same session and fresh sessions with reduced motion or a saved pause show
+  no `data-intro`.
+- **SC-016**: The `h1` text is unchanged; all 007 checks, Lighthouse mobile ≥ 85, and CLS < 0.1
+  hold with the entrance playing.
+
 ## Assumptions
 
 - The Probe's travel uses a small spring animation written for the site; no animation

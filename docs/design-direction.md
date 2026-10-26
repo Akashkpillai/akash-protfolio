@@ -74,6 +74,15 @@ equivalent, and essential text is present without JavaScript.
   orbit (nearer = larger); it holds still under the pointer, with focus inside, after a
   selection, and with motion paused or reduced. The Probe is a lit CSS 3D sphere with a ring and
   moon, and floats, pings, hops, stretches, squashes, can be thrown, dozes, and rides planets.
+- **Robot-eye Probe (Revision 3, owner request)**: the orb became a single mechanical eye (lens,
+  copper bezel, teal aperture iris, shutter lids) that blinks at random, looks where it travels
+  or at the pointer, glides at no more than 450 px/s, and roams between headings in view instead
+  of waiting in the corner. No face, body, or limbs. Docked behaviour is unchanged.
+- **Entrance (Revision 4)**: on the first homepage view per session, with motion on, the real
+  page "powers on" in about 2.5 s: scan line and grid draw, the name lights letter by letter,
+  the sun and planets power on, the eye opens large at the centre and glides off. No overlay,
+  splash screen, or skip button: everything is usable from the first frame; text never starts
+  fully transparent; reduced motion, the pause, and no-JavaScript skip it.
 
 Borrowed from delin.dev as techniques only; its robot, terminal, windows, cursor, and palette
 remain excluded.

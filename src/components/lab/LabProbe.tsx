@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState, useSyncExternalStore, type PointerEvent as ReactPointerEvent } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 
-// The Probe (feature 007 FR-001–FR-006, Revision 2 FR-029–FR-031): a lit 3D orb with a tilted
-// ring and moon that reacts to site activity and opens Ask the lab. No face, eyes, or limbs.
+// The Probe (feature 007 FR-001–FR-006, Revision 2 FR-030–FR-031, Revision 3 FR-032–FR-036): a
+// single mechanical eye (lens, aperture iris, shutter lids) that blinks, reacts to site activity,
+// and opens Ask the lab. No face, body, or limbs.
 // It travels only with a fine pointer, motion on, a wide screen, and no open dialog; otherwise it
-// stays docked as a plain button. Targets arrive as window events:
-//   lab:focus     { selector, placement: "top" | "left" | "text", tip? }  (null selector = dock)
+// stays docked as a plain button. With nothing to attend to, it roams between headings in view.
+// Targets arrive as window events:
+//   lab:focus     { selector, placement: "top" | "left" | "text", tip? }  (null selector = roam)
 //   lab:orbit     the planets started moving (ride along when perched on one)
 //   lab:celebrate brief celebration
 //   lab:ask-state { open }                                              (dim while the dialog is open)
@@ -15,14 +17,21 @@ import { useMotion } from "@/components/motion/MotionProvider";
 
 type Placement = "top" | "left" | "text";
 type Target = { selector: string; placement: Placement } | null;
+type Roam = { element: HTMLElement; placement: Placement } | null;
+type Spot = { x: number; y: number };
 type FocusDetail = { selector: string | null; placement?: Placement; tip?: string };
 
 const SIZE = 52;
 const MARGIN = 24;
-const STIFFNESS = 170;
-const DAMPING = 26;
+const STIFFNESS = 30;
+const DAMPING = 11;
+const MAX_SPEED = 450;
 const MAX_THROW = 2400;
+const HOLD_MS = 15000;
 const SEEN_KEY = "lab-probe-seen";
+const ROAM_SELECTOR = "main h2, main h3, [data-probe-tip]";
+// Roaming spots must sit over empty space, not over text or controls.
+const BUSY = "a, button, input, textarea, select, label, p, li, dt, dd, h1, h2, h3, h4, h5, h6, img, svg, code, pre, figure, table, blockquote";
 
 function subscribe() {
   return () => {};
@@ -44,21 +53,18 @@ function markSeen(seen: Set<string>) {
   }
 }
 
-function dock() {
+function dock(): Spot {
   return { x: window.innerWidth - MARGIN - SIZE, y: window.innerHeight - MARGIN - SIZE };
 }
 
-// Where the orb should sit for a target, or the dock if the target is missing or off-screen.
-function resolve(target: Target) {
-  if (!target) return dock();
-  const element = document.querySelector<HTMLElement>(target.selector);
-  if (!element) return dock();
+// Where the eye should sit beside an element, or null if the element is off-screen or no spot fits.
+function place(element: HTMLElement, placement: Placement): Spot | null {
   const rect = element.getBoundingClientRect();
-  if (rect.bottom < 0 || rect.top > window.innerHeight || rect.width === 0) return dock();
+  if (rect.bottom < 0 || rect.top > window.innerHeight || rect.width === 0) return null;
   const fits = (x: number, y: number) =>
     x >= 8 && x + SIZE <= window.innerWidth - 8 && y >= 8 && y + SIZE <= window.innerHeight - 8;
 
-  if (target.placement === "text") {
+  if (placement === "text") {
     const range = document.createRange();
     range.selectNodeContents(element);
     const text = range.getBoundingClientRect();
@@ -66,19 +72,55 @@ function resolve(target: Target) {
     for (const x of [text.right + 14, text.left - SIZE - 14]) {
       if (fits(x, y)) return { x, y };
     }
-    return dock();
+    return null;
   }
-  if (target.placement === "left") {
+  if (placement === "left") {
     const panel = element.closest<HTMLElement>(".lab-panel")?.getBoundingClientRect() ?? rect;
     const y = rect.top + Math.min(rect.height, 48) / 2 - SIZE / 2;
     for (const x of [panel.left - SIZE - 12, rect.right + 12]) {
       if (fits(x, y)) return { x, y };
     }
-    return dock();
+    return null;
   }
   // Perched on top of the element, like sitting on a ledge.
   const top = { x: rect.left + rect.width / 2 - SIZE / 2, y: rect.top - SIZE + 12 };
-  return fits(top.x, top.y) ? top : dock();
+  return fits(top.x, top.y) ? top : null;
+}
+
+function resolve(target: Target): Spot | null {
+  if (!target) return null;
+  const element = document.querySelector<HTMLElement>(target.selector);
+  return element ? place(element, target.placement) : null;
+}
+
+// True when nothing but the element itself (or plain layout) lies under the spot.
+function clear(spot: Spot, element: HTMLElement, probe: HTMLElement) {
+  return [
+    [0.5, 0.5],
+    [0.15, 0.15],
+    [0.85, 0.15],
+    [0.15, 0.85],
+    [0.85, 0.85],
+  ].every(([fx, fy]) => {
+    const under = document
+      .elementsFromPoint(spot.x + SIZE * fx, spot.y + SIZE * fy)
+      .find((candidate) => !probe.contains(candidate));
+    return !under || under.contains(element) || !under.closest(BUSY);
+  });
+}
+
+// A heading or section label in view, other than the current one, with empty space beside it.
+function pickRoam(current: HTMLElement | null, probe: HTMLElement): Roam {
+  const options: HTMLElement[] = [];
+  for (const element of document.querySelectorAll<HTMLElement>(ROAM_SELECTOR)) {
+    if (element === current || element.closest("dialog")) continue;
+    const rect = element.getBoundingClientRect();
+    if (rect.top < 96 || rect.bottom > window.innerHeight - 72) continue;
+    const spot = place(element, "text");
+    if (spot && clear(spot, element, probe)) options.push(element);
+  }
+  if (!options.length) return null;
+  return { element: options[Math.floor(Math.random() * options.length)], placement: "text" };
 }
 
 // Riding along: perched on a planet while the orbit is moving.
@@ -89,13 +131,34 @@ function riding(target: Target) {
   );
 }
 
+function setLook(button: HTMLElement, angle: number | null) {
+  button.style.setProperty("--look-x", angle === null ? "0px" : `${(Math.cos(angle) * 4).toFixed(2)}px`);
+  button.style.setProperty("--look-y", angle === null ? "0px" : `${(Math.sin(angle) * 4).toFixed(2)}px`);
+}
+
+function center(): Spot {
+  return { x: window.innerWidth / 2 - SIZE / 2, y: window.innerHeight / 2 - SIZE / 2 };
+}
+
+// The head script marks the first homepage view of a session with data-intro="play" (FR-037).
+function introPlaying() {
+  return typeof document !== "undefined" && document.documentElement.dataset.intro === "play";
+}
+
 export function LabProbe() {
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
-  const { active } = useMotion();
+  const { active, paused } = useMotion();
+  // Entrance (Revision 4): held at the screen centre, lids closed, until released.
+  const introHold = useRef(introPlaying());
+  const [introEye, setIntroEye] = useState<"closed" | "open" | null>(() => (introPlaying() ? "closed" : null));
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const physics = useRef({ x: 0, y: 0, vx: 0, vy: 0, last: 0, peak: 0 });
+  const physics = useRef({ x: 0, y: 0, vx: 0, vy: 0, last: 0, peak: 0, thrown: false });
   const targetRef = useRef<Target>(null);
   const homeRef = useRef<Target>(null);
+  const roamRef = useRef<Roam>(null);
+  const heldAt = useRef(0);
+  const tipActive = useRef(false);
+  const moodRef = useRef<"normal" | "resting" | "celebrate">("normal");
   const frameRef = useRef(0);
   const dragRef = useRef<{ id: number; startX: number; startY: number; moved: boolean; samples: { x: number; y: number; t: number }[] } | null>(null);
   const suppressClick = useRef(false);
@@ -104,9 +167,13 @@ export function LabProbe() {
   const [mode, setMode] = useState<"docked" | "travelling" | "perched" | "dragged">("docked");
   const [mood, setMood] = useState<"normal" | "resting" | "celebrate">("normal");
   const [tip, setTip] = useState<string | null>(null);
-  // Tips open above the orb, toward the side with more room, so they sit in section padding
+  // Tips open above the eye, toward the side with more room, so they sit in section padding
   // rather than over text.
   const [tipSide, setTipSide] = useState<"left" | "right">("right");
+
+  useEffect(() => {
+    moodRef.current = mood;
+  }, [mood]);
 
   // Travel only for a fine pointer, motion on, a wide screen, and no open dialog.
   useEffect(() => {
@@ -124,14 +191,16 @@ export function LabProbe() {
   }, [active, dialogOpen]);
 
   // Physics loop: runs while moving or riding a planet; stops once settled; restarted by
-  // scroll, resize, a new target, or the orbit starting to move.
+  // scroll, resize, a new target, a new roaming spot, or the orbit starting to move.
   useEffect(() => {
     const button = buttonRef.current;
     if (!hydrated || !button) return;
     const state = physics.current;
     let landingTimer = 0;
+    let roamTimer = 0;
+    let pickFailedAt = -Infinity;
 
-    function place(x: number, y: number) {
+    function position(x: number, y: number) {
       button!.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
     }
 
@@ -152,10 +221,31 @@ export function LabProbe() {
       window.cancelAnimationFrame(frameRef.current);
       frameRef.current = 0;
       const home = dock();
-      Object.assign(state, { x: home.x, y: home.y, vx: 0, vy: 0, peak: 0 });
-      place(home.x, home.y);
+      Object.assign(state, { x: home.x, y: home.y, vx: 0, vy: 0, peak: 0, thrown: false });
+      position(home.x, home.y);
       stretch(0, 0);
       return;
+    }
+
+    if (introHold.current) {
+      const start = center();
+      Object.assign(state, { x: start.x, y: start.y, vx: 0, vy: 0, peak: 0 });
+      position(start.x, start.y);
+    }
+
+    function roamSpot(): Spot | null {
+      const roam = roamRef.current;
+      const spot = roam && place(roam.element, roam.placement);
+      if (spot || performance.now() - pickFailedAt < 500) return spot;
+      roamRef.current = pickRoam(roam?.element ?? null, button!);
+      if (!roamRef.current) pickFailedAt = performance.now();
+      return roamRef.current && place(roamRef.current.element, roamRef.current.placement);
+    }
+
+    // The current target if it is in view; otherwise a roaming spot; the dock only as a last resort.
+    function goal(): Spot {
+      if (introHold.current) return center();
+      return resolve(targetRef.current) ?? roamSpot() ?? dock();
     }
 
     function step(time: number) {
@@ -163,27 +253,33 @@ export function LabProbe() {
       if (dragRef.current?.moved) return;
       const dt = Math.min(0.05, state.last ? (time - state.last) / 1000 : 1 / 60);
       state.last = time;
-      const goal = resolve(targetRef.current);
-      const ax = STIFFNESS * (goal.x - state.x) - DAMPING * state.vx;
-      const ay = STIFFNESS * (goal.y - state.y) - DAMPING * state.vy;
-      state.vx += ax * dt;
-      state.vy += ay * dt;
+      const spot = goal();
+      state.vx += (STIFFNESS * (spot.x - state.x) - DAMPING * state.vx) * dt;
+      state.vy += (STIFFNESS * (spot.y - state.y) - DAMPING * state.vy) * dt;
+      let speed = Math.hypot(state.vx, state.vy);
+      if (state.thrown && speed <= MAX_SPEED) state.thrown = false;
+      if (!state.thrown && speed > MAX_SPEED) {
+        state.vx *= MAX_SPEED / speed;
+        state.vy *= MAX_SPEED / speed;
+        speed = MAX_SPEED;
+      }
       state.x += state.vx * dt;
       state.y += state.vy * dt;
-      place(state.x, state.y);
-      const speed = Math.hypot(state.vx, state.vy);
+      position(state.x, state.y);
       state.peak = Math.max(state.peak, speed);
       stretch(state.vx, state.vy);
-      const settled = Math.hypot(goal.x - state.x, goal.y - state.y) < 0.5 && speed < 5;
+      if (speed > 40) setLook(button!, Math.atan2(state.vy, state.vx));
+      const settled = Math.hypot(spot.x - state.x, spot.y - state.y) < 0.5 && speed < 5;
+      const parked = targetRef.current || roamRef.current ? "perched" : "docked";
       if (settled && !riding(targetRef.current)) {
         state.last = 0;
         if (state.peak > 300) land();
         state.peak = 0;
         stretch(0, 0);
-        setMode(targetRef.current ? "perched" : "docked");
+        setMode(parked);
         return;
       }
-      setMode(settled ? "perched" : "travelling");
+      setMode(settled ? parked : "travelling");
       frameRef.current = window.requestAnimationFrame(step);
     }
 
@@ -193,13 +289,32 @@ export function LabProbe() {
       }
     }
 
+    // Every 6–11 s, unless held by a recent selection, showing a tip, dragged, or resting,
+    // move on to another heading in view.
+    function scheduleRoam() {
+      roamTimer = window.setTimeout(() => {
+        const held = performance.now() - heldAt.current < HOLD_MS;
+        if (!dragRef.current && !tipActive.current && !held && moodRef.current !== "resting" && !document.hidden) {
+          homeRef.current = null;
+          targetRef.current = null;
+          roamRef.current = pickRoam(roamRef.current?.element ?? null, button!) ?? roamRef.current;
+          wake();
+        }
+        scheduleRoam();
+      }, 6000 + Math.random() * 5000);
+    }
+
     function focus(event: Event) {
       const detail = (event as CustomEvent<FocusDetail>).detail;
       const target = detail.selector ? { selector: detail.selector, placement: detail.placement ?? "top" } : null;
       targetRef.current = target;
-      if (!detail.tip) homeRef.current = target;
+      tipActive.current = Boolean(detail.tip);
+      if (!detail.tip) {
+        homeRef.current = target;
+        if (target) heldAt.current = performance.now();
+      }
       setTip(detail.tip ?? null);
-      setTipSide(resolve(target).x > window.innerWidth * 0.55 ? "left" : "right");
+      setTipSide((resolve(target) ?? dock()).x > window.innerWidth * 0.55 ? "left" : "right");
       wake();
     }
 
@@ -214,8 +329,10 @@ export function LabProbe() {
     }
 
     wake();
+    scheduleRoam();
     window.addEventListener("lab:focus", focus);
     window.addEventListener("lab:orbit", wake);
+    window.addEventListener("lab:intro-end", wake);
     window.addEventListener("scroll", wake, { passive: true });
     window.addEventListener("resize", wake);
     document.addEventListener("visibilitychange", hidden);
@@ -223,8 +340,10 @@ export function LabProbe() {
       window.cancelAnimationFrame(frameRef.current);
       frameRef.current = 0;
       window.clearTimeout(landingTimer);
+      window.clearTimeout(roamTimer);
       window.removeEventListener("lab:focus", focus);
       window.removeEventListener("lab:orbit", wake);
+      window.removeEventListener("lab:intro-end", wake);
       window.removeEventListener("scroll", wake);
       window.removeEventListener("resize", wake);
       document.removeEventListener("visibilitychange", hidden);
@@ -271,8 +390,64 @@ export function LabProbe() {
     };
   }, [canTravel]);
 
-  // The highlight turns toward the pointer; rests (dozes) after 30 s without interaction;
-  // celebrates on request.
+  // Entrance: open at 0.45 s, look left then right, look ahead, then shrink and glide off at
+  // 1.45 s; the page's CSS entrance ends by 2.6 s, when data-intro is removed. Pausing motion
+  // ends it at once. Waits while motion is still being determined (not active, not paused).
+  useEffect(() => {
+    const button = buttonRef.current;
+    const root = document.documentElement;
+    if (!hydrated || !button || root.dataset.intro !== "play") return;
+    const timers: number[] = [];
+    const at = (ms: number, run: () => void) => timers.push(window.setTimeout(run, ms));
+    function release() {
+      introHold.current = false;
+      setIntroEye(null);
+      window.dispatchEvent(new Event("lab:intro-end"));
+    }
+    function finish() {
+      release();
+      delete root.dataset.intro;
+    }
+    if (paused) {
+      at(0, finish);
+    } else if (active) {
+      at(450, () => setIntroEye("open"));
+      at(750, () => setLook(button, Math.PI));
+      at(1050, () => setLook(button, 0));
+      at(1300, () => setLook(button, null));
+      at(1450, release);
+      at(2600, finish);
+    }
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, [hydrated, active, paused]);
+
+  // Blinks at random every 2–6 s (sometimes twice), only while motion is active.
+  useEffect(() => {
+    const button = buttonRef.current;
+    if (!hydrated || !active || !button) return;
+    let timer = 0;
+    function close(then?: () => void) {
+      button!.dataset.blink = "true";
+      timer = window.setTimeout(() => {
+        delete button!.dataset.blink;
+        timer = window.setTimeout(then ?? schedule, then ? 160 : 0);
+      }, 130);
+    }
+    function schedule() {
+      timer = window.setTimeout(() => {
+        if (document.hidden) return schedule();
+        close(Math.random() < 0.2 ? () => close() : undefined);
+      }, 2000 + Math.random() * 4000);
+    }
+    schedule();
+    return () => {
+      window.clearTimeout(timer);
+      delete button.dataset.blink;
+    };
+  }, [hydrated, active]);
+
+  // The iris looks toward the pointer (unless moving); rests (dozes) after 30 s without
+  // interaction; celebrates on request.
   useEffect(() => {
     if (!hydrated) return;
     let idle = window.setTimeout(() => setMood("resting"), 30000);
@@ -282,11 +457,10 @@ export function LabProbe() {
     function look() {
       frame = 0;
       const button = buttonRef.current;
-      if (!button) return;
+      const { vx, vy } = physics.current;
+      if (!button || Math.hypot(vx, vy) > 40) return;
       const rect = button.getBoundingClientRect();
-      const angle = Math.atan2(py - (rect.top + rect.height / 2), px - (rect.left + rect.width / 2));
-      button.style.setProperty("--look-x", `${(Math.cos(angle) * 5).toFixed(2)}px`);
-      button.style.setProperty("--look-y", `${(Math.sin(angle) * 5).toFixed(2)}px`);
+      setLook(button, Math.atan2(py - (rect.top + rect.height / 2), px - (rect.left + rect.width / 2)));
     }
     function activity(event: Event) {
       window.clearTimeout(idle);
@@ -366,6 +540,7 @@ export function LabProbe() {
         vx: clamp((lastSample.x - first.x) / seconds),
         vy: clamp((lastSample.y - first.y) / seconds),
         last: 0,
+        thrown: true,
       });
       window.dispatchEvent(
         new CustomEvent<FocusDetail>("lab:focus", {
@@ -384,6 +559,8 @@ export function LabProbe() {
       data-mood={mood}
       data-tip-side={tipSide}
       data-hidden={dialogOpen ? "true" : undefined}
+      data-intro={introEye ?? undefined}
+      data-intro-big={introEye && canTravel ? "true" : undefined}
       onPointerDown={pointerDown}
       onPointerMove={pointerMove}
       onPointerUp={pointerUp}
@@ -396,19 +573,22 @@ export function LabProbe() {
         window.dispatchEvent(new CustomEvent("lab:ask", { detail: { opener: event.currentTarget } }));
       }}
     >
-      {/* Decorative 3D orb: ground shadow, float, ping, stretch, then a preserve-3d scene where the
-          tilted ring and moon pass behind and in front of the lit sphere. */}
+      {/* Decorative robot eye: ground shadow, float, ping, stretch, then a scan halo around a lens
+          housing whose iris follows the gaze and whose shutter lids blink. */}
       <span className="probe-body" aria-hidden="true">
         <span className="probe-shadow" />
         <span className="probe-float">
           <span className="probe-ping" />
           <span className="probe-stretch">
             <span className="probe-scene">
-              <span className="probe-sphere">
+              <span className="probe-halo" />
+              <span className="probe-eye">
+                <span className="probe-iris">
+                  <span className="probe-pupil" />
+                </span>
                 <span className="probe-shine" />
-              </span>
-              <span className="probe-ring">
-                <span className="probe-moon" />
+                <span className="probe-lid probe-lid-top" />
+                <span className="probe-lid probe-lid-bottom" />
               </span>
             </span>
           </span>
@@ -430,7 +610,7 @@ export function LabProbe() {
         </span>
       </span>
       <span className="visually-hidden">Ask the lab</span>
-      {tip && canTravel && (
+      {tip && canTravel && !introEye && (
         <span className="probe-tip" aria-hidden="true">
           {tip}
         </span>

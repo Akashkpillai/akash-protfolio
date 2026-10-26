@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-25T21:15:30.533Z",
+  "date": "2026-10-26T06:56:47.381Z",
   "baseURL": "http://127.0.0.1:3100",
   "checks": {
     "responsive": {
@@ -1018,7 +1018,7 @@
             {
               "id": "color-contrast",
               "impact": "serious",
-              "nodes": 105,
+              "nodes": 116,
               "targets": [
                 ".brand-name",
                 ".brand-note",
@@ -1029,7 +1029,7 @@
             }
           ],
           "axePasses": 32,
-          "textElements": 303,
+          "textElements": 314,
           "minTextRatio": 5.62,
           "contrastFailures": [],
           "contrastUnresolved": [],
@@ -1268,18 +1268,18 @@
             {
               "id": "color-contrast",
               "impact": "serious",
-              "nodes": 65,
+              "nodes": 76,
               "targets": [
                 ".brand-name",
                 ".brand-note",
                 ".lab-kicker",
-                "#lab-title",
-                ".lab-headline"
+                ".intro-letter:nth-child(1)",
+                ".intro-letter:nth-child(2)"
               ]
             }
           ],
           "axePasses": 32,
-          "textElements": 303,
+          "textElements": 314,
           "minTextRatio": 5.62,
           "contrastFailures": [],
           "contrastUnresolved": [],
@@ -3092,7 +3092,10 @@
     "probe": {
       "status": "PASS",
       "checks": {
-        "has3dParts": true,
+        "hasEyeParts": true,
+        "blinksWhenIdle": true,
+        "roamsOffDockWhenIdle": true,
+        "calmTravelSpeed": true,
         "squashedOnLanding": true,
         "nameIsAskTheLab": true,
         "perchedAtNode": true,
@@ -3103,29 +3106,33 @@
         "clickOpensDialog": true,
         "focusReturns": true,
         "dockedOnTouch": true,
-        "dockedWithReducedMotion": true
+        "dockedWithReducedMotion": true,
+        "noBlinkWithReducedMotion": true
       },
       "parts": {
-        "sphere": true,
-        "ring": true,
-        "ringSpinning": true,
+        "eye": true,
+        "lids": true,
+        "haloSpinning": true,
         "floating": true
       },
-      "nodeGap": 0.5053774377175909,
+      "idleBlinks": 3,
+      "reducedBlinks": 0,
+      "maxSpeed": 459,
+      "nodeGap": 0.16181481555716304,
       "traceDy": 0.140625,
       "initial": {
         "mode": "perched",
-        "x": 629,
-        "y": 129,
+        "x": 1196,
+        "y": 211,
         "width": 52,
         "height": 52,
-        "name": "Ask the labSelect a project to see how its system works.",
+        "name": "Ask the lab",
         "dialogOpen": false
       },
       "afterSelect": {
         "mode": "perched",
-        "x": 653,
-        "y": 413,
+        "x": 577,
+        "y": 393,
         "width": 52,
         "height": 52,
         "name": "Ask the lab",
@@ -3177,6 +3184,49 @@
         "dialogOpen": false
       }
     },
+    "intro": {
+      "status": "PASS",
+      "checks": {
+        "setBeforePaint": true,
+        "navUsableDuringIntro": true,
+        "textNeverTransparent": true,
+        "probeLargeAtCentre": true,
+        "endsInTime": true,
+        "probeLeavesCentre": true,
+        "nameUnchanged": true,
+        "oncePerSession": true,
+        "notWithReducedMotion": true,
+        "notWithSavedPause": true,
+        "homepageOnly": true,
+        "pauseEndsAtOnce": true
+      },
+      "removedAt": 2982,
+      "during": {
+        "cx": 720,
+        "cy": 450,
+        "width": 114.4000244140625,
+        "minLetterOpacity": 0.822636
+      },
+      "after": {
+        "mode": "perched",
+        "x": 628,
+        "y": 129,
+        "width": 52,
+        "height": 52,
+        "name": "Ask the labSelect a project to see how its system works.",
+        "dialogOpen": false
+      },
+      "h1": "Akash K Pillai",
+      "variants": {
+        "reducedMotion": null,
+        "savedPause": null,
+        "caseStudyFirst": null
+      },
+      "pausedMid": {
+        "intro": null,
+        "probe": null
+      }
+    },
     "askLab": {
       "status": "PASS",
       "checks": {
@@ -3224,7 +3274,7 @@
     "motionPause": {
       "status": "PASS",
       "before": {
-        "running": 16,
+        "running": 14,
         "progress": "block"
       },
       "paused": {
@@ -3240,7 +3290,7 @@
         "running": 0,
         "pressed": "true"
       },
-      "resumed": 44
+      "resumed": 43
     },
     "messageForm": {
       "status": "PASS",
@@ -3299,7 +3349,7 @@
   },
   "errors": [],
   "lastRun": {
-    "date": "2026-10-25T21:15:30.533Z",
+    "date": "2026-10-26T06:56:47.381Z",
     "checks": []
   },
   "browser": "156.0.8078.47",

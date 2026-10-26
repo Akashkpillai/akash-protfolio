@@ -19,6 +19,7 @@ export function AmbientBackground() {
       <div className="ambient-glow ambient-glow-teal" />
       <div className="ambient-glow ambient-glow-cobalt" />
       <div className="ambient-spotlight" />
+      <div className="ambient-scan" />
       {signals.map((signal) => (
         <span
           key={`${signal.axis}-${signal.line}`}

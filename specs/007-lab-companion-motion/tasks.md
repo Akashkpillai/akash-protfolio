@@ -88,6 +88,19 @@ description: "Implementation tasks for the Probe companion, Ask the lab, motion,
 - [X] T032 [US4] CSS: sun and planet spheres, tilted orbit rings, depth styling, Probe 3D layers and activity animations — all continuous ones gated by reduced motion and the pause.
 - [X] T033 [US4] Update verification: hover the sun before clicking nodes (real visitors pause the orbit the same way), add an `orbit` check (SC-009, SC-010) and Probe 3D/activity assertions; run the full suite, content checks, confidentiality, Lighthouse; review screenshots; record.
 
+## Phase 8: User Story 5 - Slower, roaming robot-eye Probe (Revision 3, P2)
+
+- [X] T034 [US5] Rebuild the Probe visual in `src/components/lab/LabProbe.tsx` and `src/app/globals.css` as a robot eye (lens housing, copper bezel, teal aperture iris with pupil, top/bottom shutter lids, rotating dashed scan halo, ping, sparks, doze marks); random blinks (2–6 s, sometimes double) only with motion active; half-closed lids when resting, squint when celebrating; iris looks along travel or at the pointer (FR-032, FR-033).
+- [X] T035 [US5] Slow travel (softer spring, 450 px/s cap except during a throw) and add roaming: no target in view → visit a visible heading or section label, re-pick every 6–11 s or when it leaves view, hold still while resting; a selection or trace holds for 15 s before roaming resumes (FR-034, FR-035, FR-036).
+- [X] T036 [US5] Update the `probe` browser check (eye parts, blink, roaming off the dock, travel-speed cap, longer settle waits; no blinking with reduced motion or pause), run the full suite, content checks, and Lighthouse; review screenshots; record in `verification.md` (SC-012–SC-014).
+
+## Phase 9: User Story 6 - "Lab powers on" entrance (Revision 4, P3)
+
+- [X] T037 [US6] Head script in `src/app/layout.tsx` sets `data-intro="play"` before first paint on the first homepage view per session (motion allowed, not paused, not reduced); key in `src/lib/motion.ts` (FR-037).
+- [X] T038 [US6] Name split into inline letter spans in `src/components/layout/SystemsLab.tsx` (text unchanged); scan line in `src/components/motion/AmbientBackground.tsx`; CSS entrance (grid draw, scan, letters, hero rise, sun power-on, orbit and planets) gated by `data-intro`, reduced motion, and the pause; transform/opacity/filter only (FR-038–FR-040).
+- [X] T039 [US6] Probe intro in `src/components/lab/LabProbe.tsx`: centre, large, closed → open, look left/right, shrink, release to roaming; dock-only open elsewhere; ends at once on pause; removes `data-intro` (FR-039, FR-041).
+- [X] T040 [US6] Browser checks: other checks start with the entrance already seen; new `intro` check (SC-015); run full suite, content checks, Lighthouse; record (SC-016).
+
 ## Dependencies & Execution Order
 
 - Setup → Foundational (T002 before T003–T006) → US1 → US2 → US3 → Polish.

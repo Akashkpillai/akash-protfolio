@@ -119,3 +119,57 @@ mobile perf 97, a11y/BP/SEO 100, LCP 2.6 s, TBT 80 ms, CLS 0.028; desktop 100s, 
 | FR-024 (no dependency) | Pass |
 | FR-025 (no release actions) | Open until owner acceptance (T028); version still 0.3.0 |
 | SC-001–SC-008 | Pass |
+
+## Revision 3 (2026-10-26): slower, roaming robot-eye Probe (T034–T036)
+
+Owner request during the acceptance review: slow the Probe, make it a blinking robot eye, and let
+it move around the site instead of waiting bottom-right. Spec FR-032–FR-036, SC-012–SC-014.
+
+- Build: lint 0, typecheck 0, `SITE_URL=https://portfolio.example npm run build` 0; `next start`
+  on 127.0.0.1:3100; Windows 11, Node 24.12.0, npm 11.6.2, playwright-core 1.64.1, axe-core
+  4.14.0, Lighthouse 13.5.0, installed Chrome (headless).
+- `probe` check rewritten for the eye: parts present (lens, iris, pupil, two lids, spinning
+  halo, float); blinks while idle (1–2 in 7 s); roams off the dock and stays on screen within
+  7 s of load; perched 0.55 px from the selected planet within 4 s; beside the traced step;
+  drag, return, click-to-open, focus return; docked on touch and with reduced motion; 0 blinks
+  with reduced motion. Travel speed, sampled every frame after frame callbacks and averaged over
+  ≥ 100 ms: 457–459 px/s in three runs against the 450 px/s cap (FR-034); the excess is
+  whole-pixel rounding, within the 470 px/s tolerance of SC-013. (A first sampler on a 50 ms timer
+  read 815 px/s from timer jitter; a per-frame sampler read 518 px/s from callback-order changes;
+  both were measurement artifacts and were replaced.)
+- Full browser suite **21/21 PASS**, 0 errors (includes motionPause: 0 running animations when
+  paused, so no blinking; accessibility: 0 axe violations). Knowledge 191/191; content 208/208;
+  evidence 0 missing; metadata all pass; served draft 0, personal 0.
+- Lighthouse home (r3): mobile perf 91, a11y/BP/SEO 100, LCP 2.8 s, TBT 230 ms, CLS 0.028;
+  desktop perf 94 (was 100), a11y/BP/SEO 100, LCP 0.8 s, TBT 160 ms, CLS 0.004. Targets
+  (mobile ≥ 85, CLS < 0.1) met; single runs on localhost.
+- Eye close-ups inspected at 3× (open and looking, blink, resting, celebrate) and the 1440
+  homepage: the eye roamed beside the selected project's panel heading, clear of text.
+
+**Not run**: screen reader; real 200% zoom; Firefox/Safari; 003 confidentiality re-run (no
+content changed). Owner acceptance (T028) still open.
+
+## Revision 4 (2026-10-26): "lab powers on" entrance (T037–T040)
+
+Owner chose the suggested non-blocking entrance over a delin.dev-style intro screen. Spec
+FR-037–FR-041, SC-015–SC-016. Same environment as Revision 3.
+
+- Build: lint 0, typecheck 0, build 0.
+- The check harness now starts every context with the entrance already seen (so existing checks
+  test the settled page); the new `intro` check opts out. `intro` PASS: `data-intro="play"` set
+  before first paint; a header link is the top element at its centre 300 ms after load; letters
+  never below 15 % opacity (lowest sampled 0.82 at the sample time; keyframes start at 0.15);
+  the Probe at the exact viewport centre (720, 450) at 114 px (2.2×); entrance removed at
+  2,844 ms after navigation start (≤ 3,500); the Probe then left the centre; `h1` text exactly
+  "Akash K Pillai"; no entrance on reload, with reduced motion, with a saved pause, or when a
+  case study is opened first; pausing mid-entrance ends it at once.
+- Full browser suite **22/22 PASS**, 0 errors. Knowledge 191/191; content 208/208; evidence
+  0 missing; metadata all pass; served draft 0, personal 0.
+- Lighthouse home (r4, fresh profile, so the entrance plays): mobile perf 96, a11y/BP/SEO 100,
+  LCP 2.7 s, TBT 81 ms, CLS 0.025; desktop perf 100, a11y/BP/SEO 100, LCP 0.6 s, TBT 0 ms,
+  CLS 0.004. Single runs on localhost.
+- Frames inspected at 1440 (about 0.7, 0.9, 1.3, 1.5, 2.0, 2.6, 3.8 s) and 390 (0.5 s and
+  3.5 s). Review fix: the architecture panel stayed fully lit while the rest powered on; it now
+  rises with the hero (1.2 s delay).
+
+**Not run**: screen reader during the entrance; Firefox/Safari; real devices.

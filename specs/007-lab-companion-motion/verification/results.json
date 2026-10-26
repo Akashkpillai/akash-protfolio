@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-25T20:41:43.041Z",
+  "date": "2026-10-25T21:15:30.533Z",
   "baseURL": "http://127.0.0.1:3100",
   "checks": {
     "responsive": {
@@ -1018,7 +1018,7 @@
             {
               "id": "color-contrast",
               "impact": "serious",
-              "nodes": 104,
+              "nodes": 105,
               "targets": [
                 ".brand-name",
                 ".brand-note",
@@ -2937,56 +2937,56 @@
       "items": [
         {
           "text": "Backend & AI Developer",
-          "top": 246,
-          "bottom": 267,
+          "top": 181,
+          "bottom": 202,
           "visible": true
         },
         {
           "text": "Akash K Pillai",
-          "top": 287,
-          "bottom": 425,
+          "top": 222,
+          "bottom": 360,
           "visible": true
         },
         {
           "text": "Backend systems. Practical AI.",
-          "top": 449,
-          "bottom": 516,
+          "top": 384,
+          "bottom": 451,
           "visible": true
         },
         {
           "text": "Explore systems ↓",
-          "top": 670,
-          "bottom": 718,
+          "top": 605,
+          "bottom": 653,
           "visible": true
         },
         {
           "text": "Resume (PDF)",
-          "top": 670,
-          "bottom": 718,
+          "top": 605,
+          "bottom": 653,
           "visible": true
         },
         {
           "text": "HRMS Backend",
-          "top": 316,
-          "bottom": 403,
+          "top": 265,
+          "bottom": 347,
           "visible": true
         },
         {
           "text": "Meridian Assistant",
-          "top": 495,
-          "bottom": 597,
+          "top": 365,
+          "bottom": 458,
           "visible": true
         },
         {
           "text": "Notification Platform",
-          "top": 681,
-          "bottom": 783,
+          "top": 455,
+          "bottom": 561,
           "visible": true
         },
         {
           "text": "Resume Analyzer",
-          "top": 504,
-          "bottom": 588,
+          "top": 356,
+          "bottom": 448,
           "visible": true
         }
       ]
@@ -3092,6 +3092,8 @@
     "probe": {
       "status": "PASS",
       "checks": {
+        "has3dParts": true,
+        "squashedOnLanding": true,
         "nameIsAskTheLab": true,
         "perchedAtNode": true,
         "besideTracedStep": true,
@@ -3103,12 +3105,18 @@
         "dockedOnTouch": true,
         "dockedWithReducedMotion": true
       },
-      "nodeGap": 4.127632919195334,
+      "parts": {
+        "sphere": true,
+        "ring": true,
+        "ringSpinning": true,
+        "floating": true
+      },
+      "nodeGap": 0.5053774377175909,
       "traceDy": 0.140625,
       "initial": {
         "mode": "perched",
         "x": 629,
-        "y": 217,
+        "y": 129,
         "width": 52,
         "height": 52,
         "name": "Ask the labSelect a project to see how its system works.",
@@ -3116,8 +3124,8 @@
       },
       "afterSelect": {
         "mode": "perched",
-        "x": 601,
-        "y": 721,
+        "x": 653,
+        "y": 413,
         "width": 52,
         "height": 52,
         "name": "Ask the lab",
@@ -3216,7 +3224,7 @@
     "motionPause": {
       "status": "PASS",
       "before": {
-        "running": 9,
+        "running": 16,
         "progress": "block"
       },
       "paused": {
@@ -3232,7 +3240,7 @@
         "running": 0,
         "pressed": "true"
       },
-      "resumed": 20
+      "resumed": 44
     },
     "messageForm": {
       "status": "PASS",
@@ -3268,11 +3276,30 @@
       },
       "mailto": "mailto:akashkpillai55@gmail.com?subject=%5BPortfolio%5D%20Project%20%E2%80%94%20Ada%20Example&body=Hello%20Akash%2C%20I%27d%20like%20to%20talk%20about%20a%20backend%20role.%0A%0A%E2%80%94%20Ada%20Example%0AReply%20to%3A%20ada%40example.com",
       "requests": []
+    },
+    "orbit": {
+      "status": "PASS",
+      "cases": {
+        "768": {
+          "revolves": true,
+          "holdsUnderPointer": true,
+          "inside": true,
+          "nearerIsLarger": true
+        },
+        "1440": {
+          "revolves": true,
+          "holdsUnderPointer": true,
+          "inside": true,
+          "nearerIsLarger": true
+        }
+      },
+      "reducedMovement": 0,
+      "pausedMovement": 0
     }
   },
   "errors": [],
   "lastRun": {
-    "date": "2026-10-25T20:41:43.042Z",
+    "date": "2026-10-25T21:15:30.533Z",
     "checks": []
   },
   "browser": "156.0.8078.47",

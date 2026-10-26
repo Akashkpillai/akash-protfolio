@@ -2612,48 +2612,8 @@ body {
   visibility: hidden;
 }
 
-.probe-orb {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.probe-halo {
-  fill: rgb(47 211 196 / 12%);
-}
-
-.probe-ring {
-  fill: var(--color-surface);
-  stroke: var(--color-teal);
-  stroke-width: 2.5;
-}
-
-.probe-core {
-  fill: var(--color-teal);
-}
-
-.probe-orbit {
-  fill: var(--color-sand);
-  transform: rotate(calc(var(--look, -90deg) + 90deg));
-  transform-origin: 26px 26px;
-}
-
-.probe:hover .probe-halo,
-.probe:focus-visible .probe-halo {
-  fill: rgb(47 211 196 / 24%);
-}
-
 .probe:focus-visible {
   border-radius: 50%;
-}
-
-.probe[data-mood="resting"] .probe-orb {
-  opacity: 0.55;
-}
-
-.probe[data-mood="resting"] .probe-core {
-  fill: var(--color-subtle);
 }
 
 .probe-tip {
@@ -3108,15 +3068,6 @@ body {
     animation: lab-step-in 300ms ease both;
     animation-delay: calc(var(--i, 0) * 45ms);
   }
-
-  :root:not([data-motion="paused"]) .probe[data-mood="celebrate"] .probe-orb {
-    animation: probe-celebrate 1.1s ease;
-  }
-
-  .probe-orb,
-  .probe-halo {
-    transition: opacity 400ms ease, fill 200ms ease;
-  }
 }
 
 @keyframes typing-bounce {
@@ -3229,5 +3180,468 @@ body {
 
   .brand-note {
     letter-spacing: 0.12em;
+  }
+}
+
+/* ---- 007 Revision 2: 3D orbit (sun and planets) and the 3D Probe. Continuous motion lives only
+   inside "no-preference" + not paused; positions of revolving planets come from JavaScript
+   transforms (no layout shift). ---- */
+
+/* Sun: a lit sphere with a corona. Gradient stops stay light so the dark "AK" text keeps
+   strong contrast; the shading comes from inset shadows. */
+.lab-core {
+  z-index: 2;
+  width: 5.25rem;
+  height: 5.25rem;
+  border: 0;
+  background: radial-gradient(circle at 36% 30%, #fff8e1 0%, #f1dc9c 24%, #e2c77e 48%, #c9a75a 78%, #b89a4e 100%);
+  box-shadow:
+    inset -10px -12px 22px rgb(90 58 18 / 55%),
+    inset 6px 6px 14px rgb(255 255 255 / 25%),
+    0 0 2.5rem rgb(217 194 122 / 40%),
+    0 0 5rem rgb(222 138 95 / 18%);
+  color: #0d1116;
+}
+
+.lab-core-corona {
+  position: absolute;
+  z-index: -1;
+  inset: -35%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(217 194 122 / 26%) 32%, transparent 70%);
+}
+
+.lab-core-label {
+  position: relative;
+}
+
+/* Planets: shaded spheres in each project's accent; glow grows as they come nearer. */
+.lab-node-mark,
+.lab-node[aria-pressed="true"] .lab-node-mark {
+  border: 0;
+  background: radial-gradient(circle at 34% 30%, #ffffff 0 7%, var(--accent) 40%, color-mix(in srgb, var(--accent) 38%, #05080b) 100%);
+  box-shadow:
+    inset -3px -4px 8px rgb(0 0 0 / 45%),
+    0 0 calc(0.3rem + 0.9rem * var(--near, 0.5)) var(--accent-glow);
+}
+
+.lab-node-mark::after {
+  content: none;
+}
+
+.lab-node[aria-pressed="true"] .lab-node-mark {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.lab-node-slot {
+  will-change: transform;
+}
+
+/* Probe: layers inside the 52 px button. */
+.probe-body,
+.probe-float,
+.probe-stretch,
+.probe-scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.probe-shadow {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 30px;
+  height: 7px;
+  margin-left: -15px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 60%), transparent);
+}
+
+.probe-stretch {
+  perspective: 140px;
+  transform: rotate(var(--heading, 0deg)) scale(var(--stretch, 1), calc(1 / var(--stretch, 1))) rotate(calc(-1 * var(--heading, 0deg)));
+}
+
+.probe-scene {
+  transform-style: preserve-3d;
+}
+
+.probe-sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at calc(36% + var(--look-x, 0px)) calc(30% + var(--look-y, 0px)),
+    #eafffb 0 7%,
+    #5ee6d9 22%,
+    var(--color-teal) 42%,
+    #12746c 72%,
+    #083c38 100%
+  );
+  box-shadow:
+    inset -5px -6px 10px rgb(0 0 0 / 45%),
+    0 0 16px rgb(47 211 196 / 45%);
+}
+
+.probe-shine {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  width: 8px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 75%);
+  filter: blur(1px);
+  transform: translate(var(--look-x, 0px), var(--look-y, 0px));
+}
+
+.probe-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border: 2px solid rgb(217 194 122 / 75%);
+  border-radius: 50%;
+  transform: rotateX(72deg) rotateY(-14deg);
+  transform-style: preserve-3d;
+}
+
+.probe-moon {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 15%, var(--color-sand) 50%, #8a6d2a 100%);
+  transform: rotateX(-72deg);
+}
+
+.probe-ping {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 2px solid var(--color-teal);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.probe-sparks i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: var(--color-sand);
+  opacity: 0;
+}
+
+.probe-sparks i:nth-child(1) { --a: 0deg; }
+.probe-sparks i:nth-child(2) { --a: 60deg; }
+.probe-sparks i:nth-child(3) { --a: 120deg; }
+.probe-sparks i:nth-child(4) { --a: 180deg; }
+.probe-sparks i:nth-child(5) { --a: 240deg; }
+.probe-sparks i:nth-child(6) { --a: 300deg; }
+
+.probe-z {
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  display: flex;
+  gap: 1px;
+}
+
+.probe-z i {
+  color: var(--color-muted);
+  font: italic 700 10px/1 var(--font-display);
+  opacity: 0.8;
+}
+
+.probe[data-mood="resting"] .probe-sphere {
+  filter: saturate(0.45) brightness(0.75);
+}
+
+.probe[data-mood="resting"] .probe-float {
+  transform: translateY(5px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="paused"]) .lab-core-corona {
+    animation: sun-corona 5s ease-in-out infinite alternate;
+  }
+
+  :root:not([data-motion="paused"]) .probe-float {
+    animation: probe-float 3.4s ease-in-out infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe-shadow {
+    animation: probe-shadow 3.4s ease-in-out infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe-ring {
+    animation: probe-ring-spin 6s linear infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe-moon {
+    animation: probe-moon-face 6s linear infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe-ping {
+    animation: probe-ping 6.5s ease-out 1.5s infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-float,
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-ring,
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-moon,
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-ping {
+    animation-play-state: paused;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-z i {
+    animation: probe-z 2.6s ease-out infinite;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-z i:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="resting"] .probe-z i:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  :root:not([data-motion="paused"]) .probe:hover .probe-scene {
+    animation: probe-hop 620ms ease;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-landing] .probe-scene {
+    animation: probe-squash 380ms ease;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="celebrate"] .probe-scene {
+    animation: probe-celebrate 1.1s ease;
+  }
+
+  :root:not([data-motion="paused"]) .probe[data-mood="celebrate"] .probe-sparks i {
+    animation: probe-spark 900ms ease-out;
+  }
+
+  .probe-sphere {
+    transition: filter 400ms ease;
+  }
+
+  .probe-float {
+    transition: transform 600ms ease;
+  }
+}
+
+@keyframes sun-corona {
+  from {
+    opacity: 0.7;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes probe-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes probe-shadow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes probe-ring-spin {
+  from {
+    transform: rotateX(72deg) rotateY(-14deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(72deg) rotateY(-14deg) rotateZ(360deg);
+  }
+}
+
+@keyframes probe-moon-face {
+  from {
+    transform: rotateZ(0deg) rotateX(-72deg);
+  }
+
+  to {
+    transform: rotateZ(-360deg) rotateX(-72deg);
+  }
+}
+
+@keyframes probe-ping {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  4% {
+    opacity: 0.8;
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes probe-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  35% {
+    transform: translateY(-9px) scale(1.04, 0.97);
+  }
+
+  70% {
+    transform: translateY(0) scale(1.08, 0.9);
+  }
+}
+
+@keyframes probe-squash {
+  0% {
+    transform: translateY(3px) scale(1.18, 0.8);
+  }
+
+  55% {
+    transform: translateY(-1px) scale(0.94, 1.08);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes probe-spark {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--a)) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--a)) translateY(-30px);
+  }
+}
+
+@keyframes probe-z {
+  0% {
+    opacity: 0;
+    transform: translate(0, 4px) scale(0.7);
+  }
+
+  30% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(6px, -14px) scale(1.15);
+  }
+}
+
+/* Revision 2 review: the orbit is a flat tilted ellipse, so a wider box frames it better. */
+@media (min-width: 46rem) {
+  .lab-orbit {
+    width: min(100%, 32rem);
+    aspect-ratio: 1.2 / 1;
+  }
+}
+
+/* Revision 2 check fixes: a solid fallback colour under the sun's gradient (also what contrast
+   is measured against); on tablets the map column is narrow, so planets and sun are smaller and
+   the orbit box is square, keeping every planet inside the map and clear of the sun. */
+.lab-core {
+  background-color: #d9bd72;
+}
+
+@media (min-width: 46rem) and (max-width: 67.999rem) {
+  .lab-orbit {
+    aspect-ratio: 1 / 1;
+  }
+
+  .lab-node-slot {
+    width: 6.75rem;
+  }
+
+  .lab-node {
+    padding: 0.55rem 0.45rem;
+    font-size: 0.78rem;
+  }
+
+  .lab-node-mark {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .lab-core {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Revision 2 review: on desktop the hero is top-aligned so choosing a project with a longer flow
+   (taller panel) does not push the introduction down; planets slightly smaller so the orbit
+   reads clearly around the sun. */
+@media (min-width: 68rem) {
+  .lab-hero {
+    align-items: start;
+  }
+
+  .lab-intro {
+    padding-top: clamp(1rem, 4vh, 3rem);
+  }
+
+  .lab-node-slot {
+    width: 7.5rem;
+  }
+
+  .lab-node-mark {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .lab-core {
+    width: 4.6rem;
+    height: 4.6rem;
   }
 }

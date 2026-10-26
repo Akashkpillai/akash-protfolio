@@ -80,6 +80,14 @@ description: "Implementation tasks for the Probe companion, Ask the lab, motion,
 - [X] T027 Reconcile FR-001–FR-025 and SC-001–SC-008 in `verification.md`.
 - [ ] T028 Acceptance (owner): with 006, approve; version 0.5.0 + changelog entry; no commit/tag/push/deploy unless asked.
 
+## Phase 7: User Story 4 - 3D orbit and a livelier Probe (Revision 2, P2)
+
+- [X] T029 [US4] Create `src/lib/orbit.ts` (`orbitPoint(angle)` → `{ x, y, depth }` on the tilted ellipse rx 36 %, ry 24 %; `baseAngle(index, count)`), and use it in `src/components/layout/SystemsLab.tsx` for the static (server) positions.
+- [X] T030 [US4] Update `src/components/lab/ProjectConstellation.tsx`: rAF orbit (≈ 70 s per revolution) moving node slots by transform from their static positions, scale/brightness/z-order by depth, spokes follow; pause on pointer over the map, focus inside, 10 s after a selection, map off-screen, tab hidden, motion inactive, or below 46rem; `data-moving` on the orbit and a `lab:orbit` event so the Probe can ride along; packet drawn to the selected node's current position.
+- [X] T031 [US4] Rebuild the Probe visual in `src/components/lab/LabProbe.tsx` as HTML/CSS 3D (sphere with lighting, ground shadow, tilted ring with a moon passing behind and in front, ping ripple, doze "z" marks, celebrate sparks); add stretch along travel, landing squash, throw velocity, hover hop, pointer-facing highlight, perch on top of nodes, keep running while perched on a moving planet.
+- [X] T032 [US4] CSS: sun and planet spheres, tilted orbit rings, depth styling, Probe 3D layers and activity animations — all continuous ones gated by reduced motion and the pause.
+- [X] T033 [US4] Update verification: hover the sun before clicking nodes (real visitors pause the orbit the same way), add an `orbit` check (SC-009, SC-010) and Probe 3D/activity assertions; run the full suite, content checks, confidentiality, Lighthouse; review screenshots; record.
+
 ## Dependencies & Execution Order
 
 - Setup → Foundational (T002 before T003–T006) → US1 → US2 → US3 → Polish.

@@ -3,15 +3,17 @@
 import { useEffect, useRef, useState, useSyncExternalStore, type PointerEvent as ReactPointerEvent } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 
-// The Probe (feature 007 FR-001–FR-006): an orb companion that reacts to site activity and opens
-// Ask the lab. It travels only with a fine pointer, motion on, a wide screen, and no open dialog;
-// otherwise it stays docked as a plain button. Targets arrive as window events:
-//   lab:focus   { selector, placement: "corner" | "left" | "text", tip? }  (null selector = dock)
-//   lab:celebrate                                                         (brief pulse)
-//   lab:ask-state { open }                                                (hide while the dialog is open)
+// The Probe (feature 007 FR-001–FR-006, Revision 2 FR-029–FR-031): a lit 3D orb with a tilted
+// ring and moon that reacts to site activity and opens Ask the lab. No face, eyes, or limbs.
+// It travels only with a fine pointer, motion on, a wide screen, and no open dialog; otherwise it
+// stays docked as a plain button. Targets arrive as window events:
+//   lab:focus     { selector, placement: "top" | "left" | "text", tip? }  (null selector = dock)
+//   lab:orbit     the planets started moving (ride along when perched on one)
+//   lab:celebrate brief celebration
+//   lab:ask-state { open }                                              (dim while the dialog is open)
 // Section tips come from [data-probe-section] / [data-probe-tip] text already on the page.
 
-type Placement = "corner" | "left" | "text";
+type Placement = "top" | "left" | "text";
 type Target = { selector: string; placement: Placement } | null;
 type FocusDetail = { selector: string | null; placement?: Placement; tip?: string };
 
@@ -19,6 +21,7 @@ const SIZE = 52;
 const MARGIN = 24;
 const STIFFNESS = 170;
 const DAMPING = 26;
+const MAX_THROW = 2400;
 const SEEN_KEY = "lab-probe-seen";
 
 function subscribe() {
@@ -73,19 +76,28 @@ function resolve(target: Target) {
     }
     return dock();
   }
-  const corner = { x: rect.left - SIZE * 0.55, y: rect.top - SIZE * 0.55 };
-  return fits(corner.x, corner.y) ? corner : dock();
+  // Perched on top of the element, like sitting on a ledge.
+  const top = { x: rect.left + rect.width / 2 - SIZE / 2, y: rect.top - SIZE + 12 };
+  return fits(top.x, top.y) ? top : dock();
+}
+
+// Riding along: perched on a planet while the orbit is moving.
+function riding(target: Target) {
+  return Boolean(
+    target?.selector.startsWith("#lab-node-") &&
+      document.querySelector<HTMLElement>(".lab-orbit")?.dataset.moving === "true",
+  );
 }
 
 export function LabProbe() {
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const { active } = useMotion();
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const physics = useRef({ x: 0, y: 0, vx: 0, vy: 0, last: 0 });
+  const physics = useRef({ x: 0, y: 0, vx: 0, vy: 0, last: 0, peak: 0 });
   const targetRef = useRef<Target>(null);
   const homeRef = useRef<Target>(null);
   const frameRef = useRef(0);
-  const dragRef = useRef<{ id: number; startX: number; startY: number; moved: boolean } | null>(null);
+  const dragRef = useRef<{ id: number; startX: number; startY: number; moved: boolean; samples: { x: number; y: number; t: number }[] } | null>(null);
   const suppressClick = useRef(false);
   const [canTravel, setCanTravel] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -111,22 +123,38 @@ export function LabProbe() {
     };
   }, [active, dialogOpen]);
 
-  // Physics loop: runs while moving; stops once settled; restarted by scroll, resize, or a new target.
+  // Physics loop: runs while moving or riding a planet; stops once settled; restarted by
+  // scroll, resize, a new target, or the orbit starting to move.
   useEffect(() => {
     const button = buttonRef.current;
     if (!hydrated || !button) return;
     const state = physics.current;
+    let landingTimer = 0;
 
     function place(x: number, y: number) {
       button!.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
+    }
+
+    // Stretch along the direction of travel, proportional to speed.
+    function stretch(vx: number, vy: number) {
+      const speed = Math.hypot(vx, vy);
+      button!.style.setProperty("--stretch", (1 + Math.min(speed / 2600, 0.3)).toFixed(3));
+      button!.style.setProperty("--heading", `${((Math.atan2(vy, vx) * 180) / Math.PI).toFixed(1)}deg`);
+    }
+
+    function land() {
+      button!.dataset.landing = "true";
+      window.clearTimeout(landingTimer);
+      landingTimer = window.setTimeout(() => delete button!.dataset.landing, 380);
     }
 
     if (!canTravel) {
       window.cancelAnimationFrame(frameRef.current);
       frameRef.current = 0;
       const home = dock();
-      Object.assign(state, { x: home.x, y: home.y, vx: 0, vy: 0 });
+      Object.assign(state, { x: home.x, y: home.y, vx: 0, vy: 0, peak: 0 });
       place(home.x, home.y);
+      stretch(0, 0);
       return;
     }
 
@@ -143,13 +171,19 @@ export function LabProbe() {
       state.x += state.vx * dt;
       state.y += state.vy * dt;
       place(state.x, state.y);
-      const settled = Math.hypot(goal.x - state.x, goal.y - state.y) < 0.5 && Math.hypot(state.vx, state.vy) < 5;
-      if (settled) {
+      const speed = Math.hypot(state.vx, state.vy);
+      state.peak = Math.max(state.peak, speed);
+      stretch(state.vx, state.vy);
+      const settled = Math.hypot(goal.x - state.x, goal.y - state.y) < 0.5 && speed < 5;
+      if (settled && !riding(targetRef.current)) {
         state.last = 0;
+        if (state.peak > 300) land();
+        state.peak = 0;
+        stretch(0, 0);
         setMode(targetRef.current ? "perched" : "docked");
         return;
       }
-      setMode("travelling");
+      setMode(settled ? "perched" : "travelling");
       frameRef.current = window.requestAnimationFrame(step);
     }
 
@@ -161,7 +195,7 @@ export function LabProbe() {
 
     function focus(event: Event) {
       const detail = (event as CustomEvent<FocusDetail>).detail;
-      const target = detail.selector ? { selector: detail.selector, placement: detail.placement ?? "corner" } : null;
+      const target = detail.selector ? { selector: detail.selector, placement: detail.placement ?? "top" } : null;
       targetRef.current = target;
       if (!detail.tip) homeRef.current = target;
       setTip(detail.tip ?? null);
@@ -181,13 +215,16 @@ export function LabProbe() {
 
     wake();
     window.addEventListener("lab:focus", focus);
+    window.addEventListener("lab:orbit", wake);
     window.addEventListener("scroll", wake, { passive: true });
     window.addEventListener("resize", wake);
     document.addEventListener("visibilitychange", hidden);
     return () => {
       window.cancelAnimationFrame(frameRef.current);
       frameRef.current = 0;
+      window.clearTimeout(landingTimer);
       window.removeEventListener("lab:focus", focus);
+      window.removeEventListener("lab:orbit", wake);
       window.removeEventListener("scroll", wake);
       window.removeEventListener("resize", wake);
       document.removeEventListener("visibilitychange", hidden);
@@ -234,7 +271,8 @@ export function LabProbe() {
     };
   }, [canTravel]);
 
-  // Looks toward the pointer; rests after 30 s without interaction; celebrates on request.
+  // The highlight turns toward the pointer; rests (dozes) after 30 s without interaction;
+  // celebrates on request.
   useEffect(() => {
     if (!hydrated) return;
     let idle = window.setTimeout(() => setMood("resting"), 30000);
@@ -247,7 +285,8 @@ export function LabProbe() {
       if (!button) return;
       const rect = button.getBoundingClientRect();
       const angle = Math.atan2(py - (rect.top + rect.height / 2), px - (rect.left + rect.width / 2));
-      button.style.setProperty("--look", `${(angle * 180) / Math.PI}deg`);
+      button.style.setProperty("--look-x", `${(Math.cos(angle) * 5).toFixed(2)}px`);
+      button.style.setProperty("--look-y", `${(Math.sin(angle) * 5).toFixed(2)}px`);
     }
     function activity(event: Event) {
       window.clearTimeout(idle);
@@ -289,13 +328,20 @@ export function LabProbe() {
 
   function pointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
     if (!canTravel || event.button !== 0) return;
-    dragRef.current = { id: event.pointerId, startX: event.clientX, startY: event.clientY, moved: false };
+    dragRef.current = {
+      id: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      moved: false,
+      samples: [{ x: event.clientX, y: event.clientY, t: event.timeStamp }],
+    };
     event.currentTarget.setPointerCapture(event.pointerId);
   }
 
   function pointerMove(event: ReactPointerEvent<HTMLButtonElement>) {
     const drag = dragRef.current;
     if (!drag || drag.id !== event.pointerId) return;
+    drag.samples = [...drag.samples.slice(-4), { x: event.clientX, y: event.clientY, t: event.timeStamp }];
     if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 4) return;
     drag.moved = true;
     setMode("dragged");
@@ -311,7 +357,16 @@ export function LabProbe() {
     event.currentTarget.releasePointerCapture(event.pointerId);
     if (drag.moved) {
       suppressClick.current = true;
-      // Springs back to where it belongs.
+      // Thrown: keeps the release velocity, then springs back to where it belongs.
+      const first = drag.samples[0];
+      const lastSample = drag.samples[drag.samples.length - 1];
+      const seconds = Math.max(0.016, (lastSample.t - first.t) / 1000);
+      const clamp = (value: number) => Math.max(-MAX_THROW, Math.min(MAX_THROW, value));
+      Object.assign(physics.current, {
+        vx: clamp((lastSample.x - first.x) / seconds),
+        vy: clamp((lastSample.y - first.y) / seconds),
+        last: 0,
+      });
       window.dispatchEvent(
         new CustomEvent<FocusDetail>("lab:focus", {
           detail: { selector: homeRef.current?.selector ?? null, placement: homeRef.current?.placement },
@@ -341,14 +396,39 @@ export function LabProbe() {
         window.dispatchEvent(new CustomEvent("lab:ask", { detail: { opener: event.currentTarget } }));
       }}
     >
-      <svg className="probe-orb" viewBox="0 0 52 52" aria-hidden="true">
-        <circle className="probe-halo" cx="26" cy="26" r="24" />
-        <circle className="probe-ring" cx="26" cy="26" r="17" />
-        <circle className="probe-core" cx="26" cy="26" r="7" />
-        <g className="probe-orbit">
-          <circle cx="26" cy="5" r="3.2" />
-        </g>
-      </svg>
+      {/* Decorative 3D orb: ground shadow, float, ping, stretch, then a preserve-3d scene where the
+          tilted ring and moon pass behind and in front of the lit sphere. */}
+      <span className="probe-body" aria-hidden="true">
+        <span className="probe-shadow" />
+        <span className="probe-float">
+          <span className="probe-ping" />
+          <span className="probe-stretch">
+            <span className="probe-scene">
+              <span className="probe-sphere">
+                <span className="probe-shine" />
+              </span>
+              <span className="probe-ring">
+                <span className="probe-moon" />
+              </span>
+            </span>
+          </span>
+          <span className="probe-sparks">
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+          {mood === "resting" && (
+            <span className="probe-z">
+              <i>z</i>
+              <i>z</i>
+              <i>z</i>
+            </span>
+          )}
+        </span>
+      </span>
       <span className="visually-hidden">Ask the lab</span>
       {tip && canTravel && (
         <span className="probe-tip" aria-hidden="true">

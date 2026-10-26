@@ -74,6 +74,39 @@ on phones, as floating buttons do; ambient signals can pass faintly behind text 
 layer, contrast unaffected); the experience answer in Ask the lab omits company names by design
 (confidentiality) and links to the Experience section; Ask the lab is keyword-scripted.
 
+## Revision 2: 3D orbit and livelier Probe (2026-10-26)
+
+Owner request after implementation: 3D "solar system" map with revolving planets, a 3D orb,
+delin.dev-style activities. Spec (US4, FR-026–FR-031, SC-009–SC-011) and tasks (T029–T033)
+updated before coding.
+
+- `src/lib/orbit.ts` (tilted ellipse rx 32 %, ry 26 %); `ProjectConstellation` revolves planets
+  by transform (70 s per revolution), depth scale and z-order, spokes follow; holds still under
+  the pointer, with focus inside, 10 s after a selection, off-screen, hidden tab, motion off,
+  below 46rem. `LabProbe` rebuilt as CSS 3D (lit sphere, tilted ring and moon passing behind and
+  in front, ground shadow) with float, scan ping, hover hop, stretch in flight, landing squash,
+  throw velocity, doze "z", celebrate sparks, pointer-facing highlight, perch on top of planets,
+  ride-along while the orbit moves. Old SVG Probe CSS pruned (10 rules).
+- Found and fixed: `performance.now()` in a render-scope handler (React purity lint) → hold set
+  by the orbit's click/pointerdown listeners; sun label contrast measured against no base colour
+  → solid fallback colour under the gradient; planets left the map at 768 px → smaller tablet
+  planets/sun, square tablet orbit box, rx 32 %; desktop intro jumped when a longer panel was
+  selected → hero top-aligned; cramped desktop orbit → ry 26 %, 7.5rem planets.
+- Tests: node clicks first point at the sun (as a visitor does; moving targets never pass
+  Playwright's stability check); new `orbit` check; `probe` adds 3D-parts and landing checks.
+
+Final build (Revision 2): lint 0, typecheck 0, build 0. Browser suite **21/21 PASS** — orbit at
+768 and 1440: revolves, holds under the pointer, nearer planets larger, all inside the map;
+0 px movement with reduced motion and with motion paused; probe: 3D parts present, ring and
+float running, landing squash observed, perched 0.51 px from the planet's top centre; motion
+pause 16 → 0 running animations (0 after reload, 44 on resume); accessibility 0 axe
+violations, 0 contrast failures (min 5.52:1), 0 unresolved, focus ≥ 9.38:1. Knowledge 191/191
+strings from content; content 208/208; evidence 0 missing; metadata all pass; served draft 0,
+personal 0; confidentiality case-study pages 0 (25 expected homepage hits). Lighthouse home:
+mobile perf 97, a11y/BP/SEO 100, LCP 2.6 s, TBT 80 ms, CLS 0.028; desktop 100s, CLS 0.004.
+
+**Not run**: screen reader; real 200% zoom; Firefox/Safari rendering of the CSS 3D ring.
+
 ## T027 Reconciliation
 
 | Requirements | Status |

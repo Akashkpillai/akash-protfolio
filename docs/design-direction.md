@@ -70,6 +70,11 @@ equivalent, and essential text is present without JavaScript.
 - **Messages**: a form that composes an email in the visitor's own app; nothing is stored or
   sent by the site (a server sender can replace it later).
 
+- **3D orbit (Revision 2)**: the AK node is a sun and projects are planets revolving on a tilted
+  orbit (nearer = larger); it holds still under the pointer, with focus inside, after a
+  selection, and with motion paused or reduced. The Probe is a lit CSS 3D sphere with a ring and
+  moon, and floats, pings, hops, stretches, squashes, can be thrown, dozes, and rides planets.
+
 Borrowed from delin.dev as techniques only; its robot, terminal, windows, cursor, and palette
 remain excluded.
 

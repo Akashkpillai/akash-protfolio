@@ -270,6 +270,66 @@ the composed message, the confirmation and copy fallback, and that nothing is se
 - **SC-008**: All 006 browser checks, the content-preserved check, and the 005 metadata,
   served-output, and evidence checks still pass.
 
+## Revision 2 (2026-10-26): 3D orbit and a livelier Probe
+
+**Input**: "Can you make this 3D like the planet with sun center revolving in the orbit and also
+make the orb a little bit 3D, and give it some activities like the robot in delin.dev." (Owner,
+2026-10-26, before 007 acceptance.)
+
+### User Story 4 - A living system map and companion (Priority: P2)
+
+The project map looks like a small solar system: the AK node is a glowing sun and each published
+project is a planet travelling slowly around it on a tilted orbit, nearer planets larger and
+brighter. The Probe is a lit sphere with a small moon circling it, and it behaves like a
+character: it floats, pings, hops when hovered, stretches as it flies and squashes as it lands,
+can be thrown, dozes when left alone, and rides along on the planet it perches on.
+
+**Independent Test**: On desktop with motion allowed, watch the orbit revolve; point at the map
+and confirm it stops; select a project and confirm it holds still while reading; hover, drag, and
+throw the Probe; then pause motion and request reduced motion and confirm everything is still.
+
+**Acceptance Scenarios**:
+
+1. **Given** a tablet or desktop width with motion allowed, **When** the map is in view and not
+   being used, **Then** the planets revolve slowly around the sun (one revolution in about 70 s)
+   with depth cues, and every planet stays fully inside the map.
+2. **Given** the pointer over the map, keyboard focus inside it, or a selection in the last
+   10 s, **When** the visitor reads or aims, **Then** the planets hold still.
+3. **Given** motion paused or reduced motion, **When** the map is shown, **Then** the planets do
+   not move and stay where they are.
+4. **Given** the Probe, **When** the visitor hovers, drags and throws it, or leaves it alone,
+   **Then** it hops, follows and flies off with the throw before returning, or dozes; when it
+   lands it squashes briefly; while perched on a planet that is moving it rides along.
+
+### Requirements (Revision 2)
+
+- **FR-026**: On widths of 46rem and wider with motion active, project nodes MUST revolve around
+  the AK node on a tilted elliptical orbit (≥ 60 s per revolution) with depth cues (scale and
+  brightness by nearness) and stay inside the map; on narrower widths the card list remains.
+- **FR-027**: The revolution MUST pause while the pointer is over the map, while focus is inside
+  it, for 10 s after a selection, while the map is off-screen, and while the tab is hidden; it
+  MUST NOT run with motion paused or reduced motion. Movement MUST use transforms only (no layout
+  shift).
+- **FR-028**: The AK node MUST look like a glowing sun and project markers like lit planets, in
+  the identity's colours, with text contrast unchanged.
+- **FR-029**: The Probe MUST look like a lit sphere with a tilted ring and a moon that passes in
+  front of and behind it; still no face, eyes, limbs, or robot features (FR-001).
+- **FR-030**: The Probe MUST add these activities: idle float with a ground shadow; a periodic
+  scan ping; a hop on hover; stretch along its direction of travel and a squash on landing;
+  throw (keeps the release velocity before springing back); doze with floating "z" marks when
+  resting; a celebrate burst; a highlight that turns toward the pointer; perching on top of the
+  selected planet and riding along while it moves.
+- **FR-031**: Every continuous Revision 2 motion MUST stop with the motion pause and be absent
+  with reduced motion; the Probe stays a constant-name keyboard button.
+
+### Success Criteria (Revision 2)
+
+- **SC-009**: With motion on and no interaction, node positions change within 2 s; with the
+  pointer over the map, motion paused, or reduced motion, they change by 0 px over 2 s.
+- **SC-010**: Nearer planets render larger than farther ones; no planet leaves the map box at
+  768 or 1440 px.
+- **SC-011**: All 007 checks still pass; Lighthouse mobile ≥ 85 and CLS < 0.1.
+
 ## Assumptions
 
 - The Probe's travel uses a small spring animation written for the site; no animation

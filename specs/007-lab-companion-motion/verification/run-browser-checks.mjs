@@ -447,6 +447,8 @@ await run('constellation', async () => {
   const page = await context.newPage();
   await page.goto(baseURL + '/', { waitUntil: 'networkidle' });
   await page.waitForSelector('button.lab-node');
+  // Revision 2: planets revolve; pointing at the map holds them still, as for a visitor.
+  await page.hover('.lab-core');
   const nodes = page.locator('button.lab-node');
   const count = await nodes.count();
   const selections = [];
@@ -663,13 +665,27 @@ await run('probe', async () => {
   await page.goto(baseURL + '/', { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
   const initial = await probeState(page);
+  const parts = await page.evaluate(() => ({
+    sphere: !!document.querySelector('.probe .probe-sphere'),
+    ring: !!document.querySelector('.probe .probe-ring .probe-moon'),
+    ringSpinning: document.querySelector('.probe-ring').getAnimations().some(a => a.playState === 'running'),
+    floating: document.querySelector('.probe-float').getAnimations().some(a => a.playState === 'running'),
+  }));
+  await page.evaluate(() => {
+    window.__landed = false;
+    new MutationObserver(() => { if (document.querySelector('.probe').dataset.landing) window.__landed = true; })
+      .observe(document.querySelector('.probe'), { attributes: true, attributeFilter: ['data-landing'] });
+  });
+  await page.hover('.lab-core');
   const node = page.locator('button.lab-node').nth(2);
   const slug = (await node.evaluate(b => b.closest('.lab-node-slot').id)).replace('lab-node-', '');
   await node.click();
   await page.waitForTimeout(1500);
   const afterSelect = await probeState(page);
+  const landed = await page.evaluate(() => window.__landed);
   const nodeRect = await rectOf(page, `#lab-node-${slug}`);
-  const nodeGap = Math.hypot(center(afterSelect).x - nodeRect.x, center(afterSelect).y - nodeRect.y);
+  // Perched on top: centred over the planet, sitting on its top edge.
+  const nodeGap = Math.hypot(center(afterSelect).x - (nodeRect.x + nodeRect.width / 2), afterSelect.y + afterSelect.height - 12 - nodeRect.y);
   await page.locator('#architecture-panel .lab-panel-actions button').click();
   await page.evaluate(() => document.getElementById('lab-step-0').scrollIntoView({ block: 'center', behavior: 'instant' }));
   await page.waitForTimeout(1500);
@@ -714,6 +730,8 @@ await run('probe', async () => {
 
   const docked = (s, w, h) => s.mode === 'docked' && Math.abs(s.x - (w - 24 - 52)) <= 2 && Math.abs(s.y - (h - 24 - 52)) <= 2;
   const checks = {
+    has3dParts: parts.sphere && parts.ring && parts.ringSpinning && parts.floating,
+    squashedOnLanding: landed,
     nameIsAskTheLab: initial.name.startsWith('Ask the lab'),
     perchedAtNode: afterSelect.mode === 'perched' && nodeGap < 60,
     besideTracedStep: traceDy < 30 && afterTrace.x + afterTrace.width <= panelRect.x + 2,
@@ -725,7 +743,7 @@ await run('probe', async () => {
     dockedOnTouch: docked(touchState, 390, 844),
     dockedWithReducedMotion: docked(reducedState, 1440, 900),
   };
-  return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, nodeGap, traceDy, initial, afterSelect, afterTrace, dragging, afterDrag, touchState, reducedState };
+  return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, parts, nodeGap, traceDy, initial, afterSelect, afterTrace, dragging, afterDrag, touchState, reducedState };
 });
 
 // FR-007–FR-011, SC-002, SC-003: open by button, keyboard, and Probe; every suggestion answers with
@@ -892,6 +910,58 @@ await run('messageForm', async () => {
     nothingTransmitted: requests.length === 0,
   };
   return { status: Object.values(checks).every(Boolean) ? 'PASS' : 'FAIL', checks, empty, badEmail, mailto, requests };
+});
+
+// Revision 2 (FR-026, FR-027, SC-009, SC-010): planets revolve when idle, hold still under the
+// pointer, with motion paused, and with reduced motion; nearer planets are larger; all stay
+// inside the map at 768 and 1440 px.
+await run('orbit', async () => {
+  const slots = page => page.evaluate(() => Array.from(document.querySelectorAll('.lab-node-slot')).map(slot => {
+    const r = slot.getBoundingClientRect();
+    return { x: r.x, y: r.y, width: r.width, height: r.height, near: Number(slot.style.getPropertyValue('--near')) };
+  }));
+  const moved = (a, b) => Math.max(...a.map((p, i) => Math.hypot(p.x - b[i].x, p.y - b[i].y)));
+  const cases = {};
+  for (const width of [1440, 768]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(baseURL + '/', { waitUntil: 'networkidle' });
+    await page.mouse.move(2, 2);
+    await page.waitForTimeout(600);
+    const a = await slots(page);
+    await page.waitForTimeout(2000);
+    const b = await slots(page);
+    const box = await rectOf(page, '.lab-map');
+    const inside = b.every(p => p.x >= box.x - 1 && p.x + p.width <= box.x + box.width + 1);
+    const nearest = b.reduce((m, p) => (p.near > m.near ? p : m));
+    const farthest = b.reduce((m, p) => (p.near < m.near ? p : m));
+    await page.hover('.lab-core');
+    await page.waitForTimeout(300);
+    const c = await slots(page);
+    await page.waitForTimeout(2000);
+    const d = await slots(page);
+    cases[width] = { revolves: moved(a, b) > 2, holdsUnderPointer: moved(c, d) === 0, inside, nearerIsLarger: nearest.width > farthest.width };
+    await context.close();
+  }
+  const still = async options => {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...options });
+    const page = await context.newPage();
+    await page.goto(baseURL + '/', { waitUntil: 'networkidle' });
+    if (options.pause) {
+      await page.locator('.motion-toggle').click();
+    }
+    await page.mouse.move(2, 2);
+    await page.waitForTimeout(500);
+    const a = await slots(page);
+    await page.waitForTimeout(2000);
+    const b = await slots(page);
+    await context.close();
+    return moved(a, b);
+  };
+  const reducedMovement = await still({ reducedMotion: 'reduce' });
+  const pausedMovement = await still({ pause: true });
+  const pass = Object.values(cases).every(c => Object.values(c).every(Boolean)) && reducedMovement === 0 && pausedMovement === 0;
+  return { status: pass ? 'PASS' : 'FAIL', cases, reducedMovement, pausedMovement };
 });
 
 await browser.close();
